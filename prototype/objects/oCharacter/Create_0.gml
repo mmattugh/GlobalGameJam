@@ -10,6 +10,7 @@ walkSpeed = 2;
 grvSpeed = 0.2;
 jumpHeight = 4;
 
+mytarget = noone;
 
 falling = false;
 fallStun = 0;

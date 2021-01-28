@@ -1,5 +1,5 @@
 //Check to see if object is grounded
-grounded = (place_meeting(x,y+1,Solid));
+grounded = (place_meeting(x,y+vsp+1,Solid));
 
 switch (state)
 {
@@ -17,39 +17,38 @@ switch (state)
 
 		}
 
-
 			//Movement
-				var move = global.key_right - global.key_left;
+			var move = global.key_right - global.key_left;
 				
-				hsp = move * walkSpeed + hspboost;
-				vsp = vsp + grvSpeed;
+			hsp = move * walkSpeed + hspboost;
+			vsp = vsp + grvSpeed;
 		
-				var hsp_final = hsp + hsp_carry;		
-				//Collision
-				if(place_meeting(x+hsp_final,y,Solid))
+			var hsp_final = hsp + hsp_carry;		
+			//Collision
+			if(place_meeting(x+hsp_final,y,Solid))
+			{
+				while (!place_meeting(x+sign(hsp_final),y,Solid))
 				{
-					while (!place_meeting(x+sign(hsp_final),y,Solid))
-					{
-						x += sign(hsp_final); 
-					}
-					hsp_final = 0;
-					hspboost = 0;
-					vspboost = 0;
+					x += sign(hsp_final); 
 				}
-				x = x + hsp_final;
+				hsp_final = 0;
+				hspboost = 0;
+				vspboost = 0;
+			}
+			x = x + hsp_final;
 	
-				if(place_meeting(x, y+vsp, Solid))
+			if(place_meeting(x, y+vsp, Solid))
+			{
+				while(!place_meeting(x,y+sign(vsp),Solid))
 				{
-					while(!place_meeting(x,y+sign(vsp),Solid))
-					{
-						y += sign(vsp); 
-					}
-					vsp = 0;
-					vspboost = 0;
-					hspboost = 0;
-			
+					y += sign(vsp); 
 				}
-				y = y + vsp;
+				vsp = 0;
+				vspboost = 0;
+				hspboost = 0;
+			
+			}
+			y = y + vsp;
 			//	
 	
 
@@ -142,7 +141,7 @@ switch (state)
 			//
 
 			//Animation
-				if (!grounded) //Animation in the air
+			if (!grounded) //Animation in the air
 				{
 					image_speed = 0;
 		
@@ -184,18 +183,44 @@ switch (state)
 		{
 			hsp = 0;
 			vsp = 0;
-			x = oSoul.x;
-			y = oSoul.y;
+			
+			//if (!place_meeting(oSoul.x, oSoul.y, oWall)) {
+			//	x = oSoul.x;
+			//	y = oSoul.y;
+			//}
 
 			state = pState.launch;
 		}
 		
 		if (instance_exists(oSoulPath)) 
 		{
-			mytarget = instance_nearest(x,y,oSoulPath);//find closest enemy
+			try {
+				instance_destroy(mytarget);
+			} catch (ex) {
+				// dont care	
+				show_debug_message(ex);
+			}
+			if !(mytarget == noone or !instance_exists(mytarget)) and (instance_exists(mytarget.next)) {
+				mytarget = mytarget.next;
+			} else {
+				mytarget = instance_nearest(x, y,oSoulPath);//find closest path
+			}
 			direction = point_direction(x, y, mytarget.x, mytarget.y)
 		}
-		speed = 5
+
+		var x_step = lengthdir_x(1, direction); 
+		var y_step = lengthdir_y(1, direction);
+		for (var i = 0; i < 4; i++) {
+			if (!place_meeting(x+x_step, y+y_step, oWall)) {
+				x += x_step;
+				y += y_step;
+				
+				var inst = instance_place(x,y,oSoulPath);
+				if (inst != noone and inst != mytarget) {
+					instance_destroy(inst);	
+				}
+			}
+		}
 		
 	}break;
 	case pState.launch:
@@ -204,11 +229,34 @@ switch (state)
 		
 		oSoul.spd = 0;
 		
-		hspboost = hspboost + lengthdir_x(6,oSoul.image_angle)
-		vsp = vsp + lengthdir_y(6,oSoul.image_angle)
+		hspboost = hspboost + lengthdir_x(3,oSoul.image_angle)
+		vsp = vsp + lengthdir_y(4,oSoul.image_angle)
 				
-		x = x + hspboost;
-		y = y + vsp;
+				
+		if !place_meeting(x,y,oWall) {
+			x = x + hspboost;
+			y = y + vsp;
+		} else {
+			var abs_hspboost = abs(hspboost);
+			var sign_hspboost = sign(hspboost);
+			for (var i = 0; i < abs_hspboost; i++) {	
+				var xxx = sign_hspboost*min(abs_hspboost, 1)
+				if !place_meeting(x+xxx,y,oWall) {
+					x += xxx;
+					sign_hspboost -= abs(xxx);
+				}
+			}
+			
+			var abs_vsp = abs(vsp);
+			var sign_vsp = sign(vsp);
+			for (var i = 0; i < abs_vsp; i++) {	
+				var yyy = sign_vsp*min(abs_vsp, 1)
+				if !place_meeting(x,y+yyy,oWall) {
+					x += yyy;
+					sign_vsp -= abs(yyy);
+				}
+			}
+		}
 		
 		if (place_meeting(x,y,oSoul))
 		{
@@ -216,11 +264,7 @@ switch (state)
 			instance_destroy(oSoulPath);
 			state = pState.move;
 			global.key_interact = false;
-
-		}
-
-
-		
+		}	
 	}break;
 //if canPassThrough
 

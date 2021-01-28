@@ -22,6 +22,7 @@
     {"id":{"name":"sFX_Land","path":"sprites/sFX_Land/sFX_Land.yy",},"order":0,},
     {"id":{"name":"sCharacter_Air","path":"sprites/sCharacter_Air/sCharacter_Air.yy",},"order":0,},
     {"id":{"name":"sCharacter_Idle","path":"sprites/sCharacter_Idle/sCharacter_Idle.yy",},"order":1,},
+    {"id":{"name":"devs_scripts","path":"scripts/devs_scripts/devs_scripts.yy",},"order":1,},
     {"id":{"name":"fxJump","path":"objects/fxJump/fxJump.yy",},"order":1,},
     {"id":{"name":"oSoul","path":"objects/oSoul/oSoul.yy",},"order":11,},
     {"id":{"name":"oController","path":"objects/oController/oController.yy",},"order":0,},

@@ -3,3 +3,6 @@
 age = 0;
 mask_index = sNothing;
 alarm[0] = 20;
+ 
+ 
+next = noone;
