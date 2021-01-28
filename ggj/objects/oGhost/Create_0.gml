@@ -9,6 +9,9 @@ turn_speed = 5;
 turn_lerp = 0.7;
 immune_time = 30;
 
+trail_length_max = 60;
+trail_length = 0;
+
 destroy_self = function() {
 	oCharacter.state = pStates.move;
 	instance_destroy(oGhostTrail);

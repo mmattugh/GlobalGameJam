@@ -1,6 +1,7 @@
 draw_text(20,20,string(vsp))
-draw_text(20,40,string(on_ground))
-
+if (instance_exists(oGhost)) {
+	draw_text(20,40,string(oGhost.trail_length_max - oGhost.trail_length))
+}
 
 
 if (has_ghost)

@@ -217,10 +217,8 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 
 #region reset timers
 // prevent timer regen til ghost state is finished
-if (on_ground and state != pStates.ghost)  {
-
-		has_ghost = true;	
-	
+if (on_ground and state == pStates.move)  {
+	has_ghost = true;	
 }
 
 #endregion

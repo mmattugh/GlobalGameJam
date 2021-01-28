@@ -19,8 +19,16 @@ switch oCharacter.state {
 		if trail_previous != noone {
 			trail_previous.next = trail_new;
 		}
+		
 		trail_previous = trail_new;
+		
+		trail_length++;
 	}
+	
+	if (trail_length >= trail_length_max) {
+		oCharacter.state = pStates.follow_trail;
+	}
+	
 	#endregion
 	
 	#region check for collision
