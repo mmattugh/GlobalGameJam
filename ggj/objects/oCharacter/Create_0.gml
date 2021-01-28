@@ -18,6 +18,7 @@ launch_hsp  = 4.5;
 launch_vsp  = 6;
 
 on_ground = true;
+fall_time = 0;
 
 state = pStates.move;
 

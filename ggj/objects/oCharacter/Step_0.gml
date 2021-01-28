@@ -12,6 +12,10 @@ switch state {
 		ghost_regen_timer = ghost_regen_time;
 		trail_target = noone;
 		trail_target_next = noone;
+		
+		// set camera values
+		oCamera.zoom = 0.9*oCamera.target_zoom;
+		oCamera.screenshake += 7;
 
 		with instance_create_layer(x,y-8,layer,oGhost) 
 		{
@@ -119,6 +123,17 @@ switch state {
 #region graphics state machine
 draw_xscale = lerp(draw_xscale, 1.0, 0.2);
 draw_yscale = lerp(draw_yscale, 1.0, 0.2);
+
+if (!on_ground and vsp > 0) {
+	fall_time++;
+} else {
+	// just hit ground after falling
+	if (fall_time != 0 && on_ground) {
+		oCamera.screenshake += 0.1*fall_time;	
+	}
+	
+	fall_time = 0;	
+}
 
 
 switch state {
