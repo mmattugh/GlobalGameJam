@@ -189,6 +189,7 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 				temp_vsp = 0;
 				vsp = 0;
 			}
+			break;
 		}
 	}
 	
