@@ -1,0 +1,1 @@
+global.animationSpeed += 0.15;
