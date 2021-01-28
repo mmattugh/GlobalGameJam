@@ -3,7 +3,7 @@
 // tweakable
 max_spd = 2.5;
 turning_max_spd = 1.75;
-acceleration = 0.25;
+acceleration = 0.5;
 
 turn_speed = 5;
 turn_lerp = 0.7;

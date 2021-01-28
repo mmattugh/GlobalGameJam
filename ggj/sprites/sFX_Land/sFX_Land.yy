@@ -89,7 +89,7 @@
   ],
   "parent": {
     "name": "FX Sprites",
-    "path": "folders/Notes/Sprites/FX Sprites.yy",
+    "path": "folders/Sprites/Sprites/FX Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sFX_Land",

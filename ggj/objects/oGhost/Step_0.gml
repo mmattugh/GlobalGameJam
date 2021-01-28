@@ -31,7 +31,7 @@ switch oCharacter.state {
 	var inst = instance_place(x,y,oGhostTrail);
 	if (inst != noone and inst.forgiveness <= 0) {
 		if (immune_timer <= 0) {
-			destroy_self();
+			//destroy_self();
 		}
 	}
 	

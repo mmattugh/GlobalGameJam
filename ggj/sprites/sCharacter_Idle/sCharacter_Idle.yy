@@ -17,8 +17,8 @@
   "width": 32,
   "height": 17,
   "textureGroupId": {
-    "name": "",
-    "path": "",
+    "name": "Default",
+    "path": "texturegroups/Default",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -69,7 +69,7 @@
   ],
   "parent": {
     "name": "Character Sprites",
-    "path": "folders/Notes/Sprites/Character Sprites.yy",
+    "path": "folders/Sprites/Sprites/Character Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sCharacter_Idle",

@@ -116,7 +116,7 @@
   ],
   "parent": {
     "name": "Character Sprites",
-    "path": "folders/Notes/Sprites/Character Sprites.yy",
+    "path": "folders/Sprites/Sprites/Character Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sCharacter_Walk",
