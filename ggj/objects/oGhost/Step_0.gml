@@ -27,6 +27,7 @@ switch oCharacter.state {
 	
 	if (trail_length >= trail_length_max) {
 		oCharacter.state = pStates.follow_trail;
+		oCamera.screenshake += 5;
 	}
 	
 	#endregion

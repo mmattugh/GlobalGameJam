@@ -16,6 +16,11 @@ destroy_self = function() {
 	oCharacter.state = pStates.move;
 	instance_destroy(oGhostTrail);
 	instance_destroy();
+	
+	// set camera values
+	//oCamera.zoom = 1.1*oCamera.target_zoom;
+	oCamera.screenshake = 15;
+	
 	exit;
 }
 
