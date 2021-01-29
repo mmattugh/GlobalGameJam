@@ -1,7 +1,7 @@
-if (global.key_interact) or (oCharacter.state = pStates.follow_trail)
+if (global.key_interact) or (oCharacter.state != pStates.ghost)
 {
 	instance_create_depth(x,y,0,fxMiddle);
-	instance_destroy(self);
+	instance_destroy();
 }
 
 if (animation_end())

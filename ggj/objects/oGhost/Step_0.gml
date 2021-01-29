@@ -90,3 +90,13 @@ switch oCharacter.state {
 
 draw_xscale = lerp(draw_xscale, 1.0, 0.2);
 draw_yscale = lerp(draw_yscale, 1.0, 0.2);
+
+// update sfx
+if (oCharacter.state != pStates.ghost) {
+	//TODO: play end sound
+	audio_stop_sound(trail_sound_id);
+} else {
+	trail_sound_pitch = trail_sound_pitch_min + trail_sound_pitch_multiply * power(trail_length/trail_length_max, 2);
+	audio_sound_pitch(trail_sound_id, trail_sound_pitch);	
+	audio_sound_gain(trail_sound_id, global.sound_volume, 0);
+}

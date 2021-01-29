@@ -18,10 +18,11 @@ switch state {
 		// set camera values
 		oCamera.zoom = 0.9*oCamera.target_zoom;
 		oCamera.screenshake += 7;
-
+		
+		var ghost_direction = 90;
 		with instance_create_layer(x,y-8,layer,oGhost) 
 		{
-			move_direction = 90;
+			move_direction = ghost_direction;
 			global.key_interact = false;
 		}
 	}
@@ -85,7 +86,7 @@ switch state {
 	if (place_meeting(x,y,oGhost)) {
 		hsp = 0;
 		vsp = 0;
-		scr_freeze(30)
+		scr_freeze(35)
 		state = pStates.launch_from_trail;
 	}
 	
@@ -196,6 +197,8 @@ switch state {
 
 	break; #endregion
 	case pStates.follow_trail	  : #region
+	draw_angle += 60*dsin(oGhost.trail_length*6*360/oGhost.trail_length_max);
+	
 	if (trail_FX > 2)
 	{
 		instance_create_depth(x,y,depth+1,fxCharacterTrail);

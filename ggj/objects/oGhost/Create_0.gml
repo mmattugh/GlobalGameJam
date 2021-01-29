@@ -13,8 +13,14 @@ wall_slow_threshold = 3;
 wall_slow = false;
 wall_slow_percent = 0.4;
 
-trail_length_max = 30;
+trail_length_max = 23;
 trail_length = 0;
+
+trail_sound_id = audio_play_sound(Stretch_Loop, 0, false);
+audio_sound_gain(trail_sound_id, global.sound_volume, 0);
+
+trail_sound_pitch_min = 0.3;
+trail_sound_pitch_multiply = 2.7;
 
 destroy_self = function() {
 	oCharacter.state = pStates.move;
@@ -34,6 +40,7 @@ spd = 0;
 trail_previous = noone;
 move_direction = 0;
 immune_timer = immune_time;
+trail_sound_pitch = 0;
 
 draw_xscale = 1.0;
 draw_yscale = 1.0;
