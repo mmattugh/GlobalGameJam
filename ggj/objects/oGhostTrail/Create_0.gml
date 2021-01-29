@@ -4,6 +4,8 @@ depth = 1;
 
 forgiveness = 0;
 next = noone;
+prev = noone;
+
 
 trail_fade_distance = 85;
 

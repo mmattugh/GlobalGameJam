@@ -25,16 +25,22 @@ trail_sound_pitch_min = 0.3;
 trail_sound_pitch_multiply = 2.7;
 
 destroy_self = function() {
-	oCharacter.state = pStates.move;
-	instance_destroy(oGhostTrail);
-	instance_destroy();
+	//oCharacter.state = pStates.move;
+	//instance_destroy(oGhostTrail);
+	//instance_destroy();
+	go_back = true;
 	audio_stop_sound(trail_sound_id);
+	trail_sound_id = noone;
 	// set camera values
 	//oCamera.zoom = 1.1*oCamera.target_zoom;
 	oCamera.screenshake = 15;
 	
 	exit;
 }
+
+go_back = false;
+trail_target = noone;
+trail_target_next = noone;
 
 
 // not tweakable
