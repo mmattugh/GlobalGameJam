@@ -66,7 +66,7 @@ switch state {
 	// goto prelaunch state
 	sprite_index = sCharacter_Spirit;
 	if (global.key_interact) {
-		scr_freeze(60)
+		scr_freeze(15)
 		state = pStates.follow_trail;
 		//fx
 		instance_create_depth(x,y-16,0,fxStart);
@@ -85,7 +85,7 @@ switch state {
 	if (place_meeting(x,y,oGhost)) {
 		hsp = 0;
 		vsp = 0;
-		scr_freeze(120)
+		scr_freeze(30)
 		state = pStates.launch_from_trail;
 	}
 	

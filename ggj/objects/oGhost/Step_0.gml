@@ -26,7 +26,7 @@ switch oCharacter.state {
 	}
 	
 	if (trail_length >= trail_length_max) {
-		scr_freeze(60)
+		scr_freeze(40)
 		oCharacter.state = pStates.follow_trail;
 		oCamera.screenshake += 5;
 	}
@@ -64,6 +64,16 @@ switch oCharacter.state {
 		spd = approach(spd, max_spd, acceleration);
 	} else {
 		spd = min(spd, turning_max_spd);
+	}
+	
+	// slow down slightly if heading towards wall {
+	if (place_meeting(x+lengthdir_x(spd*wall_slow_threshold, move_direction), y+lengthdir_y(spd*wall_slow_threshold,move_direction), Solid)) {
+		if (wall_slow == false) {
+			spd *= wall_slow_percent;	
+			wall_slow = true;
+		}
+	} else {
+		wall_slow = false;	
 	}
 	
 	x += lengthdir_x(spd, move_direction);

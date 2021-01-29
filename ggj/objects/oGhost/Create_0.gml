@@ -9,7 +9,11 @@ turn_speed = 8;
 turn_lerp = 0.5;
 immune_time = 60;
 
-trail_length_max = 20;
+wall_slow_threshold = 3;
+wall_slow = false;
+wall_slow_percent = 0.4;
+
+trail_length_max = 30;
 trail_length = 0;
 
 destroy_self = function() {
