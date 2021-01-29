@@ -5,8 +5,9 @@ if (track_index != noone and track_id != noone and !audio_is_playing(track_id)) 
 	if (forgiveness_timer < 0) {
 		// forces us to play the track again
 		track_id = noone;	
+		forgiveness_timer = forgiveness_time;
 	} else {
-		forgiveness_timer = forgiveness_time	;
+		forgiveness_timer--;
 	}
 }
 

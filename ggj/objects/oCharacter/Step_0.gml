@@ -230,8 +230,8 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 		if !(place_meeting(x+sign_hsp, y+sign_vsp, Solid)) {
 			x += sign_hsp;
 			y += sign_vsp;
-			temp_hsp -= sign_hsp;
-			temp_vsp -= sign_vsp;
+			temp_hsp = approach(temp_hsp, 1, 0);
+			temp_vsp = approach(temp_vsp, 1, 0);
 		} else {
 			if place_meeting(x + sign_hsp, y, Solid) {
 				temp_hsp = 0;	
