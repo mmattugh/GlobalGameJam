@@ -31,6 +31,8 @@ destroy_self = function() {
 	go_back = true;
 	audio_stop_sound(trail_sound_id);
 	trail_sound_id = noone;
+	
+	trail_target = trail_previous;
 	// set camera values
 	//oCamera.zoom = 1.1*oCamera.target_zoom;
 	oCamera.screenshake = 15;

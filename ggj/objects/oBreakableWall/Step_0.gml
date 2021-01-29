@@ -22,6 +22,8 @@ if (place_meeting(x,y,oCharacter)) {
 	oCamera.screenshake += 3;
 	scr_freeze(10)
 	
+	// TODO: block break sfx
+	
 	instance_destroy(hitbox);
 	instance_destroy();
 }

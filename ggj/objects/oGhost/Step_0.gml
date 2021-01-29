@@ -85,12 +85,20 @@ if (go_back) {
 		#region check for collision
 		if	(place_meeting(x,y,oWall)) {
 			destroy_self();
+			
+			// TODO: bump sfx
+		}
+		
+		if (place_meeting(x,y,oLaser)) {
+			destroy_self();	
+			
+			// TODO: zapped sfx
 		}
 	
 		var inst = instance_place(x,y,oGhostTrail);
 		if (inst != noone and inst.forgiveness <= 0) {
 			if (immune_timer <= 0) {
-				//destroy_self();
+				destroy_self();
 			}
 		}
 	
