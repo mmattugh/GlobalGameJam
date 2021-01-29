@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"77f59e57-b9ac-42d1-bfe6-a13e998c05bd","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "ggj",
-    "path": "ggj.yyp",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sCameraZoneStationary",

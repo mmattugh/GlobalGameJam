@@ -71,6 +71,7 @@ switch state {
 		state = pStates.follow_trail;
 		//fx
 		instance_create_depth(x,y-16,0,fxStart);
+		play_sound(choose(Shoot_01, Shoot_02, Shoot_03), 0, false, 0.8, 0.02, global.sound_volume);
 	}
 		
 	// rapid decel
@@ -88,6 +89,7 @@ switch state {
 		vsp = 0;
 		scr_freeze(35)
 		state = pStates.launch_from_trail;
+		
 	}
 	
 	if (instance_exists(oGhostTrail)) {

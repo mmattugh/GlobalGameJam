@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "ggj2021_20210128.mp3",
-  "duration": 55.1053,
+  "soundFile": "Shoot_03.wav",
+  "duration": 0.898968,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ggj2021_20210128",
+  "name": "Shoot_03",
   "tags": [],
   "resourceType": "GMSound",
 }

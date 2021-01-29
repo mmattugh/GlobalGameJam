@@ -13,8 +13,8 @@
   "soundFile": "Stretch_Loop.wav",
   "duration": 6.26119,
   "parent": {
-    "name": "ggj",
-    "path": "ggj.yyp",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stretch_Loop",

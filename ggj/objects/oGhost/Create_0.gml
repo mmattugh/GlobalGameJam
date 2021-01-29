@@ -14,6 +14,8 @@ wall_slow = false;
 wall_slow_percent = 0.4;
 
 trail_length_max = 23;
+trail_length_max_init = trail_length_max;
+
 trail_length = 0;
 
 trail_sound_id = audio_play_sound(Stretch_Loop, 0, false);

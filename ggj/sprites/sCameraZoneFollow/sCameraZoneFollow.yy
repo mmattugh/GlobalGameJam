@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"6d448cd0-75f6-4c60-8d8c-8336768cf30c","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "ggj",
-    "path": "ggj.yyp",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sCameraZoneFollow",

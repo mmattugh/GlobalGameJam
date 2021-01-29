@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sRecharge",
-    "path": "sprites/sRecharge/sRecharge.yy",
+    "name": "sGhostWarpZone",
+    "path": "sprites/sGhostWarpZone/sGhostWarpZone.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,7 +21,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oRecharge","path":"objects/oRecharge/oRecharge.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oGhostWarpZone","path":"objects/oGhostWarpZone/oGhostWarpZone.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,7 +30,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oRecharge",
+  "name": "oGhostWarpZone",
   "tags": [],
   "resourceType": "GMObject",
 }

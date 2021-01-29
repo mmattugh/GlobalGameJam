@@ -29,6 +29,7 @@ switch oCharacter.state {
 		scr_freeze(40)
 		oCharacter.state = pStates.follow_trail;
 		oCamera.screenshake += 5;
+		play_sound(choose(Shoot_01, Shoot_02, Shoot_03), 0, false, 1.0, 0.02, global.sound_volume);
 	}
 	
 	#endregion
