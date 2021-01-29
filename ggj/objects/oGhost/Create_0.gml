@@ -18,7 +18,7 @@ trail_length_max_init = trail_length_max;
 
 trail_length = 0;
 
-trail_sound_id = audio_play_sound(Stretch_Loop, 0, false);
+trail_sound_id = audio_play_sound(Stretch_Loop, 0, true);
 audio_sound_gain(trail_sound_id, global.sound_volume, 0);
 
 trail_sound_pitch_min = 0.3;
@@ -28,7 +28,7 @@ destroy_self = function() {
 	oCharacter.state = pStates.move;
 	instance_destroy(oGhostTrail);
 	instance_destroy();
-	
+	audio_stop_sound(trail_sound_id);
 	// set camera values
 	//oCamera.zoom = 1.1*oCamera.target_zoom;
 	oCamera.screenshake = 15;

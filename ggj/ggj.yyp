@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"oGhostWarpZone","path":"objects/oGhostWarpZone/oGhostWarpZone.yy",},"order":14,},
+    {"id":{"name":"Stretch_Loop_Reversed","path":"sounds/Stretch_Loop_Reversed/Stretch_Loop_Reversed.yy",},"order":5,},
     {"id":{"name":"pCameraStationZone","path":"objects/pCameraStationZone/pCameraStationZone.yy",},"order":0,},
     {"id":{"name":"sCameraZoneFollowY","path":"sprites/sCameraZoneFollowY/sCameraZoneFollowY.yy",},"order":12,},
     {"id":{"name":"sFX_Smoke","path":"sprites/sFX_Smoke/sFX_Smoke.yy",},"order":5,},

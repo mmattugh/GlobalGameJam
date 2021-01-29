@@ -38,3 +38,6 @@ draw_yscale = 1.0;
 draw_angle = 0;
 flipped = 1.0;
 
+trail_sound_id = noone;
+trail_sound_pitch = 0;
+

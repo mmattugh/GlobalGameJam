@@ -79,3 +79,16 @@ if (screenshake > 0) {
 
 camera_set_view_size(camera, true_width, true_height);
 camera_set_view_pos(camera, view_x, view_y);
+
+#region parallax
+
+layer_x("Planet", x*0.9);
+layer_y("Planet", y*0.9);
+
+layer_x("BigStars", x*0.4);
+layer_x("BigStars", y*0.4);
+
+layer_x("SmallStars", x*0.2);
+layer_x("SmallStars", y*0.2);
+
+#endregion

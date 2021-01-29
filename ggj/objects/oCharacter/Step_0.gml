@@ -72,6 +72,7 @@ switch state {
 		//fx
 		instance_create_depth(x,y-16,0,fxStart);
 		play_sound(choose(Shoot_01, Shoot_02, Shoot_03), 0, false, 0.8, 0.02, global.sound_volume);
+		audio_stop_sound(oGhost.trail_sound_id);
 	}
 		
 	// rapid decel
@@ -81,6 +82,15 @@ switch state {
 	
 	break;							#endregion
 	case pStates.follow_trail	  : #region
+
+	if (trail_sound_id == noone) {
+		trail_sound_id = audio_play_sound(Stretch_Loop_Reversed, 0, true);
+		trail_sound_pitch = oGhost.trail_sound_pitch;
+	}
+	
+	trail_sound_pitch = oGhost.trail_sound_pitch_min + oGhost.trail_sound_pitch_multiply * power((oGhost.trail_length/(oGhost.trail_length_max)), 2);
+	audio_sound_pitch(trail_sound_id, trail_sound_pitch);
+	
 	oGhost.spd = 0;
 	
 	// goto launch state
@@ -89,7 +99,8 @@ switch state {
 		vsp = 0;
 		scr_freeze(35)
 		state = pStates.launch_from_trail;
-		
+		audio_stop_sound(trail_sound_id);
+		trail_sound_id = noone;
 	}
 	
 	if (instance_exists(oGhostTrail)) {
@@ -107,6 +118,8 @@ switch state {
 		x = trail_target.x;
 		y = trail_target.y;
 		instance_destroy(trail_target);
+		
+		oGhost.trail_length--;
 		
 		
 		if (trail_target_next != noone) {
@@ -199,7 +212,8 @@ switch state {
 
 	break; #endregion
 	case pStates.follow_trail	  : #region
-	draw_angle += 60*dsin(oGhost.trail_length*6*360/oGhost.trail_length_max);
+	//draw_angle += 60*dsin(oGhost.trail_length*6*360/oGhost.trail_length_max);
+	
 	
 	if (trail_FX > 2)
 	{

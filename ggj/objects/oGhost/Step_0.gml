@@ -30,6 +30,7 @@ switch oCharacter.state {
 		oCharacter.state = pStates.follow_trail;
 		oCamera.screenshake += 5;
 		play_sound(choose(Shoot_01, Shoot_02, Shoot_03), 0, false, 1.0, 0.02, global.sound_volume);
+		audio_stop_sound(trail_sound_id);
 	}
 	
 	#endregion
