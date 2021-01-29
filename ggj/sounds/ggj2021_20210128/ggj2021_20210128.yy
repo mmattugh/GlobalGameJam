@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "ggj2021_20210128.mp3",
-  "duration": 55.1053,
+  "duration": 116.5447,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
