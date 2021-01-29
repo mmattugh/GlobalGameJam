@@ -26,6 +26,7 @@ switch oCharacter.state {
 	}
 	
 	if (trail_length >= trail_length_max) {
+		scr_freeze(60)
 		oCharacter.state = pStates.follow_trail;
 		oCamera.screenshake += 5;
 	}

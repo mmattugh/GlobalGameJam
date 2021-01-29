@@ -14,8 +14,9 @@ move_decel = 0.505;
 air_decel = 0.075;
 grav_accel	= 0.20;
 jump_accel	= 4;
-launch_hsp  = 4.5;
-launch_vsp  = 6;
+launch_hsp  = 5;
+launch_vsp  = 5;
+smoke_FX = 0;
 
 on_ground = true;
 fall_time = 0;
@@ -28,6 +29,7 @@ ghost_regen_time = 60;
 
 trail_target = noone;
 trail_target_next = noone;
+trail_FX = 0;
 
 hsp = 0;
 vsp = 0;

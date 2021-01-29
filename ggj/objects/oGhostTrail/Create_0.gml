@@ -1,8 +1,11 @@
 /// @description 
+
+depth = 1;
+
 forgiveness = 0;
 next = noone;
 
-trail_fade_distance = 128;
+trail_fade_distance = 85;
 
 scale_snap_speed = 1;
 

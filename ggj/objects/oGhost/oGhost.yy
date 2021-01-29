@@ -1,10 +1,10 @@
 {
   "spriteId": {
-    "name": "sSoul",
-    "path": "sprites/sSoul/sSoul.yy",
+    "name": "sSoulFace",
+    "path": "sprites/sSoulFace/sSoulFace.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

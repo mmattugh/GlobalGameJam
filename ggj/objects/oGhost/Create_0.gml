@@ -1,15 +1,15 @@
 /// @description 
-
+depth = 0;
 // tweakable
 max_spd = 2.5;
 turning_max_spd = 1.75;
 acceleration = 0.5;
 
-turn_speed = 5;
-turn_lerp = 0.7;
-immune_time = 30;
+turn_speed = 8;
+turn_lerp = 0.5;
+immune_time = 60;
 
-trail_length_max = 60;
+trail_length_max = 20;
 trail_length = 0;
 
 destroy_self = function() {

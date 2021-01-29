@@ -8,6 +8,8 @@ switch state {
 	// goto ghost state
 	if (global.key_interact) && (has_ghost) {
 		state = pStates.ghost;
+		//fx
+		instance_create_depth(x,y-8,0,fxStart);
 		has_ghost = false;
 		ghost_regen_timer = ghost_regen_time;
 		trail_target = noone;
@@ -25,6 +27,7 @@ switch state {
 	}
 	
 	// horizontal speed
+	
 	var h_dir = global.key_right - global.key_left;
 	
 	if (sign(h_dir) != 0) {
@@ -61,8 +64,12 @@ switch state {
 	break;							#endregion
 	case pStates.ghost			  : #region
 	// goto prelaunch state
+	sprite_index = sCharacter_Spirit;
 	if (global.key_interact) {
+		scr_freeze(60)
 		state = pStates.follow_trail;
+		//fx
+		instance_create_depth(x,y-16,0,fxStart);
 	}
 		
 	// rapid decel
@@ -78,6 +85,7 @@ switch state {
 	if (place_meeting(x,y,oGhost)) {
 		hsp = 0;
 		vsp = 0;
+		scr_freeze(120)
 		state = pStates.launch_from_trail;
 	}
 	
@@ -97,6 +105,7 @@ switch state {
 		y = trail_target.y;
 		instance_destroy(trail_target);
 		
+		
 		if (trail_target_next != noone) {
 			trail_target = trail_target_next;
 			trail_target_next = trail_target.next;
@@ -110,8 +119,16 @@ switch state {
 	
 	if (place_meeting(x,y,oGhost))
 	{
+		//fx
+		instance_create_depth(x,y-16,0,fxEnd);
+		
+		//Disable controls for a moment
+		alarm[0] = 20;
+		move_accel = 0.05;
+		
 		instance_destroy(oGhost);
 		instance_destroy(oGhostTrail);
+		
 		state = pStates.move;
 		global.key_interact = false;
 	}	
@@ -129,7 +146,7 @@ if (!on_ground and vsp > 0) {
 } else {
 	// just hit ground after falling
 	if (fall_time != 0 && on_ground) {
-		oCamera.screenshake += 0.1*fall_time;	
+		oCamera.screenshake += 0.05*fall_time;	
 	}
 	
 	fall_time = 0;	
@@ -138,9 +155,17 @@ if (!on_ground and vsp > 0) {
 
 switch state {
 	// same graphics state for both
-	case pStates.move			  : #region
-	case pStates.ghost:
-	draw_angle = 0;
+	case pStates.move:
+	{
+		//fx
+		smoke_FX++;
+		if (smoke_FX > 2) && (has_ghost) with (instance_create_depth(random_range(x-2,x+2),y-16,oCharacter.depth+1,fxSmoke))
+		{
+		other.smoke_FX = 0;
+		}
+		
+		
+			draw_angle = 0;
 	if (sign(hsp) != 0) flipped = sign(hsp);
 	
 	if !on_ground {
@@ -165,9 +190,18 @@ switch state {
 		}
 	}
 	
+	}break;#region
+	case pStates.ghost:
+	sprite_index = sCharacter_Spirit;
+
 	break; #endregion
 	case pStates.follow_trail	  : #region
-	
+	if (trail_FX > 2)
+	{
+		instance_create_depth(x,y,depth+1,fxCharacterTrail);
+		trail_FX = 0;
+	}
+	else trail_FX ++;
 	break; #endregion
 	case pStates.launch_from_trail: #region
 	
@@ -232,8 +266,19 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 
 #region reset timers
 // prevent timer regen til ghost state is finished
-if (on_ground and state == pStates.move)  {
-	has_ghost = true;	
+if (on_ground and has_ghost = false and state == pStates.move) {
+	
+	has_ghost = true;
+	oCamera.screenshake += 2;
+		repeat (5)
+	{
+		with instance_create_depth(x,y-16,depth+1,fxSmoke)
+		{
+			direction = random_range(0,360)
+			speed = random_range(1,2)
+		}
+	}
+	
 }
 
 #endregion
