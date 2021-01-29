@@ -1,6 +1,8 @@
 /// @description 
 
 if (go_back) {
+	image_index = 1;
+	
 	if (trail_sound_id == noone) {
 		trail_sound_id = audio_play_sound(Stretch_Loop_Reversed, 0, true);
 	}
@@ -34,8 +36,8 @@ if (go_back) {
 		}
 	} else {
 		oCharacter.state = pStates.move;
-		oCamera.zoom = 0.9*oCamera.target_zoom;
-		oCamera.screenshake = 8;
+		//oCamera.zoom = 0.9*oCamera.target_zoom;
+		oCamera.screenshake = 4;
 		scr_freeze(10);
 		show_debug_message("destroyed");
 		audio_stop_sound(trail_sound_id);
@@ -69,6 +71,8 @@ if (go_back) {
 		}
 	
 		if (trail_length >= trail_length_max) {
+			spd = 0;
+			
 			scr_freeze(40)
 			oCharacter.state = pStates.follow_trail;
 			oCamera.screenshake += 5;

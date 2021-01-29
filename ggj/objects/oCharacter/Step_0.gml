@@ -66,7 +66,7 @@ switch state {
 	case pStates.ghost			  : #region
 	// goto prelaunch state
 	sprite_index = sCharacter_Spirit;
-	if (global.key_interact) {
+	if (global.key_interact && oGhost.go_back == false) {
 		scr_freeze(15)
 		state = pStates.follow_trail;
 		//fx
