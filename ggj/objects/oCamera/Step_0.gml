@@ -1,4 +1,5 @@
-
+if (instance_exists(oCharacter))
+{
 
 // get state and zoom info
 if (station_object != noone) {
@@ -92,3 +93,5 @@ layer_x("SmallStars", x*0.93);
 layer_y("SmallStars", y*0.93);
 
 #endregion
+
+}
