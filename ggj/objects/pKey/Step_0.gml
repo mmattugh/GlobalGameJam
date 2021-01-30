@@ -1,7 +1,6 @@
 
 if (keyboard_check_pressed(key))
 or (keyboard_check_pressed(key_alt)) {
-	// TODO: some sort of sfx
 	oCamera.screenshake += 7;
 	
 	play_sound(Self_Jump, 50, false, 1.0, 0.02, global.sound_volume);

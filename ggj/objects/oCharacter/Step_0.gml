@@ -203,7 +203,6 @@ switch state {
 	
 	if (death_zoom < 0.51) {
 		if (death_restart_delay <= 0) {
-			// TODO: fade away?
 			room_restart();	
 		} else {
 			death_restart_delay--;

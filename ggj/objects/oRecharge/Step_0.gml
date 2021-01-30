@@ -19,6 +19,8 @@ switch (state)
 		if (place_meeting(x,y,oCharacter))
 		{
 			oCharacter.has_ghost = true;
+			// TODO: ghost recharge sfx
+			
 			scr_freeze(120)
 			mask_index = sNothing;
 			image_index = 0;

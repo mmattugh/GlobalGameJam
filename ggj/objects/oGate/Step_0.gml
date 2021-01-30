@@ -1,6 +1,5 @@
 //if !instance_exists(oWisp) {
 	if (instance_number(oSoul) == 0) {
-		// TODO: gate destroy sfx
 		play_sound(Self_Gate_Destroy, 5, false, 1.0, 0.01, global.sound_volume);
 		instance_destroy();	
 	}
