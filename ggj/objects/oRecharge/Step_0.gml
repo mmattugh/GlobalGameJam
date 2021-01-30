@@ -1,1 +1,49 @@
-/// @description 
+
+
+switch (state)
+{
+	case recharge.enabled:
+	{
+		
+		smoke_FX++;
+		if (smoke_FX > 10)with (instance_create_depth(random_range(x-5,x+5),y-8,other.depth+1,fxSmokeLarge))
+		{
+			other.smoke_FX = 0;
+			speed = random_range(0.5,1)
+			direction = 90;
+		}
+		
+		
+		
+		
+		
+		depth = 0;
+		sprite_index = sRecharge
+		mask_index = sRecharge
+		if (place_meeting(x,y,oCharacter))
+		{
+			oCharacter.has_ghost = true;
+			scr_freeze(120)
+			mask_index = sNothing;
+			image_index = 0;
+			state = recharge.hit;
+		}
+	}break;
+	case recharge.hit:
+	{
+		sprite_index = sRecharge_Hit;
+		id.health_ = 0;
+		if (animation_end()) state = recharge.disabled;
+	}break;
+	case recharge.disabled:
+	{
+		depth = 100;
+		sprite_index = sRecharge_Recharge;
+		id.health_ ++;
+		if (id.health_ > 320)
+		{
+			state = recharge.enabled;
+		}
+
+	}break;
+}

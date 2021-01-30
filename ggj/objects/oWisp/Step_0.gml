@@ -2,7 +2,9 @@
 
 
 switch state {
+	
 	case 0:
+	
 	//x += random_range(-1, 1);
 	y -= up_speed;
 	image_angle = 90;
@@ -12,7 +14,7 @@ switch state {
 	break; 
 	
 	case 1:
-	image_angle = angle_lerp(image_angle, point_direction(x,y,oCharacter.x,oCharacter.y-8), 0.15);
+	image_angle = angle_lerp(image_angle, point_direction(x,y,oCharacter.x,oCharacter.y-8), 0.25);
 	direction = image_angle;
 
 	spd = approach(spd, spd_max, 0.07);
@@ -21,6 +23,10 @@ switch state {
 
 	//x = lerp(x, oCharacter.x, x_lerp);
 	//y = lerp(y, oCharacter.y-8, y_lerp);
+	
+	x = lerp(x, oCharacter.x, 0.01);
+	y = lerp(y, oCharacter.y, 0.01);
+	
 	x += lengthdir_x(spd, direction);
 	y += lengthdir_y(spd, direction);
 

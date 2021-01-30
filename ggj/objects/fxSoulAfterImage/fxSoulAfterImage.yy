@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sCollect",
-    "path": "sprites/sCollect/sCollect.yy",
+    "name": "sCollect47",
+    "path": "sprites/sCollect47/sCollect47.yy",
   },
   "solid": false,
   "visible": true,
@@ -26,6 +26,7 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"fxSoulAfterImage","path":"objects/fxSoulAfterImage/fxSoulAfterImage.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"fxSoulAfterImage","path":"objects/fxSoulAfterImage/fxSoulAfterImage.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":7,"eventType":7,"collisionObjectId":null,"parent":{"name":"fxSoulAfterImage","path":"objects/fxSoulAfterImage/fxSoulAfterImage.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

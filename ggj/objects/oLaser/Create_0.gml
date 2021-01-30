@@ -1,2 +1,3 @@
 /// @description 
-life = 10;
+depth = 1;
+life = 20;
