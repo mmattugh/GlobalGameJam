@@ -8,9 +8,9 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 8,
-  "bbox_top": 0,
-  "bbox_bottom": 15,
+  "bbox_right": 15,
+  "bbox_top": 2,
+  "bbox_bottom": 13,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e9d50708-5c49-4a98-ad14-5e3f664d7af4","path":"sprites/sGhostLaserSpawner/sGhostLaserSpawner.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e9d50708-5c49-4a98-ad14-5e3f664d7af4","path":"sprites/sGhostLaserSpawner/sGhostLaserSpawner.yy",},"LayerId":{"name":"c57e5293-b250-4296-bd50-d67ec05b7ddb","path":"sprites/sGhostLaserSpawner/sGhostLaserSpawner.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sGhostLaserSpawner","path":"sprites/sGhostLaserSpawner/sGhostLaserSpawner.yy",},"resourceVersion":"1.0","name":"e9d50708-5c49-4a98-ad14-5e3f664d7af4","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"2b23ef21-03f3-4b35-8591-2d7f35a8779b","path":"sprites/sGhostLaser/sGhostLaser.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"2b23ef21-03f3-4b35-8591-2d7f35a8779b","path":"sprites/sGhostLaser/sGhostLaser.yy",},"LayerId":{"name":"c01aa0a7-69fa-4fd7-ac5a-b8b0bf1a62d9","path":"sprites/sGhostLaser/sGhostLaser.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sGhostLaser","path":"sprites/sGhostLaser/sGhostLaser.yy",},"resourceVersion":"1.0","name":"2b23ef21-03f3-4b35-8591-2d7f35a8779b","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sGhostLaserSpawner","path":"sprites/sGhostLaserSpawner/sGhostLaserSpawner.yy",},
+    "spriteId": {"name":"sGhostLaser","path":"sprites/sGhostLaser/sGhostLaser.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"0f34f7ae-9fce-4a87-987a-98b20ed62f88","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e9d50708-5c49-4a98-ad14-5e3f664d7af4","path":"sprites/sGhostLaserSpawner/sGhostLaserSpawner.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f6bf6de6-a6e1-4f38-b096-cc6e42a7931f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2b23ef21-03f3-4b35-8591-2d7f35a8779b","path":"sprites/sGhostLaser/sGhostLaser.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sGhostLaserSpawner","path":"sprites/sGhostLaserSpawner/sGhostLaserSpawner.yy",},
+    "parent": {"name":"sGhostLaser","path":"sprites/sGhostLaser/sGhostLaser.yy",},
     "resourceVersion": "1.3",
-    "name": "sGhostLaserSpawner",
+    "name": "sGhostLaser",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c57e5293-b250-4296-bd50-d67ec05b7ddb","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c01aa0a7-69fa-4fd7-ac5a-b8b0bf1a62d9","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Sprites",
-    "path": "folders/Sprites/Sprites.yy",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sGhostLaserSpawner",
+  "name": "sGhostLaser",
   "tags": [],
   "resourceType": "GMSprite",
 }

@@ -17,3 +17,15 @@ if (forgiveness > 0) {
         mask_index = sprite_index;    
     }
 }
+
+if (place_meeting(x,y,oLaser)) {
+	//destroy_self();		
+			
+	if (audio_is_playing(oGhost.trail_sound_id)) {
+		audio_stop_sound(oGhost.trail_sound_id);	
+	}
+			
+	// TODO: zapped sfx			
+	oCharacter.state = pStates.death;
+	exit;
+}

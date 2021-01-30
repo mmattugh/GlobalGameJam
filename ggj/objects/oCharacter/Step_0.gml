@@ -2,6 +2,24 @@
 on_ground = place_meeting(x,y+1,Solid);
 mask_index = sPlayerHitbox;
 
+// get hit by laser
+if (place_meeting(x,y,oLaser)) {
+	//destroy_self();		
+	
+	if (audio_is_playing(trail_sound_id)) {
+		audio_stop_sound(trail_sound_id);	
+	}
+	
+	//  //  //  //  //  //
+	//      Camera      //
+	//  //  //  //  //  //
+	scr_freeze(8);
+			
+	// TODO: zapped sfx			
+	oCharacter.state = pStates.death;
+	exit;
+}
+
 #region gameplay state machine
 switch state {
 	case pStates.move			  : #region
@@ -117,7 +135,7 @@ switch state {
 		
 		x = trail_target.x;
 		y = trail_target.y;
-		instance_destroy(trail_target);
+		instance_destroy(trail_target, false);
 		
 		oGhost.trail_length--;
 		
@@ -143,13 +161,52 @@ switch state {
 		move_accel = 0.05;
 		
 		instance_destroy(oGhost);
-		instance_destroy(oGhostTrail);
+		instance_destroy(oGhostTrail, false);
 		
 		state = pStates.move;
 		global.key_interact = false;
 	}	
 	
 	break;							#endregion
+	case pStates.death: #region
+	
+	if instance_exists(pCameraStationZone) {
+		instance_destroy(pCameraStationZone);
+	}
+	
+	if audio_is_playing(Stretch_Loop) {
+		audio_stop_sound(Stretch_Loop);	
+	}
+	
+	if audio_is_playing(Stretch_Loop_Reversed) {
+		audio_stop_sound(Stretch_Loop_Reversed);	
+	}
+	
+	hsp = 0;
+	vsp = 0;
+	
+	if (death_delay <= 0) {
+		death_zoom = lerp(death_zoom, 0.5, 0.2);
+	
+	} else {
+		death_delay--;	
+	}
+	oCamera.zoom = death_zoom;
+	oCamera.zoom_lerp = 0.2;
+	oCamera.target_x = x;
+	oCamera.target_y = y;
+	
+	
+	if (death_zoom < 0.51) {
+		if (death_restart_delay <= 0) {
+			// TODO: fade away?
+			room_restart();	
+		} else {
+			death_restart_delay--;
+		}
+	}
+	
+	break; #endregion
 }
 #endregion
 
@@ -225,7 +282,11 @@ switch state {
 	case pStates.launch_from_trail: #region
 	
 	break; #endregion
+	case pStates.death: #region
+	
+	break; #endregion
 }
+
 #endregion
 
 
@@ -281,6 +342,7 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 		}
 	}
 }
+
 #endregion
 
 #region reset timers
@@ -297,7 +359,6 @@ if (on_ground and has_ghost = false and state == pStates.move) {
 			speed = random_range(1,2)
 		}
 	}
-	
 }
 
 #endregion

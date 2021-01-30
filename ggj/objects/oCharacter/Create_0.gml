@@ -5,6 +5,7 @@ enum pStates {
 	ghost,
 	follow_trail,
 	launch_from_trail,
+	death,
 }
 
 // movement parameters -- tweak these
@@ -37,6 +38,11 @@ draw_xscale = 1.0;
 draw_yscale = 1.0;
 draw_angle = 0;
 flipped = 1.0;
+
+death_zoom = 1.0;
+death_delay = 5;
+death_restart_delay_max = 15;
+death_restart_delay = death_restart_delay_max;
 
 trail_sound_id = noone;
 trail_sound_pitch = 0;

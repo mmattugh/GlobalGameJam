@@ -1,4 +1,7 @@
-
+// chceck destroyed
+if !instance_exists(station_object) {
+	station_object = noone;
+}
 
 // get state and zoom info
 if (station_object != noone) {
@@ -11,10 +14,12 @@ if (station_object != noone) {
 
 #region set follow target
 switch oCharacter.state {
+	
 	case pStates.ghost:
 	follow_object = oGhost;
 	break;
 	case pStates.move:
+	case pStates.death:
 	follow_object = oCharacter;
 	break;
 	case pStates.follow_trail:
@@ -26,26 +31,26 @@ switch oCharacter.state {
 #endregion
 
 #region state machine
-switch state { 
-	case cStates.follow	: 
-	target_x = follow_object.x;
-	target_y = follow_object.y;
-	break;
-	case cStates.follow_x: 
-	target_x = follow_object.x;
-	target_y = station_object.y;
-	break;	
-	case cStates.follow_y: 
-	target_x = station_object.x;
-	target_y = follow_object.y;
-	break;	
-	case cStates.centered: 
-	target_x = station_object.x;
-	target_y = station_object.y;	
-	break;	
+if instance_exists(follow_object) {
+	switch state { 
+		case cStates.follow	: 
+		target_x = follow_object.x;
+		target_y = follow_object.y;
+		break;
+		case cStates.follow_x: 
+		target_x = follow_object.x;
+		target_y = station_object.y;
+		break;	
+		case cStates.follow_y: 
+		target_x = station_object.x;
+		target_y = follow_object.y;
+		break;	
+		case cStates.centered: 
+		target_x = station_object.x;
+		target_y = station_object.y;	
+		break;	
+	}
 }
-
-
 #endregion
 
 // calculate camera size, with zoom
