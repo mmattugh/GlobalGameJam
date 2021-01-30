@@ -104,6 +104,7 @@ switch state {
 	if (trail_sound_id == noone) {
 		trail_sound_id = audio_play_sound(Stretch_Loop_Reversed, 0, true);
 		trail_sound_pitch = oGhost.trail_sound_pitch;
+		audio_sound_gain(trail_sound_id, global.sound_volume, 0);
 	}
 	
 	trail_sound_pitch = oGhost.trail_sound_pitch_min + oGhost.trail_sound_pitch_multiply * power((oGhost.trail_length/(oGhost.trail_length_max)), 2);

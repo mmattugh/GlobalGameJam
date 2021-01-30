@@ -16,6 +16,7 @@ if (go_back) {
 	
 	if (trail_sound_id == noone) {
 		trail_sound_id = audio_play_sound(Stretch_Loop_Reversed, 0, true);
+		audio_sound_gain(trail_sound_id, global.sound_volume, 0);
 	}
 	
 	trail_sound_pitch = trail_sound_pitch_min + trail_sound_pitch_multiply * power((trail_length/(trail_length_max)), 2);

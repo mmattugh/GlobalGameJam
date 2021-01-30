@@ -58,6 +58,7 @@ if instance_exists(follow_object) {
 	}
 }
 #endregion
+}
 
 // calculate camera size, with zoom
 var true_width = zoom*global.camera_width;
@@ -93,15 +94,13 @@ camera_set_view_pos(camera, view_x, view_y);
 
 #region parallax
 
-layer_x("Planet", (x-true_width /4)*1);
-layer_y("Planet", (y-true_height/4)*1);
+layer_x("Planet", (x-true_width /2)*0.7);
+layer_y("Planet", (y-true_height/4)*0.7);
 
-layer_x("BigStars", x*0.95);
-layer_y("BigStars", y*0.95);
+layer_x("BigStars", x*0.9);
+layer_y("BigStars", y*0.9);
 
-layer_x("SmallStars", x*0.93);
-layer_y("SmallStars", y*0.93);
+layer_x("SmallStars", x*0.8);
+layer_y("SmallStars", y*0.8);
 
 #endregion
-
-}

@@ -23,11 +23,7 @@ screenshake_curve = 0.9;
 // 
 screenshake = 0;
 state = cStates.follow;
-if (instance_exists(oCharacter))
-{
-target_x = 0;
-target_y = 0;
-}
+
 target_zoom = zoom;
 station_object = noone;
 
@@ -51,3 +47,6 @@ bg_color = make_color_rgb(36, 34, 35);
 //	window_set_size(global.camera_width*3, global.camera_width*3);
 //	global.camera_set_window_size = true;
 //}
+
+target_x = x;
+target_y = y;

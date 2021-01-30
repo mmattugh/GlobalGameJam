@@ -1,0 +1,98 @@
+/// @description 
+
+var selected_dir = global.key_down - global.key_up;
+var selected_pressed = global.key_interact;
+
+// set selected
+if (delay > 0) {
+	delay--;
+	selected_dir = 0;
+}
+
+if (selected_dir != 0) {
+	delay = 15;
+	// TODO: menu sfx 1
+
+	selected[page] += selected_dir;
+	if (selected[page] < 0) {
+		selected[page] = selected_max[page];	
+	}
+	if (selected[page] > selected_max[page]) {
+		selected[page] = 0;	
+	}
+}
+
+// handle press
+if (selected_pressed) {
+	// TODO: menu sfx 2
+	
+	switch page {
+		case 0:
+	
+		switch selected[page] {
+			case 0:
+			
+			instance_create_depth(0,0,depth,oRoomTransition);
+			
+			break;
+			case 1:
+			
+			page = 1;
+			
+			break;
+		}
+	
+		break;
+		case 1:
+	
+		switch selected[page] {
+			case 0:
+			
+			page = 0;
+			
+			break;
+			case 1:
+			
+			global.screenshake_intensity = 1-global.screenshake_intensity;
+			update_text();
+			
+			break;
+			case 2:
+			
+			if global.music_volume > 0 {
+				global.music_volume = 0;
+			} else {
+				global.music_volume = 0.5;
+			}			
+			update_text();
+			
+			break;
+			case 3:
+			
+			if global.sound_volume > 0 {
+				global.sound_volume = 0;
+			} else {
+				global.sound_volume = 0.7;
+			}
+			update_text();
+			
+			break;
+		}
+	
+		break;
+	}
+}
+
+// move camera
+var s = 4*dsin(current_time * 0.08);
+var c = 2*dcos(current_time * 0.12);
+	oCamera.x = room_width/2 + c;
+
+switch page {
+	case 0:
+	oCamera.y = lerp(oCamera.y, room_height/2 + s, 0.4);
+	break;
+	case 1:
+	oCamera.y = lerp(oCamera.y, 3*room_height/2+s, 0.4);
+	break;
+}
