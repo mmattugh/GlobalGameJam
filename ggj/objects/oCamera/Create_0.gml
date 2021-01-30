@@ -22,8 +22,11 @@ screenshake_curve = 0.9;
 // 
 screenshake = 0;
 state = cStates.follow;
+if (instance_exists(oCharacter))
+{
 target_x = 0;
 target_y = 0;
+}
 target_zoom = zoom;
 station_object = noone;
 
