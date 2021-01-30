@@ -108,8 +108,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f4f80e48-e68e-4ee1-bc57-1c6874b99049","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites/Sprites.yy",
+    "name": "Terrain",
+    "path": "folders/Sprites/Terrain.yy",
   },
   "resourceVersion": "1.0",
   "name": "sGhostLaserForeshadow",

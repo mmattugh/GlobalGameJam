@@ -6,6 +6,7 @@ enum pStates {
 	follow_trail,
 	launch_from_trail,
 	death,
+	freeze,
 }
 
 // movement parameters -- tweak these

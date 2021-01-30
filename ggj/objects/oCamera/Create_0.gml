@@ -42,6 +42,8 @@ view_enabled	= true;
 view_visible[0] = true;
 view_camera[0]	= camera;
 
+display_set_gui_size(global.camera_width, global.camera_height);
+
 bg_color = make_color_rgb(36, 34, 35);
 
 //surface_resize(application_surface, global.camera_width*2, global.camera_height*2);
