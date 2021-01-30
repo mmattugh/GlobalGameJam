@@ -38,7 +38,7 @@ switch state {
 		oCamera.screenshake += 7;
 		
 		var ghost_direction = 90;
-		with instance_create_layer(x,y-8,layer,oGhost) 
+		with instance_create_depth(x,y-8,depth,oGhost) 
 		{
 			move_direction = ghost_direction;
 			global.key_interact = false;

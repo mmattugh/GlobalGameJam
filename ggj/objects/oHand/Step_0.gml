@@ -9,6 +9,13 @@ if (global.key_interact) && (!goback)
 {
 	instance_create_depth(x,y,0,oCharacter);
 	instance_create_depth(0,0,0,oCamera);
+	
+	// lets the camera positions itself, avoids graphical
+	// glitch
+	with oCamera {
+		event_perform(ev_step, 0);	
+	}
+	
 	image_index = 1;
 	goback = true;
 

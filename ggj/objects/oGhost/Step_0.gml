@@ -67,7 +67,7 @@ if (go_back) {
 		this_frame = !this_frame;
 	
 		if (this_frame) {
-			var trail_new = instance_create_layer(x,y,layer,oGhostTrail);
+			var trail_new = instance_create_depth(x,y,depth,oGhostTrail);
 	
 			var forgiveness_time = 40 * (max_spd+1-spd);
 			with trail_new {

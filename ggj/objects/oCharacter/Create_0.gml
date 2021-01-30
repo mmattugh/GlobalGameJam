@@ -47,3 +47,15 @@ death_restart_delay = death_restart_delay_max;
 trail_sound_id = noone;
 trail_sound_pitch = 0;
 
+if !(instance_exists(oCamera)) {
+	instance_create_depth(x,y,depth,oCamera);
+	
+	oCamera.follow_lerp = 1;
+	with oCamera {
+		event_perform(ev_step, 0);	
+	}
+	oCamera.follow_lerp = oCamera.follow_lerp_init;
+}
+
+
+

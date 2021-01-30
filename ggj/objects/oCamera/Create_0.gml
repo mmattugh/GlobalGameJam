@@ -12,7 +12,8 @@ enum cStates {
 zoom = 1;
 zoom_lerp = 0.1;
 
-follow_lerp = 0.15;
+follow_lerp_init = 0.15;
+follow_lerp = follow_lerp_init;
 y_offset = 32;
 follow_object = oCharacter;
 screenshake_decrease = 1.5;
