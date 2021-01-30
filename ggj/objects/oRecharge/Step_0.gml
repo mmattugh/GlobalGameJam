@@ -13,10 +13,6 @@ switch (state)
 			direction = 90;
 		}
 		
-		
-		
-		
-		
 		depth = 0;
 		sprite_index = sRecharge
 		mask_index = sRecharge
@@ -33,7 +29,7 @@ switch (state)
 	{
 		sprite_index = sRecharge_Hit;
 		id.health_ = 0;
-		if (animation_end()) state = recharge.disabled;
+		if (ceil(image_index) == 2) state = recharge.disabled;
 	}break;
 	case recharge.disabled:
 	{
