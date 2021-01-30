@@ -1,13 +1,14 @@
 /// @description 
 timer--;
 
-if (timer-30 == 0) {
+if (timer-laser_telegraph_time == 0) {
 	var target_x = x;
 	var target_y = y;
 	
 	do {
-		instance_create_depth(target_x,target_y,depth-1,oLaserTelegraph);
-		
+		var inst = instance_create_depth(target_x,target_y,depth-1,oLaserTelegraph);
+		inst.life = laser_telegraph_time;
+
 		target_x += lengthdir_x(16, image_angle);
 		target_y += lengthdir_y(16, image_angle);
 		
@@ -21,7 +22,8 @@ if (timer == 0) {
 	var target_y = y;
 	
 	do {
-		instance_create_depth(target_x,target_y,depth-1,oLaser);
+		var inst = instance_create_depth(target_x,target_y,depth-1,oLaser);
+		inst.life = laser_time;
 		
 		target_x += lengthdir_x(16, image_angle);
 		target_y += lengthdir_y(16, image_angle);
