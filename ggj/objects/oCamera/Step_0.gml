@@ -45,14 +45,14 @@ if instance_exists(follow_object) {
 		break;
 		case cStates.follow_x: 
 		target_x = follow_object.x;
-		target_y = station_object.y;
+		target_y = station_object.y + station_object.sprite_height/2;
 		break;	
 		case cStates.follow_y: 
-		target_x = station_object.x;
+		target_x = station_object.x + station_object.sprite_width/2;
 		target_y = follow_object.y;
 		break;	
 		case cStates.centered: 
-		target_x = station_object.x;
+		target_x = station_object.x + station_object.sprite_width/2;
 		target_y = station_object.y;	
 		break;	
 	}

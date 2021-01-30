@@ -15,6 +15,7 @@ if (forgiveness > 0) {
     
     if (forgiveness <= 0) {
         mask_index = sprite_index;    
+		
     }
 }
 

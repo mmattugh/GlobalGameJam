@@ -1,4 +1,4 @@
-
+y = ystart + 2*dsin(current_time*0.2);
 
 switch (state)
 {
