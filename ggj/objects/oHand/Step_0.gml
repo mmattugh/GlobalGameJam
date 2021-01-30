@@ -9,6 +9,7 @@ if (global.key_interact) && (!goback)
 {
 	instance_create_depth(x,y,0,oCharacter);
 	instance_create_depth(0,0,0,oCamera);
+	instance_create_depth(0,0,0,oMusic);
 	
 	// lets the camera positions itself, avoids graphical
 	// glitch
