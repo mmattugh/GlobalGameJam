@@ -69,7 +69,7 @@
   ],
   "parent": {
     "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "path": "folders/Sprites/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sGhostLaser",

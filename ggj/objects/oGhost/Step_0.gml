@@ -1,5 +1,15 @@
 /// @description 
 
+if oCharacter.state == pStates.death {
+	instance_destroy(oGhostTrail);
+	instance_destroy();
+	
+	instance_create_depth(x,y,depth-1,fxEnd);
+	
+	exit;	
+}
+
+
 if (go_back) {
 	image_index = 1;
 	
@@ -26,7 +36,7 @@ if (go_back) {
 		
 		x = trail_target.x;
 		y = trail_target.y;
-		instance_destroy(trail_target);
+		instance_destroy(trail_target, false);
 		
 		trail_length--;
 		
@@ -45,6 +55,12 @@ if (go_back) {
 	}
 } else {
 	switch oCharacter.state {
+		case pStates.death: #region
+	
+		instance_destroy(oGhostTrail);
+		instance_destroy();		
+	
+		break; #endregion
 		case pStates.ghost			  : #region
 	
 		#region create new trail object
@@ -90,9 +106,15 @@ if (go_back) {
 		}
 		
 		if (place_meeting(x,y,oLaser)) {
-			destroy_self();	
+			//destroy_self();		
 			
-			// TODO: zapped sfx
+			if (audio_is_playing(trail_sound_id)) {
+				audio_stop_sound(trail_sound_id);	
+			}
+			
+			// TODO: zapped sfx			
+			oCharacter.state = pStates.death;
+			exit;
 		}
 	
 		var inst = instance_place(x,y,oGhostTrail);
@@ -112,7 +134,6 @@ if (go_back) {
 		#endregion
 	
 		#region move
-	
 		var turn_direction = global.key_left - global.key_right;
 		var turn_direction_pressed = global.key_left_p - global.key_right_p;
 		move_direction = angle_lerp(move_direction, move_direction + turn_direction * turn_speed, turn_lerp);

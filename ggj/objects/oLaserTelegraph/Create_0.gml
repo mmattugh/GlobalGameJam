@@ -1,2 +1,2 @@
 /// @description 
-life = 10;
+life = 30;
