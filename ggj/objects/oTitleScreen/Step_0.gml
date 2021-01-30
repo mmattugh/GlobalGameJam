@@ -11,7 +11,8 @@ if (delay > 0) {
 
 if (selected_dir != 0) {
 	delay = 15;
-	// TODO: menu sfx 1
+	play_sound(Footsteps_01, 50, false, 1.0, 0.02, global.sound_volume);
+
 
 	selected[page] += selected_dir;
 	if (selected[page] < 0) {
@@ -24,7 +25,7 @@ if (selected_dir != 0) {
 
 // handle press
 if (selected_pressed) {
-	// TODO: menu sfx 2
+	play_sound(Land, 50, false, 1.0, 0.02, global.sound_volume);
 	
 	switch page {
 		case 0:

@@ -71,7 +71,7 @@ if (go_back) {
 		if (this_frame) {
 			var trail_new = instance_create_depth(x,y,depth,oGhostTrail);
 	
-			var forgiveness_time = 40 * (max_spd+1-spd);
+			var forgiveness_time = 20 * (max_spd+1-spd);
 			with trail_new {
 				image_xscale = 0;
 				image_yscale = 0;
@@ -114,8 +114,10 @@ if (go_back) {
 				audio_stop_sound(trail_sound_id);	
 			}
 			
-			// TODO: zapped sfx			
 			oCharacter.state = pStates.death;
+			play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
+	show_debug_message("zapped at ghost");
+
 			exit;
 		}
 	

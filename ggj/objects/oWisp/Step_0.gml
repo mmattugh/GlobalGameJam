@@ -32,8 +32,8 @@ switch state {
 
 
 	if place_meeting(x,y,oCharacter) {
-		// TODO: wisp collect sfx
-	
+		play_sound(Self_Wisp_Collect, 50, false, 1.0, 0.02, global.sound_volume);
+
 		instance_destroy();
 	}
 	break;

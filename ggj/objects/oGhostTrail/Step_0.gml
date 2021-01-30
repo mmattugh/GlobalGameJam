@@ -26,7 +26,10 @@ if (place_meeting(x,y,oLaser)) {
 		audio_stop_sound(oGhost.trail_sound_id);	
 	}
 			
-	// TODO: zapped sfx			
 	oCharacter.state = pStates.death;
+	play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
+	
+		show_debug_message("zapped at trail");
+
 	exit;
 }

@@ -1,6 +1,6 @@
 
 if place_meeting(x,y,oCharacter) {
-	// TODO: get soul sfx
+	play_sound(Soul_Shatter, 50, false, 1.0, 0.02, global.sound_volume);
 	
 	scr_freeze(60)
 	oCamera.screenshake += 2;

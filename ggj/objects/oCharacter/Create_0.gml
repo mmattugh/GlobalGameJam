@@ -45,6 +45,8 @@ death_delay = 5;
 death_restart_delay_max = 15;
 death_restart_delay = death_restart_delay_max;
 
+played_footstep_sound = false;
+
 trail_sound_id = noone;
 trail_sound_pitch = 0;
 

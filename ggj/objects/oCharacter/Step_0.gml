@@ -3,7 +3,7 @@ on_ground = place_meeting(x,y+1,Solid);
 mask_index = sPlayerHitbox;
 
 // get hit by laser
-if (place_meeting(x,y,oLaser)) {
+if (place_meeting(x,y,oLaser) and state != pStates.death) {
 	//destroy_self();		
 	
 	if (audio_is_playing(trail_sound_id)) {
@@ -14,9 +14,12 @@ if (place_meeting(x,y,oLaser)) {
 	//      Camera      //
 	//  //  //  //  //  //
 	scr_freeze(8);
-			
-	// TODO: zapped sfx			
-	oCharacter.state = pStates.death;
+				
+	state = pStates.death;
+	play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
+	
+	show_debug_message("zapped at player");
+	
 	exit;
 }
 
@@ -244,6 +247,11 @@ switch state {
 	
 	if !on_ground {
 		image_speed = 0;
+		
+		if (sprite_index != sCharacter_Air) {
+			play_sound(Self_Jump, 50, false, 1.0, 0.05, global.sound_volume);	
+		}
+		
 		sprite_index = sCharacter_Air;
 		
 		if (vsp > 0.2) image_index = 2;
@@ -254,11 +262,24 @@ switch state {
 			instance_create_depth(x,y,depth+1,fxLand);			
 			draw_xscale = 1.3;
 			draw_yscale = 0.7;
+			
+			play_sound(Land, 50, false, 1.0, 0.05, global.sound_volume);
 		}
 		
 		image_speed = 1;
 		if (hsp != 0) {
 			sprite_index = sCharacter_Walk;
+			
+			// do footstep sound
+			if (ceil(image_index) == 3) 
+			or (ceil(image_index) == 6) {
+				if (!played_footstep_sound) {
+					play_sound(choose(Footsteps_01, Footsteps_02), 50, false, 1.0, 0.05, global.sound_volume);	
+					played_footstep_sound = true;	
+				}
+			} else {
+				played_footstep_sound = false;	
+			}
 		} else {
 			sprite_index = sCharacter_Idle;
 		}
