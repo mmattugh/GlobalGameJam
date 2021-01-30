@@ -15,6 +15,7 @@ if (selected_dir != 0) {
 
 
 	selected[page] += selected_dir;
+	x_offsets[selected[page]] = 10;
 	if (selected[page] < 0) {
 		selected[page] = selected_max[page];	
 	}
@@ -24,9 +25,7 @@ if (selected_dir != 0) {
 }
 
 // handle press
-if (selected_pressed) {
-	play_sound(Land, 50, false, 1.0, 0.02, global.sound_volume);
-	
+if (selected_pressed) {	
 	switch page {
 		case 0:
 	
@@ -82,6 +81,9 @@ if (selected_pressed) {
 	
 		break;
 	}
+	
+	play_sound(Land, 50, false, 1.0, 0.02, global.sound_volume);
+	x_offsets = array_create(4, 7);
 }
 
 // move camera
@@ -97,3 +99,7 @@ switch page {
 	oCamera.y = lerp(oCamera.y, 3*room_height/2+s, 0.4);
 	break;
 }
+
+for (var i = 0; i < 4; i++) {
+	x_offsets[i] = lerp(x_offsets[i], 0, 0.2);
+}	

@@ -7,6 +7,8 @@ delay = 0;
 selected[0] = 0;
 selected_max[0] = 1;
 
+x_offsets = array_create(4, 0);
+
 selected[1] = 0;
 selected_max[1] = 3;
 
