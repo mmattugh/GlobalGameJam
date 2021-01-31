@@ -1,5 +1,5 @@
 
-var w = string_width("m");
+var w = string_width("m") - 3;
 for (var i = 0; i <= selected_max[page]; i++) {
 	var xx = text_x;
 	var yy = text_y + i * string_height("M");
