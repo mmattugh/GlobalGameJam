@@ -1,5 +1,17 @@
 /// @description Insert description here
-on_ground = place_meeting(x,y+1,Solid);
+on_ground = place_meeting(x,y+1,Solid) 
+
+// coyote time
+if (on_ground) {
+	coyote_timer = coyote_time;	
+} else {
+	if (vsp < 0) { // if going up (jumping)
+		coyote_timer = 0;
+	} else {
+		on_ground = (coyote_timer-- > 0);
+	}
+}
+
 mask_index = sPlayerHitbox;
 
 // get hit by laser
@@ -190,7 +202,7 @@ switch state {
 	vsp = 0;
 	
 	if (death_delay <= 0) {
-		death_zoom = lerp(death_zoom, 0.5, 0.2);
+		death_zoom = lerp(death_zoom, 0.8, 0.2);
 	
 	} else {
 		death_delay--;	
@@ -201,7 +213,7 @@ switch state {
 	oCamera.target_y = y;
 	
 	
-	if (death_zoom < 0.51) {
+	if (death_zoom < 0.81) {
 		if (death_restart_delay <= 0) {
 			room_restart();	
 		} else {

@@ -20,6 +20,9 @@ launch_hsp  = 5;
 launch_vsp  = 5;
 smoke_FX = 0;
 
+coyote_time = 7;
+coyote_timer = 0;
+
 on_ground = true;
 fall_time = 0;
 
