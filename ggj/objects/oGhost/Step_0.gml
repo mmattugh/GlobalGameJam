@@ -2,6 +2,7 @@
 mask_index = sPlayerHitbox;
 
 if oCharacter.state == pStates.death {
+	
 	instance_destroy(oGhostTrail);
 	instance_destroy();
 	

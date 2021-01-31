@@ -27,6 +27,7 @@
     {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"parent":{"name":"oCharacter","path":"objects/oCharacter/oCharacter.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"oGoTo","path":"objects/oGoTo/oGoTo.yy",},"parent":{"name":"oCharacter","path":"objects/oCharacter/oCharacter.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"pHazard","path":"objects/pHazard/pHazard.yy",},"parent":{"name":"oCharacter","path":"objects/oCharacter/oCharacter.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":7,"eventType":7,"collisionObjectId":null,"parent":{"name":"oCharacter","path":"objects/oCharacter/oCharacter.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

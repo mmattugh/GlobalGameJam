@@ -9,7 +9,7 @@ enum cStates {
 
 
 // parameters
-zoom = 1;
+zoom = 0.9;
 zoom_lerp = 0.1;
 
 follow_lerp_init = 0.15;

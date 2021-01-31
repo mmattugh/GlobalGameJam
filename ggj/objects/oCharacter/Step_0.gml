@@ -26,7 +26,7 @@ if (place_meeting(x,y,oLaser) and state != pStates.death) {
 	//      Camera      //
 	//  //  //  //  //  //
 	scr_freeze(8);
-				
+		image_index = 0;
 	state = pStates.death;
 	play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
 	
@@ -202,7 +202,7 @@ switch state {
 	vsp = 0;
 	
 	if (death_delay <= 0) {
-		death_zoom = lerp(death_zoom, 0.8, 0.2);
+		death_zoom = lerp(death_zoom, 0.9, 0.2);
 	
 	} else {
 		death_delay--;	
@@ -215,7 +215,7 @@ switch state {
 	
 	if (death_zoom < 0.81) {
 		if (death_restart_delay <= 0) {
-			room_restart();	
+			
 		} else {
 			death_restart_delay--;
 		}
@@ -316,7 +316,8 @@ switch state {
 	
 	break; #endregion
 	case pStates.death: #region
-	
+	sprite_index = sCharacter_Death;
+	image_speed = 1;
 	break; #endregion
 }
 
