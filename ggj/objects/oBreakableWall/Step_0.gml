@@ -17,6 +17,8 @@ if (place_meeting(x,y,oCharacter)) {
 		}
 	}
 	
+	instance_create_depth(x,y,depth-3, fxBreakableWallAfterImage);
+
 	
 	// do camera
 	oCamera.screenshake += 3;

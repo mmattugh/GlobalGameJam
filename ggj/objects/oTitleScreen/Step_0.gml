@@ -13,15 +13,16 @@ if (selected_dir != 0) {
 	delay = 15;
 	play_sound(Footsteps_01, 50, false, 1.0, 0.02, global.sound_volume);
 
-
 	selected[page] += selected_dir;
-	x_offsets[selected[page]] = 10;
+
 	if (selected[page] < 0) {
 		selected[page] = selected_max[page];	
 	}
 	if (selected[page] > selected_max[page]) {
 		selected[page] = 0;	
 	}
+	
+	x_offsets[selected[page]] = 10;
 }
 
 // handle press
@@ -96,7 +97,7 @@ switch page {
 	oCamera.y = lerp(oCamera.y, room_height/2 + s, 0.4);
 	break;
 	case 1:
-	oCamera.y = lerp(oCamera.y, 3*room_height/2+s, 0.4);
+	oCamera.y = lerp(oCamera.y, 2*room_height/2+s, 0.4);
 	break;
 }
 
