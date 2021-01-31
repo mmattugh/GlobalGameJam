@@ -4,5 +4,6 @@ state = recharge.enabled;
 enum recharge{
 	enabled,
 	hit,
-	disabled
+	disabled,
+	regen
 }

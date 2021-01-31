@@ -40,10 +40,15 @@ switch (state)
 		depth = 100;
 		sprite_index = sRecharge_Recharge;
 		id.health_ ++;
-		if (id.health_ > 320)
+		if (id.health_ > 305)
 		{
-			state = recharge.enabled;
+			state = recharge.regen;
 		}
 
 	}break;
+	case recharge.regen:
+		sprite_index = sRecharge_Hit;
+		id.health_ = 0;
+		if (ceil(image_index) == 2) state = recharge.enabled;
+	break;
 }
