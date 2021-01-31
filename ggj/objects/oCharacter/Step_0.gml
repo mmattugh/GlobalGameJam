@@ -385,6 +385,8 @@ if (on_ground and has_ghost = false and state == pStates.move) {
 	
 	has_ghost = true;
 	instance_create_depth(x,y,depth-2,fxRecharged);
+	play_sound(Ghost_Recharge, 40, false, 1.0, 0.05, global.sound_volume*0.5);
+
 	
 	oCamera.screenshake += 2;
 		repeat (5)

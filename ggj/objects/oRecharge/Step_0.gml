@@ -23,6 +23,9 @@ switch (state)
 			//oCharacter.hsp = 0;
 			//oCharacter.vsp = 0;
 			// TODO: ghost recharge sfx
+			play_sound(Ghost_Recharge, 40, false, 1.0, 0.05, global.sound_volume*0.5);
+			play_sound(Snap, 10, false, 1.0, 0.01, global.sound_volume);
+
 			
 			scr_freeze(240)
 			mask_index = sNothing;

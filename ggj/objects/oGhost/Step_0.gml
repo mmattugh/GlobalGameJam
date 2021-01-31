@@ -105,7 +105,7 @@ if (go_back) {
 		if	(place_meeting(x,y,oWall) or place_meeting(x,y,pHazard)) {
 			destroy_self();
 			
-			// TODO: bump sfx
+			play_sound(Ghost_Hit_Wall, 0, false, 1.0, 0.02, global.sound_volume*1.2);
 		}
 		
 		if (place_meeting(x,y,oLaser)) {
@@ -176,8 +176,12 @@ if (go_back) {
 
 	// update sfx
 	if (oCharacter.state != pStates.ghost) {
-		//TODO: play end sound
 		audio_stop_sound(trail_sound_id);
+		
+		if (!played_end_sound) {
+			play_sound(End_of_Ghost_Dash, 0, false, 1.0, 0.05, global.sound_volume);
+			played_end_sound = true;
+		}
 	} else {
 		trail_sound_pitch = trail_sound_pitch_min + trail_sound_pitch_multiply * power(trail_length/trail_length_max, 2);
 		audio_sound_pitch(trail_sound_id, trail_sound_pitch);	

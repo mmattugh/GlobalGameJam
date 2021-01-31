@@ -5,6 +5,8 @@ max_spd = 2.5;
 turning_max_spd = 1.75;
 acceleration = 0.5;
 
+played_end_sound = false;
+
 turn_speed = 8;
 turn_lerp = 0.5;
 immune_time = 60;

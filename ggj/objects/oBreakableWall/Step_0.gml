@@ -25,6 +25,7 @@ if (place_meeting(x,y,oCharacter)) {
 	scr_freeze(10)
 	
 	// TODO: block break sfx
+	play_sound(choose(Block_Break_01, Block_Break_02, Block_Break_03), 40, false, 1.0, 0.02, global.sound_volume);
 	
 	instance_destroy(hitbox);
 	instance_destroy();

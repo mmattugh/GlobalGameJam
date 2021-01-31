@@ -23,7 +23,6 @@ if (timer-laser_telegraph_time == 0) {
 		target_x += lengthdir_x(16, image_angle);
 		target_y += lengthdir_y(16, image_angle);
 		
-		// TODO: laser create sfx
 		
 	} until(place_meeting(target_x,target_y,Solid) or place_meeting(target_x,target_y,oBreakableWall));
 }
@@ -49,7 +48,6 @@ if (timer == 0) {
 		target_x += lengthdir_x(16, image_angle);
 		target_y += lengthdir_y(16, image_angle);
 		
-		// TODO: laser create sfx
 		
 	} until(place_meeting(target_x,target_y,Solid) or place_meeting(target_x,target_y,oBreakableWall));
 	

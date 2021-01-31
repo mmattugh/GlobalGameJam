@@ -5,7 +5,8 @@
 	}
 
 	if (instance_number(oSoul) != soul_count) {
-		// TODO: gate rumble sfx
+		play_sound(Gate_Rumble, 40, false, 1.0, 0.02, global.sound_volume);
+
 		soul_count--;
 		shake = 4;
 		repeat (5) {
