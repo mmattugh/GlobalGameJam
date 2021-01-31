@@ -4,7 +4,7 @@ if (life == 0) {
 }
 
 // remove hitbox after a frame or two
-if (image_index > 2) {
+if (image_index > 1) {
 	mask_index = sNothing;	
 }
 

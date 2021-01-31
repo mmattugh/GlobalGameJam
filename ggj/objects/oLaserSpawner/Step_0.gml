@@ -1,4 +1,6 @@
 /// @description 
+try {
+
 timer--;
 
 if (timer-laser_telegraph_time == 0) {
@@ -52,4 +54,7 @@ if (timer == 0) {
 	} until(place_meeting(target_x,target_y,Solid) or place_meeting(target_x,target_y,oBreakableWall));
 	
 	timer = frequency;
+}
+} catch (e) {
+	
 }

@@ -14,7 +14,7 @@
 	}
 
 	h1, h2, h4, p {
-		text-shadow: 10px 10px #27343A !important;
+		text-shadow: 5px 5px #27343A !important;
 		margin: auto;
 	}
 
@@ -62,21 +62,21 @@
     background-repeat: repeat;
     background-attachment: fixed;
 	
-    -webkit-animation: backgroundScroll 10s linear 1;
+    -webkit-animation: backgroundScroll 20s linear 1;
     -webkit-animation-fill-mode: forwards;
 	-webkit-animation-iteration-count: infinite;
 	
-    animation: backgroundScroll 10s linear 1;
+    animation: backgroundScroll 20s linear 1;
     animation-fill-mode: forwards;
 	animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes backgroundScroll {
 from {background-position: 0 0;}
-to {background-position: 640px 640px;}
+to {background-position: 1280px 640px;}
 }
 
 @keyframes backgroundScroll {
 from {background-position: 0 0;}
-to {background-position: 640px 640px;}
+to {background-position: 1280px 640px;}
 }

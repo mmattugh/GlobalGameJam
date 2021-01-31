@@ -1,5 +1,7 @@
 global.animationSpeed = 0;
 
+#macro DEV_MODE false
+#macro dev:DEV_MODE true
 
 global.camera_width = 320;
 global.camera_height = 320;
