@@ -73,10 +73,10 @@
 
 @-webkit-keyframes backgroundScroll {
 from {background-position: 0 0;}
-to {background-position: 300px 300px;}
+to {background-position: 640px 640px;}
 }
 
 @keyframes backgroundScroll {
 from {background-position: 0 0;}
-to {background-position: 300px 300px;}
+to {background-position: 640px 640px;}
 }

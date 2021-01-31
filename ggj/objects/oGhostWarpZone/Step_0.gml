@@ -16,9 +16,12 @@ if (place_meeting(x,y,oGhost)) {
 
 		
 	}
-	hit_magnitude = max(hit_magnitude, 50);
-	hit_point_x = oGhost.x;
-	hit_point_y = oGhost.y;
+	
+	if instance_exists(oGhost) {
+		hit_magnitude = max(hit_magnitude, 50);
+		hit_point_x = oGhost.x;
+		hit_point_y = oGhost.y;
+	}
 } else {
 	if (hit_by_ghost and instance_exists(oGhost)) {
 		hit_magnitude = hit_magnitude_max*0.5*oGhost.spd;

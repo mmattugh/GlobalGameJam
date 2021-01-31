@@ -19,6 +19,7 @@ switch (state)
 		if (place_meeting(x,y,oCharacter))
 		{
 			oCharacter.has_ghost = true;
+			instance_create_depth(oCharacter.x,oCharacter.y,oCharacter.depth-2,fxRecharged);
 			//oCharacter.hsp = 0;
 			//oCharacter.vsp = 0;
 			// TODO: ghost recharge sfx

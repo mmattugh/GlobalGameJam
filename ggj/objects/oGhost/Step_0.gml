@@ -101,7 +101,7 @@ if (go_back) {
 		#endregion
 	
 		#region check for collision
-		if	(place_meeting(x,y,oWall)) {
+		if	(place_meeting(x,y,oWall) or place_meeting(x,y,pHazard)) {
 			destroy_self();
 			
 			// TODO: bump sfx

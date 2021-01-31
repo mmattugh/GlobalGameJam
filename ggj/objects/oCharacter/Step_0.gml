@@ -383,6 +383,8 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 if (on_ground and has_ghost = false and state == pStates.move) {
 	
 	has_ghost = true;
+	instance_create_depth(x,y,depth-2,fxRecharged);
+	
 	oCamera.screenshake += 2;
 		repeat (5)
 	{
