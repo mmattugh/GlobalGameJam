@@ -25,12 +25,12 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"9d87e3c2-7cc6-407a-a97c-87d1a306e2dc","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"9d87e3c2-7cc6-407a-a97c-87d1a306e2dc","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"LayerId":{"name":"3ed03768-cfe8-4a31-85c1-2841340ea08a","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"9d87e3c2-7cc6-407a-a97c-87d1a306e2dc","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"LayerId":{"name":"439f3682-2714-4311-8e9c-96a8a4299603","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"9d87e3c2-7cc6-407a-a97c-87d1a306e2dc","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"LayerId":{"name":"3ed03768-cfe8-4a31-85c1-2841340ea08a","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sCharacter_Ammo","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"resourceVersion":"1.0","name":"9d87e3c2-7cc6-407a-a97c-87d1a306e2dc","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"2d466529-5000-4b6b-ba88-e972c8c1b24a","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2d466529-5000-4b6b-ba88-e972c8c1b24a","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"LayerId":{"name":"3ed03768-cfe8-4a31-85c1-2841340ea08a","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"2d466529-5000-4b6b-ba88-e972c8c1b24a","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"LayerId":{"name":"439f3682-2714-4311-8e9c-96a8a4299603","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"2d466529-5000-4b6b-ba88-e972c8c1b24a","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"LayerId":{"name":"3ed03768-cfe8-4a31-85c1-2841340ea08a","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sCharacter_Ammo","path":"sprites/sCharacter_Ammo/sCharacter_Ammo.yy",},"resourceVersion":"1.0","name":"2d466529-5000-4b6b-ba88-e972c8c1b24a","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
