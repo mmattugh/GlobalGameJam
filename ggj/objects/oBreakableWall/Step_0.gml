@@ -1,6 +1,6 @@
 
 if (oCharacter.state != pStates.move) or 
-   (abs(oCharacter.vsp) > oCharacter.jump_accel*1.5) or
+   (abs(oCharacter.vsp) > oCharacter.jump_accel) or
    (abs(oCharacter.hsp) > oCharacter.move_speed) {
 	hitbox.mask_index = sNothing;	
 } else {
