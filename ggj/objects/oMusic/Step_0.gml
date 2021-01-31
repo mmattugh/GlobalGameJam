@@ -1,5 +1,12 @@
 /// @description
 
+// handle muffle
+if (instance_exists(oGhost)) {
+	muffle = true;	
+} else {
+	muffle = false;	
+}
+
 // handle html5
 if (track_index != noone and track_id != noone and !audio_is_playing(track_id)) {
 	if (forgiveness_timer < 0) {
@@ -17,6 +24,7 @@ if (track_index != noone and track_id == noone) {
 	// if there's just one music manager
 	if (instance_number(object_index) == 1) {
 		track_id = play_sound(track_index, 100, true, 1.0, 0, global.music_volume);
+		muffled_track_id = play_sound(muffled_track_index, 100, true, 1.0, 0, global.music_volume);
 		fade_in = true;
 	} else {
 		// are they playing the same track as us?
@@ -28,8 +36,8 @@ if (track_index != noone and track_id == noone) {
 		} else {
 			// fade out the other instance
 			inst.fade_out = true;
-			
-			track_id = play_sound(track_index, 0, true, 1.0, 0, global.music_volume);
+			muffled_track_id = play_sound(track_index, 100, true, 1.0, 0, global.music_volume);
+			track_id = play_sound(track_index, 100, true, 1.0, 0, global.music_volume);
 			fade_in = true;
 		}		
 	}
@@ -43,9 +51,10 @@ if (fade_out) {
 		instance_destroy();
 	}
 	
-	audio_sound_gain(track_id, volume*global.music_volume, 0);
 } else if (fade_in) {
 	
 	volume += 1/fade_in_time;
-	audio_sound_gain(track_id, volume*global.music_volume, 0);
 }
+
+audio_sound_gain(track_id, volume*global.music_volume*(1-muffle), 0);
+audio_sound_gain(muffled_track_id, volume*global.music_volume*muffle, 0);

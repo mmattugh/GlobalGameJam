@@ -5,6 +5,14 @@ if (timer-laser_telegraph_time == 0) {
 	var target_x = x;
 	var target_y = y;
 	
+	if (x > camera_get_view_x(view_camera[0]) and x < camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]))
+	and(y > camera_get_view_y(view_camera[0]) and y < camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0])) 
+	{
+		
+		play_sound(Laser_Telegraph, 5, false, 1.0, 0.01, global.sound_volume);
+	
+	}
+	
 	do {
 		var inst = instance_create_depth(target_x,target_y,depth-1,oLaserTelegraph);
 		inst.life = laser_telegraph_time;
@@ -22,6 +30,13 @@ if (timer-laser_telegraph_time == 0) {
 if (timer == 0) {
 	var target_x = x;
 	var target_y = y;
+	
+	if (x > camera_get_view_x(view_camera[0]) and x < camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]))
+	and(y > camera_get_view_y(view_camera[0]) and y < camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0])) {
+		
+		play_sound(Laser_Shoot, 0, false, 1.0, 0.01, global.sound_volume);
+	
+	}
 	
 	do {
 		var inst = instance_create_depth(target_x,target_y,depth-1,oLaser);
