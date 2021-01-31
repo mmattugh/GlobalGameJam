@@ -48,5 +48,7 @@ bg_color = make_color_rgb(36, 34, 35);
 //	global.camera_set_window_size = true;
 //}
 
+
+
 target_x = x;
 target_y = y;

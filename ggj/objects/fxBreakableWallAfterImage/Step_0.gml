@@ -1,1 +1,1 @@
-if (ceil(image_index) == image_number) instance_destroy();
+if (image_index >= image_number-1.5) instance_destroy();
