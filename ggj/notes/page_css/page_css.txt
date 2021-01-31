@@ -1,0 +1,82 @@
+	#inner_column .button:hover {
+	  text-shadow: none !important;
+	}
+	#inner_column .button {
+	  text-shadow: none !important;
+	}
+
+	.right_col.column {
+	  display: none !important;
+	}
+
+	.header_buy_row {
+	  display: none !important;
+	}
+
+	h1, h2, h4, p {
+		text-shadow: 10px 10px #27343A !important;
+		margin: auto;
+	}
+
+	.more_information_toggle {
+	  text-align: center !important;
+	  width: 50% !important;
+	  margin-left: auto !important;
+	  margin-right:  auto !important;
+	  margin-top: 100px !important;
+	}
+	.buy_row {
+	  width: 50% !important;
+	  margin-left: auto !important;
+	  margin-right:  auto !important;
+	}
+	.uploads {
+	  width: 50% !important;
+	  margin-left: auto !important;
+	  margin-right:  auto !important;
+	  margin-bottom: 5% !important;
+	}
+	#download {
+	  text-align: center !important;
+	  margin-left: auto !important;
+	  margin-right:  auto !important;
+	}
+
+	@media only screen and (min-width: 760px) {
+	  #wrapper h3 {
+	    width: 500px !important;
+	    margin-left: auto !important;
+	    margin-right:  auto !important;
+	    margin-top: 30px !important;
+	    font-size: 28px !important;
+	  }
+
+	  #wrapper.formatted_description {
+	    width: 760px !important;
+	    margin-left: auto !important;
+	    margin-right:  auto !important;
+	  }
+	}
+	
+	.wrapper  {
+    background-repeat: repeat;
+    background-attachment: fixed;
+	
+    -webkit-animation: backgroundScroll 10s linear 1;
+    -webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: infinite;
+	
+    animation: backgroundScroll 10s linear 1;
+    animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes backgroundScroll {
+from {background-position: 0 0;}
+to {background-position: 300px 300px;}
+}
+
+@keyframes backgroundScroll {
+from {background-position: 0 0;}
+to {background-position: 300px 300px;}
+}
