@@ -237,8 +237,8 @@ switch state {
 	break; #endregion
 	
 	case pStates.bench:
-	var targ_x = oBench.x + oBench.sprite_width/2
-	var targ_y = oBench.y + 8;
+	var targ_x = oBench.x;
+	var targ_y = oBench.y - 8;
 	x = lerp(x, targ_x, 0.4);
 	
 	if abs(x-targ_x) < 5 {
