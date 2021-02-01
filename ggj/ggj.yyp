@@ -154,6 +154,7 @@
     {"id":{"name":"fFont","path":"fonts/fFont/fFont.yy",},"order":0,},
     {"id":{"name":"level_3_1","path":"rooms/level_3_1/level_3_1.yy",},"order":19,},
     {"id":{"name":"test_controls","path":"rooms/test_controls/test_controls.yy",},"order":4,},
+    {"id":{"name":"ngapi","path":"extensions/ngapi/ngapi.yy",},"order":0,},
     {"id":{"name":"oLaserSpawner","path":"objects/oLaserSpawner/oLaserSpawner.yy",},"order":14,},
     {"id":{"name":"level_laser_3","path":"rooms/level_laser_3/level_laser_3.yy",},"order":18,},
     {"id":{"name":"sFX_End","path":"sprites/sFX_End/sFX_End.yy",},"order":2,},
