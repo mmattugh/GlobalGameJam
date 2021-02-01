@@ -35,12 +35,24 @@ if (selected_pressed) {
 		switch selected[page] {
 			case 0:
 			
-			instance_create_depth(0,0,depth,oRoomTransition);
+			var inst = instance_create_depth(0,0,depth,oRoomTransition);
+			inst.target_room = target_room;
+			
+			// save states
+			ini_open(SAVE_FILE);
+
+			ini_write_real("config", "screenshake_intensity", global.screenshake_intensity );
+			ini_write_real("config", "sound_volume",  global.sound_volume			 	   );
+			ini_write_real("config", "music_volume",  global.music_volume			 	   );
+
+			ini_close();
+			break;
+			case 1:		
+			page = 1;
 			
 			break;
-			case 1:
-			
-			page = 1;
+			case 2:			
+			page = 2;
 			
 			break;
 		}
@@ -80,29 +92,68 @@ if (selected_pressed) {
 			update_text();
 			
 			break;
+			case 4:
+			global.speedrun = 1-global.speedrun;
+			update_text();
+			break;
+			case 5:
+			play_sound(Ghost_Hit_Wall, 0, false, 1.0, 0.02, global.sound_volume);
+
+			if (text[1][5] == "are you sure") {
+				file_delete(SAVE_FILE);
+				game_restart();
+			} else {
+				text[1][5] = "are you sure";
+			}
+			break;
 		}
+
+		break;
+		case 2:
 	
+		switch selected[page] {
+			case 0:
+			
+			page = 0;
+			
+			break;
+			case 1:
+			
+			break;
+			case 2:
+			
+			break;
+			case 3:
+			
+			break;
+		}
 		break;
 	}
 	
 	play_sound(Land, 50, false, 1.0, 0.02, global.sound_volume);
-	x_offsets = array_create(4, 7);
+	x_offsets = array_create(7, 7);
 }
 
 // move camera
 var s = 4*dsin(current_time * 0.08);
 var c = 2*dcos(current_time * 0.12);
-	oCamera.x = room_width/2 + c;
+	
 
 switch page {
 	case 0:
 	oCamera.y = lerp(oCamera.y, room_height/2 + s, 0.4);
+	oCamera.x = lerp(oCamera.x, room_width/2 + c, 0.4);
 	break;
 	case 1:
-	oCamera.y = lerp(oCamera.y, 2*room_height/2+s, 0.4);
+	oCamera.y = lerp(oCamera.y, room_height+s, 0.4);
+	oCamera.x = lerp(oCamera.x, room_width/2 + c, 0.4);
+	break;
+	case 2:
+	oCamera.y = lerp(oCamera.y, room_height/2 + s, 0.4);
+	oCamera.x = lerp(oCamera.x, room_width, 0.4);
 	break;
 }
 
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < 6; i++) {
 	x_offsets[i] = lerp(x_offsets[i], 0, 0.2);
 }	

@@ -1,5 +1,5 @@
 /// @description 
-
+target_room = noone;
 state = 0;
 
 out_duration = 7;

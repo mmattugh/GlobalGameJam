@@ -17,6 +17,10 @@
 		text-shadow: 5px 5px #27343A !important;
 		margin: auto;
 	}
+	
+	a:hover, p:hover {
+		animation: dev_shake 0.75s linear infinite;
+	}
 
 	.more_information_toggle {
 	  text-align: center !important;
@@ -79,4 +83,20 @@ to {background-position: 1280px 640px;}
 @keyframes backgroundScroll {
 from {background-position: 0 0;}
 to {background-position: 1280px 640px;}
+}
+
+@keyframes dev_shake {
+     0% { transform: translate(0px, 0px);}
+    25% { transform: translate(0px, 1px);}
+    50% { transform: translate(0px, 0px); }
+    75% { transform: translate(0px,-1px); }
+   100% { transform: translate(0px, 0px); }
+}
+
+@-webkit-keyframes dev_shake {
+     0% { transform: translate(0px, 0px);}
+    25% { transform: translate(0px, 1px);}
+    50% { transform: translate(0px, 0px); }
+    75% { transform: translate(0px,-1px); }
+   100% { transform: translate(0px, 0px); }
 }

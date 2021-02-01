@@ -7,7 +7,12 @@ switch state {
 	if (timer == out_duration) {
 		timer = in_duration;
 		state = 1;
-		room_goto_next();
+		
+		if (target_room == noone) {
+			room_goto_next();
+		} else {
+			room_goto(target_room);	
+		}
 	}
 	break;
 	case 1:	
@@ -25,6 +30,10 @@ switch state {
 	if (timer == 0) {
 		if (instance_exists(oCharacter)) {
 			oCharacter.state = pStates.move;
+		}
+		
+		if !instance_exists(oMusic) {
+			instance_create_depth(0,0,0,oMusic);	
 		}
 		
 		instance_destroy();

@@ -61,3 +61,37 @@ function play_sound() {
 	}
 	return _id;
 }
+
+//@param steps
+function steps_to_time(steps) {
+	var hour = 0;
+	while (steps > 60*60*60) {
+		steps -= 60*60*60;
+		hour++;
+	}
+	
+	var minute = 0;
+	while (steps > 60*60) {
+		steps -= 60*60;
+		minute++;
+	}
+	
+	var second = 0;
+	while (steps > 60) {
+		steps -= 60;
+		second++;
+	}
+	
+	var out = "";
+	if hour != 0 {
+		out += string(hour) + ":";	
+	}
+	if minute != 0 {
+		out += string(minute) + ":";	
+	}
+	if second != 0 {
+		out += string(second) + ":";	
+	}
+	out += string(steps);
+	return out;
+}
