@@ -1,7 +1,11 @@
 /// @description 
+
+instance_create_depth(0,0,0,oMusic);
+oMusic.track_index = SELF_TITLE_SCREEN_LOOP;
+oMusic.muffled_track_index = noone;
+
 page = 0;
 pages = 3;
-
 delay = 0;
 
 ini_open(SAVE_FILE);
@@ -34,7 +38,7 @@ text[2][3] = "connor grail";
 x_offsets = array_create(6, 0);
 
 text_x = 192;
-text_y = 192;
+text_y = 500;
 
 update_text = function() {
 	text[1][0] = "back";

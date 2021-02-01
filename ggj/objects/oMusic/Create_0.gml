@@ -9,7 +9,7 @@ muffled_track_id = noone;
 muffle = 0;
 
 fade_in_time = 1; 
-fade_out_time = 90; // 1.5 seconds
+fade_out_time = 1; // 1.5 seconds
 
 fade_in = false;
 fade_out = false;

@@ -20,6 +20,11 @@ launch_hsp  = 5;
 launch_vsp  = 5;
 smoke_FX = 0;
 
+combo = 0;
+combo_sin = 0;
+combo_exclamations = "";
+combo_just_now = 0;
+
 coyote_time = 7;
 coyote_timer = 0;
 
@@ -52,6 +57,11 @@ played_footstep_sound = false;
 
 trail_sound_id = noone;
 trail_sound_pitch = 0;
+
+white = make_color_rgb(225, 229, 206);
+red = make_color_rgb(201, 99, 99);
+black = make_color_rgb(36, 34, 35);
+
 
 if !(instance_exists(oCamera)) {
 	instance_create_depth(x,y,depth,oCamera);

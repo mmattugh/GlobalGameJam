@@ -4,6 +4,8 @@ var selected_dir = global.key_down - global.key_up;
 var selected_pressed = global.key_interact;
 
 oCamera.zoom = lerp(oCamera.zoom, 1.1, 0.1);
+text_x = lerp(text_x , 192, 0.2);
+text_y = lerp(text_y , 192, 0.2);
 
 // set selected
 if (delay > 0) {
@@ -38,6 +40,10 @@ if (selected_pressed) {
 			var inst = instance_create_depth(0,0,depth,oRoomTransition);
 			inst.target_room = target_room;
 			
+			with oMusic {
+				fade_out = true;
+				volume = 0;
+			}
 			// save states
 			ini_open(SAVE_FILE);
 
@@ -118,13 +124,13 @@ if (selected_pressed) {
 			
 			break;
 			case 1:
-			
+			url_open_ext("https://twitter.com/dev_dwarf", "_blank");
 			break;
 			case 2:
-			
+			url_open_ext("https://twitter.com/mmatt_ugh", "_blank");
 			break;
 			case 3:
-			
+			url_open_ext("https://twitter.com/ConnorGrail", "_blank");
 			break;
 		}
 		break;

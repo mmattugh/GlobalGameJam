@@ -1,4 +1,4 @@
-
+draw_set_font(fFont);
 var w = string_width("m") - 3;
 for (var i = 0; i <= selected_max[page]; i++) {
 	var xx = text_x;

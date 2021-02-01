@@ -33,7 +33,9 @@ switch state {
 		}
 		
 		if !instance_exists(oMusic) {
-			instance_create_depth(0,0,0,oMusic);	
+			if room != level_1 {
+				instance_create_depth(0,0,0,oMusic);	
+			}
 		}
 		
 		instance_destroy();

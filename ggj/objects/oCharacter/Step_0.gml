@@ -40,6 +40,14 @@ switch state {
 	case pStates.move			  : #region
 	// goto ghost state
 	if (global.key_interact) && (has_ghost) {
+		
+		combo++;
+		combo_just_now = 5;
+		
+		if (combo >= 7) {
+			combo_exclamations += "!";	
+		}
+		
 		state = pStates.ghost;
 		//fx
 		instance_create_depth(x,y-8,0,fxStart);
@@ -384,6 +392,9 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 if (on_ground and has_ghost = false and state == pStates.move) {
 	
 	has_ghost = true;
+	combo = 0;
+	combo_exclamations = "";	
+
 	instance_create_depth(x,y,depth-2,fxRecharged);
 	play_sound(Ghost_Recharge, 40, false, 1.0, 0.05, global.sound_volume*0.5);
 
@@ -399,4 +410,5 @@ if (on_ground and has_ghost = false and state == pStates.move) {
 	}
 }
 
+combo_sin = dsin(current_time*0.4);
 #endregion

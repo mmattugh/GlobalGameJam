@@ -5,6 +5,16 @@ if (instance_exists(oCharacter))
 	if (round(oCharacter.y) > y) or (global.key_down)
 	{
 		mask_index = sNothing;
+		
+		if (global.key_down) {
+			reset = 5;
+		}
 	}
-	else mask_index = sPlatform 
+	else {
+		if (reset == 0) {	
+			mask_index = sPlatform 
+		} else {
+			reset--;	
+		}
+	}
 }

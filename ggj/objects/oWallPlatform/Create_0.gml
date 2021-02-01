@@ -2,3 +2,5 @@
 // You can write your code in this editor
 sprite_index = -1;
 on = 0;
+
+reset = 0;
