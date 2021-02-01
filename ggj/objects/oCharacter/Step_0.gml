@@ -41,13 +41,6 @@ switch state {
 	// goto ghost state
 	if (global.key_interact) && (has_ghost) {
 		
-		combo++;
-		combo_just_now = 5;
-		
-		if (combo >= 7) {
-			combo_exclamations += "!";	
-		}
-		
 		state = pStates.ghost;
 		//fx
 		instance_create_depth(x,y-8,0,fxStart);
@@ -143,6 +136,18 @@ switch state {
 		state = pStates.launch_from_trail;
 		audio_stop_sound(trail_sound_id);
 		trail_sound_id = noone;
+		
+		// combo stuff
+		combo++;
+		combo_just_now = 5;
+		
+		if (combo >= 3) {
+			play_sound(Combo_Charge, 10, false, 0.5 + combo*0.05, 0., global.sound_volume);
+		}
+		
+		if (combo >= 7) {
+			combo_exclamations += "!";	
+		}
 	}
 	
 	if (instance_exists(oGhostTrail)) {
