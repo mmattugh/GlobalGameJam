@@ -6,8 +6,8 @@
 //} else {
     var dist = point_distance(x,y,oCharacter.x,oCharacter.y);
     var scale = min(1, dist/trail_fade_distance);
-    image_xscale = lerp(image_xscale, scale, scale_snap_speed);
-    image_yscale = lerp(image_yscale, scale, scale_snap_speed);
+    image_xscale = lerp(image_xscale, image_scale*scale, scale_snap_speed);
+    image_yscale = lerp(image_yscale, image_scale*scale, scale_snap_speed);
 //}
 
 if (forgiveness > 0) {

@@ -230,6 +230,31 @@ switch state {
 	}
 	
 	break; #endregion
+	
+	case pStates.bench:
+	var targ_x = oBench.x + oBench.sprite_width/2
+	var targ_y = oBench.y + 8;
+	x = lerp(x, targ_x, 0.4);
+	
+	if abs(x-targ_x) < 5 {
+		x = targ_x;	
+	}
+	
+	y = approach(y, targ_y, 12);
+		
+	if (x == targ_x and y == targ_y and !instance_exists(oBenchGhost)) {
+		oCamera.zoom = 0.9*oCamera.target_zoom;
+		oCamera.screenshake += 7;
+		
+		var ghost_direction = 45;
+		with instance_create_depth(x,y-8,depth,oBenchGhost) 
+		{
+			move_direction = ghost_direction;
+			global.key_interact = false;
+		}
+	}
+		
+	break;
 }
 #endregion
 
@@ -326,6 +351,11 @@ switch state {
 	case pStates.death: #region
 	sprite_index = sCharacter_Death;
 	image_speed = 1;
+	break; #endregion
+	
+	case pStates.bench: #region
+	sprite_index = sCharacter_Sleep;
+	image_speed = 0.5;
 	break; #endregion
 }
 

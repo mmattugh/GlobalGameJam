@@ -1,7 +1,7 @@
 /// @description 
 
 depth = 1;
-
+image_scale = 1;
 forgiveness = 0;
 next = noone;
 prev = noone;

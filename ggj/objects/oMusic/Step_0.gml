@@ -48,12 +48,21 @@ if (fade_out) {
 	
 	if (volume <= 0) {
 		audio_stop_sound(track_id);
+		audio_stop_sound(muffled_track_id);
 		instance_destroy();
 	}
 	
 } else if (fade_in) {
 	
 	volume += 1/fade_in_time;
+}
+
+
+if (track_pitch != target_pitch) {
+	track_pitch = lerp(track_pitch, target_pitch, 0.3);
+
+	audio_sound_pitch(track_id, track_pitch);	
+	audio_sound_pitch(muffled_track_id, track_pitch);	
 }
 
 audio_sound_gain(track_id, volume*global.music_volume*(1-muffle), 0);

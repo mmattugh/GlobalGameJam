@@ -15,6 +15,9 @@ fade_in = false;
 fade_out = false;
 fade_timer = 0;
 
+track_pitch = 1.0;
+target_pitch = 1.0;
+
 volume = 0;
 
 forgiveness_time = 5;

@@ -94,8 +94,15 @@ camera_set_view_pos(camera, view_x, view_y);
 
 #region parallax
 
-layer_x("Planet", (x-true_width /2)*0.7);
-layer_y("Planet", (y-true_height/4)*0.7);
+if (room == level_intermission) {
+	var xx = room_width/2;
+	var yy = -room_height/2;
+	layer_x("Planet", xx + (xx - x) * 0.2 - 160);
+	layer_y("Planet", yy + (yy - y) * 0.2 - 160);	
+} else {
+	layer_x("Planet", (x-true_width /2)*0.7);
+	layer_y("Planet", (y-true_height/4)*0.7);
+}
 
 layer_x("BigStars", x*0.9);
 layer_y("BigStars", y*0.9);
