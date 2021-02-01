@@ -14,7 +14,7 @@ ini_close();
 
 if (target_room == noone or global.speedrun) {
 	selected[0] = 0;
-	selected_max[0] = 2;
+	selected_max[0] = 3;
 	selected[1] = 0;
 	selected_max[1] = 4;
 	if (global.speedrun) {
@@ -22,7 +22,7 @@ if (target_room == noone or global.speedrun) {
 	}
 } else {
 	selected[0] = 0;
-	selected_max[0] = 2;
+	selected_max[0] = 3;
 	selected[1] = 0;
 	selected_max[1] = 5;
 }
@@ -83,8 +83,9 @@ update_text = function() {
 		text[1][5] = "delete save file";
 	}
 	
-	text[0][1] = "options";
-	text[0][2] = "credits";
+	text[0][1] = "endless";
+	text[0][2] = "options";
+	text[0][3] = "credits";
 }
 
 update_text();

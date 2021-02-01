@@ -53,11 +53,29 @@ if (selected_pressed) {
 
 			ini_close();
 			break;
-			case 1:		
+			case 1:
+			var inst = instance_create_depth(0,0,depth,oRoomTransition);
+			inst.target_room = level_endless;
+			
+			with oMusic {
+				fade_out = true;
+				volume = 0;
+			}
+			
+			// save states
+			ini_open(SAVE_FILE);
+
+			ini_write_real("config", "screenshake_intensity", global.screenshake_intensity );
+			ini_write_real("config", "sound_volume",  global.sound_volume			 	   );
+			ini_write_real("config", "music_volume",  global.music_volume			 	   );
+
+			ini_close();
+			break;
+			case 2:		
 			page = 1;
 			
 			break;
-			case 2:			
+			case 3:			
 			page = 2;
 			
 			break;

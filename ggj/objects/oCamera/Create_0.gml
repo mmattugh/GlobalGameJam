@@ -48,7 +48,11 @@ bg_color = make_color_rgb(36, 34, 35);
 //	global.camera_set_window_size = true;
 //}
 
-
+if (room == level_1) {
+	x = 3*room_width/2 - 32;
+	y = room_height/2;
+}
 
 target_x = x;
 target_y = y;
+
