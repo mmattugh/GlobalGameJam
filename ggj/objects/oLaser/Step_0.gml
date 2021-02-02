@@ -6,6 +6,7 @@ if (life == 0) {
 // remove hitbox after a frame or two
 if (image_index > 1) {
 	mask_index = sNothing;	
+	active = false;
 }
 
 img_index += img_spd;

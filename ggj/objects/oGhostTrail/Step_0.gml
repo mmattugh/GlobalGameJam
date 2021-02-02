@@ -22,7 +22,8 @@ if (forgiveness > 0) {
 
 var temp_mask_index = mask_index;
 mask_index = sPlayerHitbox;
-if (place_meeting(x,y,oLaser)) {
+var inst = instance_place(x,y,oLaser);
+if (inst and inst.active) {
 	//destroy_self();		
 			
 	if (audio_is_playing(oGhost.trail_sound_id)) {

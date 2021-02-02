@@ -108,7 +108,8 @@ if (go_back) {
 			play_sound(Ghost_Hit_Wall, 0, false, 1.0, 0.02, global.sound_volume*1.2);
 		}
 		
-		if (place_meeting(x,y,oLaser)) {
+		var inst = instance_place(x,y,oLaser);
+		if (inst and inst.active) {
 			//destroy_self();		
 			
 			if (audio_is_playing(trail_sound_id)) {

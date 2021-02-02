@@ -15,7 +15,8 @@ if (on_ground) {
 mask_index = sPlayerHitbox;
 
 // get hit by laser
-if (place_meeting(x,y,oLaser) and state != pStates.death) {
+var inst = instance_place(x,y,oLaser);
+if (inst and inst.active and state != pStates.death) {
 	//destroy_self();		
 	
 	if (audio_is_playing(trail_sound_id)) {
@@ -27,11 +28,17 @@ if (place_meeting(x,y,oLaser) and state != pStates.death) {
 	//  //  //  //  //  //
 	scr_freeze(8);
 		image_index = 0;
-	state = pStates.death;
+	//state = pStates.death;
 	play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
 	
 	show_debug_message("zapped at player");
-	show_debug_message(string(oLaser.img_index));
+	show_debug_message(string(inst.x - x));
+	show_debug_message(string(inst.y - y));
+	
+	oCamera.x = inst.x
+	oCamera.y = inst.y
+	
+	inst.life = 500;
 	
 	exit;
 }
@@ -247,6 +254,9 @@ switch state {
 	break; #endregion
 	
 	case pStates.bench:
+	hsp = 0;
+	vsp = 0;
+	
 	var targ_x = oBench.x;
 	var targ_y = oBench.y - 8;
 	x = lerp(x, targ_x, 0.4);

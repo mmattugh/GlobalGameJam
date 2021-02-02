@@ -71,14 +71,20 @@ update_text = function() {
 		text[1][4] += ": N";
 	}
 	
+	if global.gamepad_connected and global.gamepad_is_xbox == false {
+		text[0][0] = "press square ";	
+	} else {
+		text[0][0] = "press x ";
+	}	
+	
 	if (target_room == noone or global.speedrun) {
-		text[0][0] = "press x to start";
+		text[0][0] += "to start";
 		
 		if (global.speedrun) {
 			text[1][5] = "delete save file";
 		}
 	} else {
-		text[0][0] = "press x to continue";
+		text[0][0] += "to continue";
 	
 		text[1][5] = "delete save file";
 	}

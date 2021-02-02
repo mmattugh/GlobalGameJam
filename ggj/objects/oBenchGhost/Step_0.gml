@@ -57,7 +57,7 @@ switch state {
 	if (hit > 1) {
 		hit -= 0.01;
 		
-		if (global.key_left_p) {
+		if (global.key_left_p and !global.gamepad_is_connected) {
 			play_sound(choose(Footsteps_01, Footsteps_02), 50, false, 1.0, 0.05, global.sound_volume);	
 			oCharacter.x -= 0.5;
 			x += 1;
@@ -66,7 +66,7 @@ switch state {
 			oCamera.screenshake = 7;
 			zoom -= 0.1;
 		}
-		if (global.key_right_p) {
+		if (global.key_right_p and !global.gamepad_is_connected) {
 			play_sound(choose(Footsteps_01, Footsteps_02), 50, false, 1.0, 0.05, global.sound_volume);	
 			oCharacter.x += 0.5;
 			x -= 1;

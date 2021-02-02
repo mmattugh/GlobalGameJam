@@ -4,6 +4,8 @@ if (oCharacter.combo > 15) {
 	if !destroyed_recharges	{
 		destroyed_recharges = true;	
 		
+		oCamera.screenshake += 7;
+		
 		var inst = instance_nearest(0,0,oRecharge);
 		instance_create_depth(inst.x, inst.y, 0, fxEnd);
 		instance_destroy(inst);

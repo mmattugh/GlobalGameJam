@@ -12,4 +12,4 @@ zoom = 1.0;
 
 turn_lerp = 0.2;
 
-hit = 30;
+hit = 15;
