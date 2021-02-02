@@ -27,7 +27,7 @@ state = cStates.follow;
 target_zoom = zoom;
 station_object = noone;
 
-instance_create_layer(0,0,"Instances", oCharacterGhostAverage);
+instance_create_depth(0,0,0, oCharacterGhostAverage);
 
 // set up views 
 x = room_width/2;

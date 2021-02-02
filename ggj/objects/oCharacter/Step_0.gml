@@ -85,8 +85,18 @@ switch state {
 		
 	}
 	
+	// jump buffer 
+	if (global.key_jump) {
+		jump_buffer_timer = jump_buffer_time;	
+	} else {
+		if (jump_buffer_timer > 0) {
+			jump_buffer_timer--;	
+		}
+	}
+	
+	
 	// jump
-	if (global.key_jump) && (on_ground) {
+	if (jump_buffer_timer > 0) && (on_ground) {
 		//Jump FX
 		instance_create_depth(x,y,depth+1,fxJump);
 		//

@@ -29,6 +29,9 @@ combo_just_now = 0;
 coyote_time = 7;
 coyote_timer = 0;
 
+jump_buffer_time = 6;
+jump_buffer_timer = 0;
+
 on_ground = true;
 fall_time = 0;
 

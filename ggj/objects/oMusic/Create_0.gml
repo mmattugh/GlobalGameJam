@@ -2,10 +2,11 @@
 
 track_index = SELF_OST;
 muffled_track_index = SELF_MUFFLED;
+wobbly_track_index = SELF_MUFFLED;
 
 track_id = noone;
 muffled_track_id = noone;
-
+wobbly_track_id = noone;
 muffle = 0;
 
 fade_in_time = 1; 

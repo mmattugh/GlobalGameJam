@@ -101,7 +101,7 @@ if (selected_pressed) {
 			if global.music_volume > 0 {
 				global.music_volume = 0;
 			} else {
-				global.music_volume = 0.5;
+				global.music_volume = 0.35;
 			}			
 			update_text();
 			
