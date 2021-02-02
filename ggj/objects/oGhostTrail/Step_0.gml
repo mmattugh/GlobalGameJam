@@ -19,6 +19,9 @@ if (forgiveness > 0) {
     }
 }
 
+
+var temp_mask_index = mask_index;
+mask_index = sPlayerHitbox;
 if (place_meeting(x,y,oLaser)) {
 	//destroy_self();		
 			
@@ -29,7 +32,9 @@ if (place_meeting(x,y,oLaser)) {
 	oCharacter.state = pStates.death;
 	play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
 	
-		show_debug_message("zapped at trail");
+	show_debug_message("zapped at trail");
+	show_debug_message(string(oLaser.img_index));
 
 	exit;
 }
+mask_index = temp_mask_index;

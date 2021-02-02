@@ -3,7 +3,7 @@ mask_index = sPlayerHitbox;
 
 if oCharacter.state == pStates.death {
 	
-	instance_destroy(oGhostTrail);
+	
 	instance_destroy();
 	
 	instance_create_depth(x,y,depth-1,fxEnd);
@@ -118,6 +118,7 @@ if (go_back) {
 			oCharacter.state = pStates.death;
 			play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
 	show_debug_message("zapped at ghost");
+	show_debug_message(string(oLaser.img_index));
 
 			exit;
 		}
