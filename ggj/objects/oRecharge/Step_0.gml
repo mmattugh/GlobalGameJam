@@ -1,5 +1,12 @@
 y = ystart + 2*dsin(current_time*0.2);
 
+if (ystart != target_ystart) {
+	ystart = lerp(ystart, target_ystart, 0.2);	
+	
+	if (abs(y-ystart) > 2)
+		instance_create_depth(x+random_range(-8, 8), y, depth-1, fxSmoke);
+}
+
 switch (state)
 {
 	case recharge.enabled:
@@ -43,7 +50,7 @@ switch (state)
 		depth = 100;
 		sprite_index = sRecharge_Recharge;
 		id.health_ ++;
-		if (id.health_ > 305)
+		if (id.health_ > regen_time)
 		{
 			state = recharge.regen;
 		}

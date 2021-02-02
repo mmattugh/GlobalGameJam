@@ -7,3 +7,6 @@ enum recharge{
 	disabled,
 	regen
 }
+
+target_ystart = ystart;
+

@@ -1,6 +1,33 @@
 /// @description 
 
 if (oCharacter.combo > 15) {
+	if !destroyed_recharges	{
+		destroyed_recharges = true;	
+		
+		var inst = instance_nearest(0,0,oRecharge);
+		instance_create_depth(inst.x, inst.y, 0, fxEnd);
+		instance_destroy(inst);
+	
+		var inst = instance_nearest(room_width,0,oRecharge);
+		instance_create_depth(inst.x, inst.y, 0, fxEnd);
+		instance_destroy(inst);
+		
+		var inst = instance_nearest(room_width/2, 0, oRecharge);
+		inst.target_ystart -= 48;
+		inst.state = recharge.enabled
+		
+		var inst = instance_nearest(0, room_height, oRecharge);
+		inst.target_ystart -= 16;
+		inst.state = recharge.enabled
+	
+		var inst = instance_nearest(room_width, room_height, oRecharge);
+		inst.target_ystart -= 16;
+		inst.state = recharge.enabled
+
+	}
+}
+
+if (oCharacter.combo > 25) {
 	// create spikes	
 	if (!made_spikes) {
 		for (var i = 16; i < room_width-16; i+= 16) {
