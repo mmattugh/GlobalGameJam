@@ -1,7 +1,11 @@
 /// @description 
 depth = depth+1;
 if (instance_exists(oMusic)) {
-	oMusic.fade_out = true;	
+	with oMusic {
+		audio_stop_sound(track_id);
+		audio_stop_sound(muffled_track_id);
+		instance_destroy();
+	}
 }
 
 made_music_obj = false;
