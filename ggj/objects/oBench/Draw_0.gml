@@ -1,7 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+
 draw_self();
 
+if (text_y < y) {
 draw_set_font(fFont);
 var w = string_width("m") - 3;
 for (var i = 0; i < 3; i++) {
@@ -33,3 +35,4 @@ for (var i = 0; i < 3; i++) {
 	}
 }	
 draw_set_color(c_white);
+}

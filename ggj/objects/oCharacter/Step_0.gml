@@ -28,17 +28,8 @@ if (inst and inst.active and state != pStates.death) {
 	//  //  //  //  //  //
 	scr_freeze(8);
 		image_index = 0;
-	//state = pStates.death;
+	state = pStates.death;
 	play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
-	
-	show_debug_message("zapped at player");
-	show_debug_message(string(inst.x - x));
-	show_debug_message(string(inst.y - y));
-	
-	oCamera.x = inst.x
-	oCamera.y = inst.y
-	
-	inst.life = 500;
 	
 	exit;
 }

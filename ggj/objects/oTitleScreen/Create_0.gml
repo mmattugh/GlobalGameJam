@@ -48,27 +48,27 @@ update_text = function() {
 	text[1][4] = "speedrun";
 
 	if global.screenshake_intensity > 0 {
-		text[1][1] += ": Y";
+		text[1][1] += ": y";
 	} else {
-		text[1][1] += ": N";
+		text[1][1] += ": n";
 	}
 
 	if global.music_volume > 0 {
-		text[1][2] += ": Y";
+		text[1][2] += ": y";
 	} else {
-		text[1][2] += ": N";
+		text[1][2] += ": n";
 	}
 
 	if global.sound_volume > 0 {
-		text[1][3] += ": Y";
+		text[1][3] += ": y";
 	} else {
-		text[1][3] += ": N";
+		text[1][3] += ": n";
 	}
 	
 	if global.speedrun > 0 {
-		text[1][4] += ": Y";
+		text[1][4] += ": y";
 	} else {
-		text[1][4] += ": N";
+		text[1][4] += ": n";
 	}
 	
 	if global.gamepad_connected and global.gamepad_is_xbox == false {
