@@ -1,7 +1,6 @@
 /// @description 
-
-key = vk_down;
-key_alt = ord("S");
+event_inherited();
+variable = "key_down";
 
 image_speed = 0;
 image_index = 3;

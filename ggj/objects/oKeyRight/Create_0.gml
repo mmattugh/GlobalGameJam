@@ -1,7 +1,7 @@
 /// @description 
+event_inherited();
 
-key = vk_right;
-key_alt = ord("D");
+variable = "key_right";
 
 image_speed = 0;
 image_index = 0;

@@ -95,3 +95,26 @@ function steps_to_time(steps) {
 	out += string(steps);
 	return out;
 }
+
+function square_to_circle(x, y) {
+	return [
+		x * sqrt(1 - y*y / 2),
+		y * sqrt(1 - x*x / 2)
+	];
+}
+
+///@desc gamepad_anykey
+///@param slot
+function gamepad_anykey(argument0, deadzone) {
+	for ( var i = gp_face1; i < gp_axisrv; i++ ) {
+	    if ( gamepad_button_check( argument0, i ) ) return i;
+	}
+
+	if (abs(gamepad_axis_value(argument0, gp_axislh) > deadzone) or
+		abs(gamepad_axis_value(argument0, gp_axislv) > deadzone) or 
+		abs(gamepad_axis_value(argument0, gp_axisrh) > deadzone) or 
+		abs(gamepad_axis_value(argument0, gp_axisrv) > deadzone)) {
+		return true;	
+	}
+	return false;
+}

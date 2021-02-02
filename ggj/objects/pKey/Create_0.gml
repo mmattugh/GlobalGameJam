@@ -1,4 +1,5 @@
 /// @description 
 
-key = vk_left;
-key_alt = ord("D");
+variable = "key_left"
+
+rand = random(505);

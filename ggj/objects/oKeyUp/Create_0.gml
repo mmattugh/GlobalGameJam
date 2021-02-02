@@ -1,7 +1,7 @@
 /// @description 
+event_inherited();
 
-key = vk_up;
-key_alt = ord("W");
+variable = "key_up";
 
 image_speed = 0;
 image_index = 1;

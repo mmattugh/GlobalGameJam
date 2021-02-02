@@ -31,6 +31,7 @@ if (place_meeting(x,y,oLaser) and state != pStates.death) {
 	play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
 	
 	show_debug_message("zapped at player");
+	show_debug_message(string(oLaser.img_index));
 	
 	exit;
 }
@@ -61,9 +62,8 @@ switch state {
 		}
 	}
 	
-	// horizontal speed
-	
-	var h_dir = global.key_right - global.key_left;
+	// horizontal speed	
+	var h_dir = sign(global.key_right - global.key_left);
 	
 	if (sign(h_dir) != 0) {
 		hsp = approach(hsp, move_speed * h_dir, move_accel);

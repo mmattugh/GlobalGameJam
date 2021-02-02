@@ -1,6 +1,6 @@
 /// @description 
 
-var selected_dir = global.key_down - global.key_up;
+var selected_dir = sign(global.key_down - global.key_up);
 var selected_pressed = global.key_interact;
 
 oCamera.zoom = lerp(oCamera.zoom, 1.1, 0.1);
