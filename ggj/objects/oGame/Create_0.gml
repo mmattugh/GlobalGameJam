@@ -3,6 +3,9 @@ global.animationSpeed = 0;
 #macro DEV_MODE false
 #macro dev:DEV_MODE true
 
+#macro NG_MODE false
+#macro NG:NG_MODE true
+
 #macro SAVE_FILE "config.ini"
 
 global.camera_width = 320;
@@ -31,3 +34,15 @@ global.made_laser_noise_this_frame = false;
 
 draw_set_font(fFont);
 white = make_color_rgb(225, 229, 206);
+
+if (NG_MODE) {
+	ng_connect("51458:SUgrUedz", "GsvSPZWGdzOE8GIpCV3yjOUAhG9E2pn8");
+	ng_initialize_medals_and_scoreboard();
+	
+	// used to submit scores to leaderboard
+	//ng_postScore("Flick-Time", global.speedrun_time*1000/60);
+	//ng_postScore("Combo", combo);
+	
+	// used to unlock a given medal for a player
+	//ng_unlockmedal("medal_name_here");
+}

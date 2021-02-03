@@ -11,7 +11,7 @@ if (state != pStates.freeze) {
 	
 	var rooms  = ini_read_real("save", "rooms", 0);
 	if (global.rooms > rooms) {
-		ini_write_real("save", "latest_room", room);
+		ini_write_real("save", "latest_room", room_next(room));
 		ini_write_real("save", "rooms", global.rooms);
 		//show_message("saved" + string(room));
 	}

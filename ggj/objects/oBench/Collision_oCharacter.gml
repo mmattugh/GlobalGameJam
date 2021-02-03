@@ -8,4 +8,10 @@ if (!made_music_obj) {
 	oCharacter.state = pStates.bench;
 	
 	made_music_obj = true;
+	
+	
+	// unlock medals
+	if (NG_MODE) {
+		ng_unlockmedal("benched");	
+	}
 }

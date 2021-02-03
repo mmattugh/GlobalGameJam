@@ -156,6 +156,21 @@ switch state {
 		if (combo >= 7) {
 			combo_exclamations += "!";	
 		}
+		
+		// unlock medals
+		if (NG_MODE) {
+			if (combo >= 25) {
+				ng_unlockmedal("focused");
+			}
+		
+			if (combo >= 50) {
+				ng_unlockmedal("zoned");			
+			}
+		
+			if (combo >= 100) {
+				ng_unlockmedal("spaced out");			
+			}
+		}
 	}
 	
 	if (instance_exists(oGhostTrail)) {
