@@ -33,7 +33,7 @@ switch state {
 		}
 		
 		if !instance_exists(oMusic) {
-			if room != level_1 and room != level_intermission {
+			if room != level_1 and room != level_intermission and room != level_flick {
 				instance_create_depth(0,0,0,oMusic);	
 			}
 		}

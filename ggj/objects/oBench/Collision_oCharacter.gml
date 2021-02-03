@@ -14,4 +14,5 @@ if (!made_music_obj) {
 	if (NG_MODE) {
 		ng_unlockmedal("benched");	
 	}
+	
 }

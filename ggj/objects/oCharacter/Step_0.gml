@@ -286,6 +286,21 @@ switch state {
 	}
 		
 	break;
+	
+	case pStates.cutscene_float:
+	hsp = 0;
+	vsp = 0;
+	var float_speed = 1;
+	y = approach(y, oCutsceneFloat.y - 40, float_speed);
+	x = lerp(x, oCutsceneFloat.x, 0.1);
+	
+	break;		
+	case pStates.cutscene_grabbed:
+	
+	break;
+	case pStates.cutscene_flicked:
+	
+	break;
 }
 #endregion
 

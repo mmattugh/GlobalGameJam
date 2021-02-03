@@ -8,6 +8,9 @@ enum pStates {
 	death,
 	freeze,
 	bench,
+	cutscene_float,
+	cutscene_grabbed,
+	cutscene_flicked,
 }
 
 // movement parameters -- tweak these
