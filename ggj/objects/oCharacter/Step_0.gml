@@ -299,8 +299,9 @@ switch state {
 	
 	break;
 	case pStates.cutscene_flicked:
-	hsp = -8;
+	hsp = 12;
 	oCamera.x = x;
+	oCamera.y = y;
 	break;
 }
 #endregion
@@ -411,7 +412,7 @@ switch state {
 	sprite_index = sCharacter_Spirit;
 	break;
 	case pStates.cutscene_flicked:
-	draw_angle = angle_lerp(draw_angle, 90, 0.4);
+	draw_angle = angle_lerp(draw_angle, 270, 0.4);
 	break
 }
 

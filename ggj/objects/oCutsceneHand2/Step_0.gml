@@ -2,8 +2,8 @@
 // You can write your code in this editor
 switch state {
 	case 0:
-	y = oCutsceneHand.y;
-	x = approach(x, oCutsceneFloat.x-8, 1);
+	y = oCutsceneHand.y - 14;
+	x = approach(x, oCutsceneFloat.x+8, 1);
 	
 	if (place_meeting(x,y,oCharacter)) {
 		delay--;
@@ -22,9 +22,9 @@ switch state {
 	
 	break;	
 	case 1:
-	x = approach(x, oCutsceneFloat.x+50, 0.6);
+	x = approach(x, oCutsceneFloat.x-50, 0.6);
 	
-	if (x == oCutsceneFloat.x+50) {
+	if (x == oCutsceneFloat.x-50) {
 		if (delay1 > 0) {
 			delay1--;
 		} else {
@@ -37,10 +37,10 @@ switch state {
 	oCamera.zoom = zoom;
 	
 	image_index = 1;
-	x = approach(x, oCutsceneFloat.x - 40, 30/70);
+	x = approach(x, oCutsceneFloat.x + 40, 30/70);
 	y = approach(y, oCutsceneHand.y - 70, 1);
 	
-	if (x == oCutsceneFloat.x - 40)
+	if (x == oCutsceneFloat.x + 40)
 	and(y == oCutsceneHand.y - 70) {
 		if (delay2 > 0) {
 			delay2--;
@@ -50,10 +50,10 @@ switch state {
 	}
 	break;
 	case 3:
-	x = approach(x, oCutsceneFloat.x - 33, 0.05);
+	x = approach(x, oCutsceneFloat.x + 33, 0.05);
 		oCamera.zoom = zoom;
 
-	if (x == oCutsceneFloat.x - 33) {
+	if (x == oCutsceneFloat.x + 33) {
 		image_index = 0;
 		oCamera.zoom = 0.9;
 		oCamera.screenshake = 15;
@@ -64,7 +64,11 @@ switch state {
 	}
 	break;
 	case 4:
-	x = approach(x, oCutsceneFloat.x - 42, 6);
+	x = approach(x, oCutsceneFloat.x + 42, 6);
 	break;
 	
+}
+
+if (state != 4 ) {
+	oCamera.y = lerp(oCamera.y, y, 0.2);	
 }

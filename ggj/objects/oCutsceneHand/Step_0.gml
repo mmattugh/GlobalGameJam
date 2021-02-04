@@ -21,13 +21,13 @@ switch state {
 	y = approach(y, 80, 2);
 	
 	if (oCharacter.state != pStates.cutscene_flicked) {
-		oCamera.y = (y + oCharacter.y)/2;
+		//oCamera.y = y
 		oCharacter.y = y;
 	}
 	
 	if (y == 80) {
 		//show_message("made");
-		instance_create_depth(640, y, depth-2, oCutsceneHand2);
+		instance_create_depth(150, y, depth-2, oCutsceneHand2);
 		state = 2;
 	}
 	break;

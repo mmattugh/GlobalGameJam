@@ -12,6 +12,8 @@ if place_meeting(x,y,oCharacter) and sprite_index != sSecret2 {
 	}
 	
 	instance_create_depth(624, 368, depth, oRecharge);
+	
+	play_sound(sndSecretShadow, 0, false, 1.0, 0.0, global.sound_volume);
 }	
 
 if (image_speed > 0) image_speed = approach(image_speed, 1, 0.05);
