@@ -1,8 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
-oCamera.y = (y + oCharacter.y)/2;
+
+
 switch state {
 	case 0:
+	oCamera.y = (y + oCharacter.y)/2;
+
 	var target_y = oCharacter.y
 	y = approach(y, target_y, 2);
 	
@@ -16,7 +19,11 @@ switch state {
 	break;
 	case 1:
 	y = approach(y, 80, 2);
-	oCharacter.y = y;
+	
+	if (oCharacter.state != pStates.cutscene_flicked) {
+		oCamera.y = (y + oCharacter.y)/2;
+		oCharacter.y = y;
+	}
 	
 	if (y == 80) {
 		//show_message("made");

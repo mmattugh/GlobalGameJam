@@ -299,7 +299,8 @@ switch state {
 	
 	break;
 	case pStates.cutscene_flicked:
-	
+	hsp = -8;
+	oCamera.x = x;
 	break;
 }
 #endregion
@@ -403,6 +404,15 @@ switch state {
 	sprite_index = sCharacter_Sleep;
 	image_speed = 0.5;
 	break; #endregion
+	
+	case pStates.cutscene_float:
+	draw_x = 2 * dcos(current_time * 0.2);
+	draw_y = 2 * dsin(current_time * 0.3);
+	sprite_index = sCharacter_Spirit;
+	break;
+	case pStates.cutscene_flicked:
+	draw_angle = angle_lerp(draw_angle, 90, 0.4);
+	break
 }
 
 #endregion

@@ -69,6 +69,9 @@ white = make_color_rgb(225, 229, 206);
 red = make_color_rgb(201, 99, 99);
 black = make_color_rgb(36, 34, 35);
 
+draw_x = 0;
+draw_y = 0;
+
 
 if !(instance_exists(oCamera)) {
 	instance_create_depth(x,y,depth,oCamera);
