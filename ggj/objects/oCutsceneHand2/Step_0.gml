@@ -60,6 +60,10 @@ switch state {
 		
 		oCharacter.state = pStates.cutscene_flicked;
 		
+		if (NG_MODE) {
+			ng_unlockmedal("flicked");	
+		}
+		
 		state = 4;
 	}
 	break;

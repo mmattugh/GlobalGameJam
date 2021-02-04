@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+visible = true;
 
 if (oCharacter.state == pStates.cutscene_flicked) {
 	y = lerp(y, 640, 0.3);	
