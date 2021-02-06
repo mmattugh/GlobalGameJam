@@ -237,6 +237,7 @@
     {"roomId":{"name":"level_between_temp","path":"rooms/level_between_temp/level_between_temp.yy",},},
     {"roomId":{"name":"level_6","path":"rooms/level_6/level_6.yy",},},
     {"roomId":{"name":"level_intermission","path":"rooms/level_intermission/level_intermission.yy",},},
+    {"roomId":{"name":"level_red_1","path":"rooms/level_red_1/level_red_1.yy",},},
     {"roomId":{"name":"level_laser_1","path":"rooms/level_laser_1/level_laser_1.yy",},},
     {"roomId":{"name":"level_block_2","path":"rooms/level_block_2/level_block_2.yy",},},
     {"roomId":{"name":"level_block_3","path":"rooms/level_block_3/level_block_3.yy",},},
@@ -251,7 +252,6 @@
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"level_parent","path":"rooms/level_parent/level_parent.yy",},},
     {"roomId":{"name":"level_endless","path":"rooms/level_endless/level_endless.yy",},},
-    {"roomId":{"name":"level_red_1","path":"rooms/level_red_1/level_red_1.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
