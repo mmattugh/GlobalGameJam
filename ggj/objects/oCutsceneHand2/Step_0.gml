@@ -8,8 +8,9 @@ switch state {
 	if (place_meeting(x,y,oCharacter)) {
 		delay--;
 		
-		if (delay <= 20) {
-			repeat(15) {
+		if (delay <= 20 && delay > 18) {
+			oCamera.screenshake = 12;
+			repeat(25) {
 				instance_create_depth(oCharacter.x+random_range(-12, 12), oCharacter.y - 6 + random_range(-12, 12), depth+1, choose(fxSmoke, fxSmokeLarge, fxSmoke));	
 			}
 		}
@@ -56,7 +57,7 @@ switch state {
 	if (x == oCutsceneFloat.x + 33) {
 		image_index = 0;
 		oCamera.zoom = 0.9;
-		oCamera.screenshake = 15;
+		oCamera.screenshake = 25;
 		
 		oCharacter.state = pStates.cutscene_flicked;
 		
