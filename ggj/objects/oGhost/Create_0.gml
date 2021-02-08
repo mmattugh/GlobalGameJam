@@ -26,6 +26,12 @@ trail_length_max = 23;
 trail_length_max_init = trail_length_max;
 
 trail_length = 0;
+turn_direction = 0;
+
+left_arrow_scale = 1.0;
+right_arrow_scale = 1.0;
+
+arrows_enabled = (global.rooms < 5);
 
 trail_sound_id = audio_play_sound(Stretch_Loop, 0, true);
 audio_sound_gain(trail_sound_id, global.sound_volume, 0);

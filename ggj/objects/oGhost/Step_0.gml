@@ -141,7 +141,7 @@ if (go_back) {
 		#endregion
 	
 		#region move
-		var turn_direction = global.key_left - global.key_right;
+		turn_direction = global.key_left - global.key_right;
 		var turn_direction_pressed = global.key_left_p - global.key_right_p;
 		
 		if (place_meeting(x,y,oGhostWarpZone)) {
@@ -174,7 +174,7 @@ if (go_back) {
 		case pStates.move			  :
 		case pStates.follow_trail	  :
 		case pStates.launch_from_trail:
-		
+		arrows_enabled = lerp(arrows_enabled, 0, 0.2);
 		spd = 0;
 		break;
 	}

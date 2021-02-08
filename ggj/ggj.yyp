@@ -137,6 +137,7 @@
     {"id":{"name":"oCutsceneHand","path":"objects/oCutsceneHand/oCutsceneHand.yy",},"order":31,},
     {"id":{"name":"Combo_Charge","path":"sounds/Combo_Charge/Combo_Charge.yy",},"order":27,},
     {"id":{"name":"oCharacter","path":"objects/oCharacter/oCharacter.yy",},"order":6,},
+    {"id":{"name":"sGhostArrow","path":"sprites/sGhostArrow/sGhostArrow.yy",},"order":44,},
     {"id":{"name":"level_2_1","path":"rooms/level_2_1/level_2_1.yy",},"order":25,},
     {"id":{"name":"oKeyUp","path":"objects/oKeyUp/oKeyUp.yy",},"order":3,},
     {"id":{"name":"sSecret2","path":"sprites/sSecret2/sSecret2.yy",},"order":38,},

@@ -1,4 +1,5 @@
 /// @description 
+if (instance_exists(oRoomTransition)) exit;
 
 var selected_dir = sign(global.key_down - global.key_up);
 var selected_pressed = global.key_interact;
