@@ -6,5 +6,7 @@ with oMusic {
 	audio_stop_sound(wobbly_track_id);
 	instance_destroy();	
 }
+
+oCharacter.has_ghost = true;
 		
 instance_create_depth(0,0,0,oMusic);

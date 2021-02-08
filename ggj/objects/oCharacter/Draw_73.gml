@@ -7,7 +7,7 @@ if combo >= 3 {
 		c1 = red;
 		c2 = black;
 		
-		s = 1.0 + 0.1*combo;
+		s = 1.0 + 0.02*combo;
 	} else {
 		c1 = white;
 		c2 = black;

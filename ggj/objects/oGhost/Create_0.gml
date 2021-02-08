@@ -3,12 +3,19 @@ depth = 0;
 // tweakable
 max_spd = 2.5;
 turning_max_spd = 1.75;
+
+
 acceleration = 0.5;
 
 played_end_sound = false;
 
 turn_speed = 8;
 turn_lerp = 0.5;
+
+// values used when colliding with red;
+in_red_turn_speed = 5.05
+in_red_turn_lerp = 0.4
+
 immune_time = 60;
 
 wall_slow_threshold = 3;

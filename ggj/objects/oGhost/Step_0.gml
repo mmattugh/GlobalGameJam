@@ -143,8 +143,12 @@ if (go_back) {
 		#region move
 		var turn_direction = global.key_left - global.key_right;
 		var turn_direction_pressed = global.key_left_p - global.key_right_p;
-		move_direction = angle_lerp(move_direction, move_direction + turn_direction * turn_speed, turn_lerp);
-	
+		
+		if (place_meeting(x,y,oGhostWarpZone)) {
+			move_direction = angle_lerp(move_direction, move_direction + turn_direction * in_red_turn_speed, in_red_turn_lerp);	
+		} else {
+			move_direction = angle_lerp(move_direction, move_direction + turn_direction * turn_speed, turn_lerp);
+		}
 		if turn_direction_pressed == 0 {
 			spd = approach(spd, max_spd, acceleration);
 		} else {
@@ -167,9 +171,12 @@ if (go_back) {
 		#endregion
 	
 		break; #endregion
-		case pStates.move			  : break;
-		case pStates.follow_trail	  :	break;
-		case pStates.launch_from_trail:	break;
+		case pStates.move			  :
+		case pStates.follow_trail	  :
+		case pStates.launch_from_trail:
+		
+		spd = 0;
+		break;
 	}
 
 
