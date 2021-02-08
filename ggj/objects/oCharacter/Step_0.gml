@@ -79,7 +79,7 @@ switch state {
 	if (on_ground) {
 		vsp = 0;
 	} else {
-		vsp += grav_accel;
+		vsp = approach(vsp, grav_max_speed, grav_accel);
 		
 	}
 	
@@ -158,17 +158,18 @@ switch state {
 		}
 		
 		// unlock medals
-		if (NG_MODE) {
+		if (NG_ENABLED) {
 			if (combo >= 25) {
-				ng_unlockmedal("focused");
+				newgrounds_unlockmedal("62018")
+				
 			}
 		
 			if (combo >= 50) {
-				ng_unlockmedal("zoned");			
+				newgrounds_unlockmedal("62019")			
 			}
 		
 			if (combo >= 100) {
-				ng_unlockmedal("spaced out");			
+				newgrounds_unlockmedal("62020")			
 			}
 		}
 	}
@@ -363,10 +364,16 @@ switch state {
 			sprite_index = sCharacter_Walk;
 			
 			// do footstep sound
-			if (ceil(image_index) == 3) 
-			or (ceil(image_index) == 6) {
+			var pitch = 1.0;
+			
+			if (place_meeting(x,y+1, oWallPlatform)) {
+				pitch = 1.2;	
+			}
+			
+			if (image_index >= 2 and image_index < 3) 
+			or (image_index >= 5) {
 				if (!played_footstep_sound) {
-					play_sound(choose(Footsteps_01, Footsteps_02), 50, false, 1.0, 0.05, global.sound_volume);	
+					play_sound(choose(Footsteps_01, Footsteps_02), 50, false, pitch, 0.05, global.sound_volume);	
 					played_footstep_sound = true;	
 				}
 			} else {

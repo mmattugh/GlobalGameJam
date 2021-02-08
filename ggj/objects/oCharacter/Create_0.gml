@@ -19,6 +19,7 @@ move_accel = 0.5;
 move_decel = 0.505;
 air_decel = 0.075;
 grav_accel	= 0.20;
+grav_max_speed = 7.505;
 jump_accel	= 4;
 launch_hsp  = 5;
 launch_vsp  = 5;

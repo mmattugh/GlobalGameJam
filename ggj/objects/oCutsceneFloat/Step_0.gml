@@ -11,8 +11,13 @@ if (place_meeting(x,y,oCharacter)) {
 	
 		instance_create_depth(x,0,oCharacter.depth,oCutsceneHand);
 		// unlock medals
-		//if (NG_MODE) {
+		//if (NG_ENABLED) {
 		//	ng_unlockmedal("benched");	
 		//}
+		if (NG_ENABLED) {
+			//ng_postScore("Flick-Time", global.speedrun_time*1000/60);
+			newgrounds_postscore("9961", global.speedrun_time*1000/60);
+			
+		}
 	}
 }

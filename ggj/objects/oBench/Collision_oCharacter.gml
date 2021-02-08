@@ -11,8 +11,9 @@ if (!made_music_obj) {
 	
 	
 	// unlock medals
-	if (NG_MODE) {
-		ng_unlockmedal("benched");	
+	if (NG_ENABLED) {
+		//ng_unlockmedal("benched");	
+		newgrounds_unlockmedal("62017")
 	}
 	
 }

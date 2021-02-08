@@ -119,7 +119,7 @@ if (go_back) {
 			oCharacter.state = pStates.death;
 			play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
 	show_debug_message("zapped at ghost");
-	show_debug_message(string(oLaser.img_index));
+	//show_debug_message(string(oLaser.img_index));
 
 			exit;
 		}

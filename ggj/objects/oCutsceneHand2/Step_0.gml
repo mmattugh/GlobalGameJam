@@ -60,8 +60,9 @@ switch state {
 		
 		oCharacter.state = pStates.cutscene_flicked;
 		
-		if (NG_MODE) {
-			ng_unlockmedal("flicked");	
+		if (NG_ENABLED) {
+			//ng_unlockmedal("flicked");	
+			newgrounds_unlockmedal("62016")
 		}
 		
 		state = 4;

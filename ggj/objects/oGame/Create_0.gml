@@ -3,8 +3,8 @@ global.animationSpeed = 0;
 #macro DEV_MODE false
 #macro dev:DEV_MODE true
 
-#macro NG_MODE false
-#macro NG:NG_MODE true
+#macro NG_ENABLED false
+#macro NG:NG_ENABLED true
 
 #macro SAVE_FILE "config.ini"
 
@@ -35,9 +35,11 @@ global.made_laser_noise_this_frame = false;
 draw_set_font(fFont);
 white = make_color_rgb(225, 229, 206);
 
-if (NG_MODE) {
-	ng_connect("51458:SUgrUedz", "GsvSPZWGdzOE8GIpCV3yjOUAhG9E2pn8");
-	ng_initialize_medals_and_scoreboard();
+if (NG_ENABLED) {
+	//ng_connect("51458:SUgrUedz", "GsvSPZWGdzOE8GIpCV3yjOUAhG9E2pn8");
+	//ng_initialize_medals_and_scoreboard();
+	
+	newgrounds_create_core("51458:SUgrUedz");
 	
 	// used to submit scores to leaderboard
 	//ng_postScore("Flick-Time", global.speedrun_time*1000/60);
