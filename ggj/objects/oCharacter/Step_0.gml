@@ -99,8 +99,8 @@ switch state {
 		instance_create_depth(x,y,depth+1,fxJump);
 		//
 		vsp = vsp - jump_accel;
-		draw_xscale = 0.7;
-		draw_yscale = 1.3;
+		draw_xscale = 0.5;
+		draw_yscale = 1.5;
 	}
 	
 	
@@ -353,8 +353,8 @@ switch state {
 	} else {
 		if (sprite_index == sCharacter_Air) {
 			instance_create_depth(x,y,depth+1,fxLand);			
-			draw_xscale = 1.3;
-			draw_yscale = 0.7;
+			draw_xscale = 1.5;
+			draw_yscale = 0.5;
 			
 			play_sound(Land, 50, false, 1.0, 0.05, global.sound_volume);
 		}

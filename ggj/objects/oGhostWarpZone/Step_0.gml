@@ -1,13 +1,17 @@
 /// @description 
 
-if (place_meeting(x,y,oGhost)) {
+if (place_meeting(x,y,oGhost)) 
+{
 	with oGhost {
-		event_perform(ev_step, 0)	
+		event_perform(ev_step, 0)
+		
+		max_spd = 2.5;
 		
 		//if (trail_length_max == trail_length_max_init) {
 			trail_length_max++;;
 		//}
 	}
+
 	
 	if (!hit_by_ghost) {
 		hit_magnitude = hit_magnitude_max;
@@ -23,6 +27,10 @@ if (place_meeting(x,y,oGhost)) {
 		hit_point_y = oGhost.y;
 	}
 } else {
+	
+	
+	
+	
 	if (hit_by_ghost and instance_exists(oGhost)) {
 		hit_magnitude = hit_magnitude_max*0.5*oGhost.spd;
 		hit_point_x = oGhost.x;
@@ -44,6 +52,9 @@ if (place_meeting(x,y,oCharacter)) {
 
 	}
 } else {
+	
+
+	
 	
 	if (hit_by_player) {
 		hit_magnitude = hit_magnitude_max*0.5*min(1, point_distance(0,0,oCharacter.hsp, oCharacter.vsp));

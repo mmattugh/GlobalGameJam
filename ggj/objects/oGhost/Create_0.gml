@@ -13,8 +13,8 @@ turn_speed = 8;
 turn_lerp = 0.5;
 
 // values used when colliding with red;
-in_red_turn_speed = 5.05
-in_red_turn_lerp = 0.4
+in_red_turn_speed = 4;
+in_red_turn_lerp = 0.5;
 
 immune_time = 60;
 
