@@ -25,7 +25,7 @@ if (track_index != noone and track_id == noone) {
 	if (instance_number(object_index) == 1) {
 		track_id = play_sound(track_index, 100, true, 1.0, 0, global.music_volume);
 		muffled_track_id = play_sound(muffled_track_index, 100, true, 1.0, 0, global.music_volume);
-		wobbly_track_id = play_sound(wobbly_track_id, 100, true, 1.0, 0, global.music_volume);
+		wobbly_track_id = play_sound(wobbly_track_index, 100, true, 1.0, 0, global.music_volume);
 		fade_in = true;
 	} else {
 		// are they playing the same track as us?
@@ -36,10 +36,10 @@ if (track_index != noone and track_id == noone) {
 			instance_destroy();	
 		} else {
 			// fade out the other instance
-			inst.fade_out = true;
+			instance_destroy(inst);
 			track_id = play_sound(track_index, 100, true, 1.0, 0, global.music_volume);
 			muffled_track_id = play_sound(track_index, 100, true, 1.0, 0, global.music_volume);
-			wobbly_track_id = play_sound(wobbly_track_id, 100, true, 1.0, 0, global.music_volume);
+			wobbly_track_id = play_sound(wobbly_track_index, 100, true, 1.0, 0, global.music_volume);
 			fade_in = true;
 		}		
 	}

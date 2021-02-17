@@ -1,5 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
+if (!made_music_obj) {
+	if (instance_exists(oMusic)) {
+		instance_destroy(oMusic);
+	}
+}
+
 if (oCharacter.state == pStates.bench ) {
 	if (instance_exists(oBenchGhost) and oBenchGhost.state == 3) {
 		text_y = lerp(text_y, y - 200, 0.2);

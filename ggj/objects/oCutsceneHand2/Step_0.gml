@@ -15,6 +15,10 @@ switch state {
 			}
 		}
 		
+		if (delay == 25) {
+			play_sound(Hand_put_Face, 0, false, 1.0, 0, global.sound_volume);	
+		}
+		
 		if (delay <= 0) {
 			oCharacter.sprite_index = sCharacter_Happy;
 			state = 1;
@@ -60,6 +64,9 @@ switch state {
 		oCamera.screenshake = 25;
 		
 		oCharacter.state = pStates.cutscene_flicked;
+		
+		play_sound(Flick, 0, false, 1.0, 0, global.sound_volume);	
+
 		
 		if (NG_ENABLED) {
 			//ng_unlockmedal("flicked");	
