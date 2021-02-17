@@ -66,6 +66,8 @@ switch state {
 			newgrounds_unlockmedal("62016")
 		}
 		
+		instance_create_depth(0, 0, 0, oCreditsScroll);
+		
 		state = 4;
 	}
 	break;

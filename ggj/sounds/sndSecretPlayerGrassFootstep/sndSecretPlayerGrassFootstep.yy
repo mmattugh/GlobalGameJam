@@ -13,8 +13,8 @@
   "soundFile": "sndSecretPlayerGrassFootstep.ogg",
   "duration": 0.103231,
   "parent": {
-    "name": "ggj",
-    "path": "ggj.yyp",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndSecretPlayerGrassFootstep",

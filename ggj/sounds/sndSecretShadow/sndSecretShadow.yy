@@ -13,8 +13,8 @@
   "soundFile": "sndSecretShadow.ogg",
   "duration": 1.853503,
   "parent": {
-    "name": "ggj",
-    "path": "ggj.yyp",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndSecretShadow",

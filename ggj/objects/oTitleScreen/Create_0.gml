@@ -31,8 +31,8 @@ selected[2] = 0;
 selected_max[2] = 3;
 
 text[2][0] = "back";
-text[2][1] = "dev_dwarf";
-text[2][2] = "mmatt_ugh";
+text[2][1] = "mmatt_ugh";
+text[2][2] = "dev_dwarf";
 text[2][3] = "connor grail";
 
 x_offsets = array_create(6, 0);
