@@ -67,6 +67,14 @@ update_text = function() {
 	
 	if global.speedrun > 0 {
 		text[1][4] += ": y";
+		
+		ini_open(SAVE_FILE);
+		var best_time = ini_read_real("save", "best_time", -1);
+		ini_close();
+		
+		if (best_time != -1) {
+			text[1][4] += " " + steps_to_time(best_time);	
+		}
 	} else {
 		text[1][4] += ": n";
 	}
@@ -77,12 +85,17 @@ update_text = function() {
 		text[0][0] = "press x ";
 	}	
 	
+	ini_open(SAVE_FILE);
+	target_room = ini_read_real("save", "latest_room", noone);
+	ini_close();
+	
 	if (target_room == noone or global.speedrun) {
 		text[0][0] += "to start";
 		
 		if (global.speedrun) {
 			text[1][5] = "delete save file";
 		}
+		target_room = level_1;
 	} else {
 		text[0][0] += "to continue";
 	

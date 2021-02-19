@@ -1,5 +1,13 @@
 /// @description 
 
+if (oCharacter.state == pStates.ghost and instance_exists(oBackToTitle)) {
+	instance_destroy(oBackToTitle);
+	instance_create_depth(144, 288, depth, pHazard);
+	instance_create_depth(160, 288, depth, pHazard);
+	instance_create_depth(144+8, 288+16, depth-1, fxLand)
+	instance_create_depth(160+8, 288+16, depth-1, fxLand)
+}
+
 if (oCharacter.combo > 15) {
 	if !destroyed_recharges	{
 		destroyed_recharges = true;	

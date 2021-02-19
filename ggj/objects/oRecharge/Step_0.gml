@@ -50,6 +50,13 @@ switch (state)
 		depth = 100;
 		sprite_index = sRecharge_Recharge;
 		id.health_ ++;
+		
+		if (id.health_ > regen_time-15) {
+			if (floor(id.health_/3) mod 2 == 1) {
+				sprite_index = sRecharge_Hit;
+			}
+		}
+		
 		if (id.health_ > regen_time)
 		{
 			state = recharge.regen;

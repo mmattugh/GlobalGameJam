@@ -87,10 +87,20 @@ function steps_to_time(steps) {
 		out += string(hour) + ":";	
 	}
 	if minute != 0 {
+		if (minute < 10) {
+			out += "0";	
+		}
 		out += string(minute) + ":";	
 	}
-	if second != 0 {
-		out += string(second) + ":";	
+	
+	if (second < 10) {
+		out += "0";	
+	}
+	out += string(second) + ":";	
+
+	
+	if (steps < 10) {
+		out += "0";	
 	}
 	out += string(steps);
 	return out;

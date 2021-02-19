@@ -8,12 +8,12 @@ level_music[level_2] = SELF_OST;
 level_music[level_4] = SELF_OST;
 level_music[level_laser_1] = SELF_OST;
 level_music[level_laser_1_2_2] = SELF_OST;
+level_music[level_laser_1_2_3] = SELF_OST;
 
 level_music[level_intermission] = Facetime_the_Spacetime_Loop;
 
 level_music[level_3_1] = Facetime_the_Spacetime_Loop;
 level_music[level_3] = Facetime_the_Spacetime_Loop;
-level_music[level_laser_1_2_3] = Facetime_the_Spacetime_Loop;
 level_music[level_laser_1_2] = Facetime_the_Spacetime_Loop;
 level_music[level_teach_fall] = Facetime_the_Spacetime_Loop;
 level_music[level_block_1] = Facetime_the_Spacetime_Loop;
@@ -24,6 +24,8 @@ level_music[level_6] = Facetime_the_Spacetime_Loop;
 
 level_music[level_flick] = Facetime_the_Spacetime_Loop;
 
+level_music[level_endless] = Endless_Loop;
+
 wobbly_music_version[SELF_OST] = SELF_MUFFLED;
 muffled_music_version[SELF_OST] = SELF_MUFFLED;
 
@@ -32,6 +34,9 @@ muffled_music_version[Facetime_the_Spacetime_Loop] = Facetime_the_Spacetime_Muff
 
 wobbly_music_version[SELF_TITLE_SCREEN_LOOP] = SELF_TITLE_SCREEN_LOOP;
 muffled_music_version[SELF_TITLE_SCREEN_LOOP] = SELF_TITLE_SCREEN_LOOP;
+
+wobbly_music_version[Endless_Loop] = Endless_Muffled;
+muffled_music_version[Endless_Loop] = Endless_Muffled;
 
 #endregion
 

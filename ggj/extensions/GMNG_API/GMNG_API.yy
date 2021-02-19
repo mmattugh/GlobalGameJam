@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "NG": {"copyToTargets":"36",},
+  },
   "optionsFile": "options.json",
   "options": [],
   "exportToGame": true,

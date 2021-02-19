@@ -1,7 +1,7 @@
 /// @description
 
 // handle muffle
-if (instance_exists(oGhost)) {
+if (instance_exists(oGhost) and !instance_exists(oBenchGhost)) {
 	muffle = true;	
 } else {
 	muffle = false;	

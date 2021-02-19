@@ -34,6 +34,7 @@ global.made_laser_noise_this_frame = false;
 
 draw_set_font(fFont);
 white = make_color_rgb(225, 229, 206);
+red = make_color_rgb(201, 99, 99);
 
 if (NG_ENABLED) {
 	//ng_connect("51458:SUgrUedz", "GsvSPZWGdzOE8GIpCV3yjOUAhG9E2pn8");

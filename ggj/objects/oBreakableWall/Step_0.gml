@@ -1,7 +1,8 @@
 
 if (oCharacter.state != pStates.move) or 
    (abs(oCharacter.vsp) > oCharacter.jump_accel) or
-   (abs(oCharacter.hsp) > oCharacter.move_speed) {
+   (abs(oCharacter.hsp) > oCharacter.move_speed) or 
+   (global.key_down) {
 	hitbox.mask_index = sNothing;	
 } else {
 	hitbox.mask_index = sWall;	

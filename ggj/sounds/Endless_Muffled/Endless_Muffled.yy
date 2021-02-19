@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "Facetime_the_Spacetime_Loop.ogg",
-  "duration": 150.88826,
+  "soundFile": "Endless_Muffled.ogg",
+  "duration": 83.5271759,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Facetime_the_Spacetime_Loop",
+  "name": "Endless_Muffled",
   "tags": [],
   "resourceType": "GMSound",
 }

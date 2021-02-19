@@ -127,6 +127,7 @@ if (selected_pressed) {
 			if (text[1][5] == "are you sure") {
 				file_delete(SAVE_FILE);
 				game_restart();
+				instance_destroy(oMusic);
 			} else {
 				text[1][5] = "are you sure";
 			}
