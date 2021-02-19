@@ -5,15 +5,11 @@
 	  text-shadow: none !important;
 	}
 
-	.right_col.column {
-	  display: none !important;
-	}
-
 	.header_buy_row {
 	  display: none !important;
 	}
 
-	h1, h2, h4, p {
+	#wrapper {
 		text-shadow: 5px 5px #27343A !important;
 		margin: auto;
 	}
@@ -45,44 +41,27 @@
 	  margin-left: auto !important;
 	  margin-right:  auto !important;
 	}
-
-	@media only screen and (min-width: 760px) {
-	  #wrapper h3 {
-	    width: 500px !important;
-	    margin-left: auto !important;
-	    margin-right:  auto !important;
-	    margin-top: 30px !important;
-	    font-size: 28px !important;
-	  }
-
-	  #wrapper.formatted_description {
-	    width: 760px !important;
-	    margin-left: auto !important;
-	    margin-right:  auto !important;
-	  }
-	}
-	
 	.wrapper  {
     background-repeat: repeat;
     background-attachment: fixed;
 	
-    -webkit-animation: backgroundScroll 20s linear 1;
+    -webkit-animation: backgroundScroll 100s linear 1;
     -webkit-animation-fill-mode: forwards;
 	-webkit-animation-iteration-count: infinite;
 	
-    animation: backgroundScroll 20s linear 1;
+    animation: backgroundScroll 100s linear 1;
     animation-fill-mode: forwards;
 	animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes backgroundScroll {
 from {background-position: 0 0;}
-to {background-position: 1280px 640px;}
+to {background-position: 0 1280px;}
 }
 
 @keyframes backgroundScroll {
 from {background-position: 0 0;}
-to {background-position: 1280px 640px;}
+to {background-position: 0px 1280px;}
 }
 
 @keyframes dev_shake {
