@@ -1,4 +1,7 @@
 {
+  "ConfigValues": {
+    "ITCH": {"option_linux_icon":"icons/64.png","option_linux_interpolate_pixels":"false","option_linux_homepage":"https://www.newgrounds.com/portal/view/project/1589484","option_linux_display_name":"SELF",},
+  },
   "option_linux_display_name": "Created with GameMaker Studio 2",
   "option_linux_version": "1.0.0.0",
   "option_linux_maintainer_email": "",
