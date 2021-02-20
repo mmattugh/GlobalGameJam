@@ -6,6 +6,9 @@ global.animationSpeed = 0;
 #macro NG_ENABLED false
 #macro NG:NG_ENABLED true
 
+#macro ITCH_ENABLED false
+#macro ITCH:ITCH_ENABLED true
+
 #macro SAVE_FILE "config.ini"
 
 global.camera_width = 320;

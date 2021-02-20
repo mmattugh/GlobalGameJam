@@ -24,6 +24,8 @@ header[1] = "additional help"
 var i = 0;
 text[1][i++] = "zedsquadron";
 text[1][i++] = "jakefriend";
+text[1][i++] = "milkbarjack";
+
 footer[1] = "";
 
 // section two: playtester boys
@@ -47,7 +49,15 @@ footer[2] = "";
 // section three: special boys
 header[3] = "special thanks";
 
-text[3][0] = "no one";
+if NG_ENABLED {
+	text[3][0] = "tom fulp";
+	text[3][1] = "and no one else";
+} else if ITCH_ENABLED {
+	text[3][0] = "leafo";
+	text[3][1] = "and no one else";	
+} else {
+	text[3][0] = "no one";
+}
 
 if global.gamepad_connected and global.gamepad_is_xbox == false {
 	footer[3] = "press square ";	
