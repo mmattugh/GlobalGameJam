@@ -7,6 +7,8 @@ global.key_interact		= 0;
 global.key_right_p		= 0;
 global.key_left_p		= 0;
 global.key_exit			= 0;
+global.key_restart		= 0;
+
 
 enum input_keys {
 	right  ,
@@ -18,6 +20,7 @@ enum input_keys {
 	right_p,
 	left_p,
 	escape,
+	restart,
 	
 	size, // size of this enum, keep this at bottom
 }
@@ -114,6 +117,9 @@ input_bindings[input_keys.left_p	  ].add_gamepad_binding(gp_axislh, true, -1);
 
 input_bindings[input_keys.escape  ] = new key_binding(input_keys.escape, vk_escape, input_modes.pressed);
 input_bindings[input_keys.escape].add_gamepad_binding(gp_select, false, -1);
+
+input_bindings[input_keys.restart  ] = new key_binding(input_keys.restart, ord("R"), input_modes.pressed);
+input_bindings[input_keys.restart].add_gamepad_binding(gp_start, false, -1);
 
 check_binding = function(i) {
 	binding = input_bindings[i];	

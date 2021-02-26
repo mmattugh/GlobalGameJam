@@ -39,8 +39,12 @@ draw_set_font(fFont);
 global.colors = {
 	white	: make_color_rgb(225, 229, 206),
 	red		: make_color_rgb(201, 99, 99),
-	bg		: make_color_rgb*36, 24, 25),
-}
+	bg		: make_color_rgb(36, 34, 35),
+	blue	: make_color_rgb(69, 91, 105),
+};
+
+application_surface_draw_enable(false);
+window_set_colour(global.colors.bg);
 
 if (NG_ENABLED) {
 	newgrounds_create_core("51458:SUgrUedz");

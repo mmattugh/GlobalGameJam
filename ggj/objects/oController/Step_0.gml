@@ -31,3 +31,4 @@ global.key_interact		= input_state[input_keys.interact];
 global.key_right_p		= input_state[input_keys.right_p];
 global.key_left_p		= input_state[input_keys.left_p];
 global.key_exit			= input_state[input_keys.escape];
+global.key_restart		= input_state[input_keys.restart];

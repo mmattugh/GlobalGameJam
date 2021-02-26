@@ -11,3 +11,9 @@ if (global.speedrun && global.key_exit) {
 		play_sound(Ghost_Hit_Wall, 0, false, 1.0, 0.02, global.sound_volume);
 	}
 }
+
+// restart
+if (global.key_restart) {
+	if (room != level_intermission)
+		room_restart();	
+}
