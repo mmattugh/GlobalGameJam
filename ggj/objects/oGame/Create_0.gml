@@ -15,7 +15,6 @@ global.camera_width = 320;
 global.camera_height = 320;
 global.camera_set_window_size = false;
 
-
 global.rooms = 0;
 last_room = noone;
 // load values
@@ -36,19 +35,13 @@ global.screen_freeze_this_frame = 0;
 global.made_laser_noise_this_frame = false;
 
 draw_set_font(fFont);
-white = make_color_rgb(225, 229, 206);
-red = make_color_rgb(201, 99, 99);
+
+global.colors = {
+	white	: make_color_rgb(225, 229, 206),
+	red		: make_color_rgb(201, 99, 99),
+	bg		: make_color_rgb*36, 24, 25),
+}
 
 if (NG_ENABLED) {
-	//ng_connect("51458:SUgrUedz", "GsvSPZWGdzOE8GIpCV3yjOUAhG9E2pn8");
-	//ng_initialize_medals_and_scoreboard();
-	
 	newgrounds_create_core("51458:SUgrUedz");
-	
-	// used to submit scores to leaderboard
-	//ng_postScore("Flick-Time", global.speedrun_time*1000/60);
-	//ng_postScore("Combo", combo);
-	
-	// used to unlock a given medal for a player
-	//ng_unlockmedal("medal_name_here");
 }

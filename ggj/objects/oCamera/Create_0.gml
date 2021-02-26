@@ -41,8 +41,6 @@ view_camera[0]	= camera;
 
 display_set_gui_size(global.camera_width, global.camera_height);
 
-bg_color = make_color_rgb(36, 34, 35);
-
 //surface_resize(application_surface, global.camera_width*2, global.camera_height*2);
 //if !(global.camera_set_window_size) {
 //	window_set_size(global.camera_width*3, global.camera_width*3);

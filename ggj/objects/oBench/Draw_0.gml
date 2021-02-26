@@ -24,7 +24,7 @@ for (var i = 0; i < 3; i++) {
 		}
 	} else {
 	
-		draw_set_color(red);
+		draw_set_color(global.colors.red);
 	
 		for (var j = 0; j < string_length(text[i]); j++) {
 			draw_text_transformed(xx + j*w*scale + scale*dcos(current_time*0.4 + j*30 + i*90)

@@ -1,6 +1,6 @@
 /// @description 
 
-draw_set_color(bg_color);
+draw_set_color(global.colors.bg);
 switch state {
 	case 0:
 	var s = 32;

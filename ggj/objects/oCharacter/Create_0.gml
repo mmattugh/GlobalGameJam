@@ -66,10 +66,6 @@ played_footstep_sound = false;
 trail_sound_id = noone;
 trail_sound_pitch = 0;
 
-white = make_color_rgb(225, 229, 206);
-red = make_color_rgb(201, 99, 99);
-black = make_color_rgb(36, 34, 35);
-
 draw_x = 0;
 draw_y = 0;
 

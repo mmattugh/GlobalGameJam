@@ -5,7 +5,6 @@ if (instance_exists(oMusic)) {
 }
 
 made_music_obj = false;
-red = make_color_rgb(201, 99, 99);
 
 text_y = y;
 text_x = x;

@@ -1,8 +1,5 @@
 /// @description 
 
-white = make_color_rgb(225, 229, 206);
-red = make_color_rgb(201, 99, 99);
-
 text_y = global.camera_height*1.25;
 
 // section one: the big boys

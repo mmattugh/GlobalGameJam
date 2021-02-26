@@ -123,6 +123,3 @@ ini_close();
 
 update_text();
 
-
-red = make_color_rgb(225, 229, 206);
-white = make_color_rgb(201, 99, 99);

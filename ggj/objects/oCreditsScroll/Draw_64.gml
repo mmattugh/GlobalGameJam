@@ -6,14 +6,14 @@ var xx = display_get_gui_width() * 1/4;
 var yy = text_y;
 for (var i = 0; i < sections; i++) {
 	// draw header
-	draw_set_color(white);	
+	draw_set_color(global.colors.white);	
 	for (var j = 0; j < string_length(header[i]); j++) {
 		draw_text(xx + j*w + 1*dcos(current_time*0.4 + j*30 + i*90), yy + 2*dsin(current_time*0.2 + j*30 + i*90), string_char_at(header[i], j+1));
 	}
 	yy += 2*h;
 	
 	// draw text + subtext
-	draw_set_color(red);	
+	draw_set_color(global.colors.red);	
 	for (var k = 0; k < array_length(text[i]); k++) {
 		for (var j = 0; j < string_length(text[i][k]); j++) {
 			draw_text(xx + j*w + 1*dcos(current_time*0.4 + j*30 + i*90), yy + 2*dsin(current_time*0.2 + j*30 + i*90), string_char_at(text[i][k], j+1));

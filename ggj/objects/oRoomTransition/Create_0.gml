@@ -14,5 +14,3 @@ if (global.speedrun) {
 }
 timer = 0;
 
-bg_color = make_color_rgb(36, 34, 35);
-

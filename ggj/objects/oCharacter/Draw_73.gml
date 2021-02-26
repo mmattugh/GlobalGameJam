@@ -4,13 +4,13 @@ draw_set_font(fFontCombo);
 if combo >= 3 {
 	var c1, c2, s;
 	if combo >= 5 {
-		c1 = red;
-		c2 = black;
+		c1 = global.colors.red;
+		c2 = global.colors.bg;
 		
 		s = 1.0 + 0.02*combo;
 	} else {
-		c1 = white;
-		c2 = black;
+		c1 = global.colors.white;
+		c2 = global.colors.bg;
 		s = 1.0
 	}
 	

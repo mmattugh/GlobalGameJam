@@ -7,9 +7,9 @@ for (var i = 0; i <= selected_max[page]; i++) {
 	var yy = text_y + i * string_height("M");
 	
 	if (i == selected[page]) {
-		draw_set_color(red);
+		draw_set_color(global.colors.white);
 	} else {
-		draw_set_color(white);
+		draw_set_color(global.colors.red);
 	}
 	
 	for (var j = 0; j < string_length(text[page][i]); j++) {

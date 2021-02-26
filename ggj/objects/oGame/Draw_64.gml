@@ -2,9 +2,9 @@
 // You can write your code in this editor
 if (global.speedrun) {
 	if (instance_exists(oCutsceneHand)) {
-		draw_set_color(red);
+		draw_set_color(global.colors.red);
 	} else {
-		draw_set_color(white);		
+		draw_set_color(global.colors.white);		
 	}
 	draw_set_font(fFont);
 	
