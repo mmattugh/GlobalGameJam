@@ -1,4 +1,4 @@
-/// @description 
+/// @description draw combos
 draw_set_font(fFontCombo);
 
 if combo >= 3 {

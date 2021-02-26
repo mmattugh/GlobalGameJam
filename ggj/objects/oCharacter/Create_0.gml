@@ -15,7 +15,9 @@ enum pStates {
 
 // movement parameters -- tweak these
 move_speed	= 2;
-move_accel = 0.5;
+move_accel_default = 0.5;
+move_accel_launch = 0.05;
+move_accel = move_accel_default;
 move_decel = 0.505;
 air_decel = 0.075;
 grav_accel	= 0.20;
@@ -69,6 +71,7 @@ trail_sound_pitch = 0;
 draw_x = 0;
 draw_y = 0;
 
+reset_move_accel_timer = 0;
 
 if !(instance_exists(oCamera)) {
 	instance_create_depth(x,y,depth,oCamera);

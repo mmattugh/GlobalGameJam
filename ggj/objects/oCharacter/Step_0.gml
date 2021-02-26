@@ -17,15 +17,11 @@ mask_index = sPlayerHitbox;
 // get hit by laser
 var inst = instance_place(x,y,oLaser);
 if (inst and inst.active and state != pStates.death) {
-	//destroy_self();		
-	
 	if (audio_is_playing(trail_sound_id)) {
 		audio_stop_sound(trail_sound_id);	
 	}
 	
-	//  //  //  //  //  //
 	//      Camera      //
-	//  //  //  //  //  //
 	scr_freeze(8);
 		image_index = 0;
 	state = pStates.death;
@@ -38,9 +34,9 @@ if (inst and inst.active and state != pStates.death) {
 switch state {
 	case pStates.move			  : #region
 	// goto ghost state
-	if (global.key_interact) && (has_ghost) {
-		
+	if (global.key_interact) && (has_ghost) {	
 		state = pStates.ghost;
+		
 		//fx
 		instance_create_depth(x,y-8,0,fxStart);
 		has_ghost = false;
@@ -108,7 +104,7 @@ switch state {
 	break;							#endregion
 	case pStates.ghost			  : #region
 	// goto prelaunch state
-	sprite_index = sCharacter_Spirit;
+	
 	if (global.key_interact && (!instance_exists(oGhost) or oGhost.go_back == false)) {
 		scr_freeze(15)
 		state = pStates.follow_trail;
@@ -213,8 +209,8 @@ switch state {
 		instance_create_depth(x,y-16,0,fxEnd);
 		
 		//Disable controls for a moment
-		alarm[0] = 20;
-		move_accel = 0.05;
+		reset_move_accel_timer = 20;
+		move_accel = move_accel_launch;
 		
 		instance_destroy(oGhost);
 		instance_destroy(oGhostTrail, false);
@@ -428,7 +424,6 @@ switch state {
 
 #endregion
 
-
 #region move object
 
 if !place_meeting(x+hsp, y+vsp, Solid) {
@@ -504,6 +499,14 @@ if (on_ground and has_ghost = false and state == pStates.move) {
 			direction = random_range(0,360)
 			speed = random_range(1,2)
 		}
+	}
+}
+
+if (reset_move_accel_timer > 0) {
+	reset_move_accel_timer -= 1;
+	
+	if (reset_move_accel_timer == 0) {
+		move_accel = move_accel_default;	
 	}
 }
 
