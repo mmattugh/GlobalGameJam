@@ -101,6 +101,9 @@ if (go_back) {
 	
 		#endregion
 	
+		x += lengthdir_x(spd, move_direction);
+		y += lengthdir_y(spd, move_direction);
+	
 		#region check for collision
 		if	(place_meeting(x,y,oWall) or place_meeting(x,y,pHazard)) {
 			destroy_self();
@@ -165,9 +168,6 @@ if (go_back) {
 			wall_slow = false;	
 		}
 	
-		x += lengthdir_x(spd, move_direction);
-		y += lengthdir_y(spd, move_direction);
-	
 		#endregion
 	
 		break; #endregion
@@ -175,6 +175,7 @@ if (go_back) {
 		case pStates.follow_trail	  :
 		case pStates.launch_from_trail:
 		arrows_enabled = lerp(arrows_enabled, 0, 0.2);
+		spd = 0;
 		spd = 0;
 		break;
 	}
