@@ -2,7 +2,7 @@
 visible = false;
 
 if !instance_exists(oCamera) {
-	
+	exit;
 }
 
 

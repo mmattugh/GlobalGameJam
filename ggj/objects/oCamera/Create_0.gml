@@ -5,6 +5,7 @@ enum cStates {
 	follow_x,
 	follow_y,
 	centered,
+	cutscene,
 }
 
 
@@ -14,7 +15,7 @@ zoom_lerp = 0.1;
 
 follow_lerp_init = 0.15;
 follow_lerp = follow_lerp_init;
-y_offset = 32;
+
 follow_object = oCharacter;
 screenshake_decrease = 1.5;
 screenshake_curve_threshold = 10;

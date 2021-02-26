@@ -55,6 +55,9 @@ if instance_exists(follow_object) {
 		target_x = station_object.x + station_object.sprite_width/2;
 		target_y = station_object.y;	
 		break;	
+		case cStates.cutscene:
+		// do nothing, let cutscene controller update positions manually.
+		break;
 	}
 }
 #endregion
@@ -92,8 +95,7 @@ if (screenshake > 0) {
 camera_set_view_size(camera, true_width, true_height);
 camera_set_view_pos(camera, view_x, view_y);
 
-#region parallax
-
+#region parallax visuals
 if (room == level_intermission) {
 	var xx = room_width/2;
 	var yy = -room_height/2;
