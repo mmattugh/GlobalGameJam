@@ -9,7 +9,6 @@ global.key_right_p = 0;
 global.key_left_p = 0;
 
 // gamepad
-
 global.gamepad_connected = false;
 global.gamepad_slot = 0;
 global.gamepad_is_xbox = true;

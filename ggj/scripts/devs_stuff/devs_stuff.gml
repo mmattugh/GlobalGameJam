@@ -39,6 +39,12 @@ function play_sound() {
 	var _sound		= argument[0];///@param id
 	var _priority	= argument[1];///@param priority
 	var _loop		= argument[2];///@param loops
+	
+	if (_sound == noone) {
+		show_debug_message("invalid sound id");
+		return noone;	
+	}
+	
 	// optional params
 	var _id = audio_play_sound(_sound, _priority, _loop);
 	var _modify_pitch = argument_count > 3;

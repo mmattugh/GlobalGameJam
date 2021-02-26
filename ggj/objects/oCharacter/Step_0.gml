@@ -56,8 +56,9 @@ switch state {
 		with instance_create_depth(x,y-8,depth,oGhost) 
 		{
 			move_direction = ghost_direction;
-			global.key_interact = false;
 		}
+		
+		global.key_interact = false;
 	}
 	
 	// horizontal speed	
@@ -108,7 +109,7 @@ switch state {
 	case pStates.ghost			  : #region
 	// goto prelaunch state
 	sprite_index = sCharacter_Spirit;
-	if (global.key_interact && oGhost.go_back == false) {
+	if (global.key_interact && (!instance_exists(oGhost) or oGhost.go_back == false)) {
 		scr_freeze(15)
 		state = pStates.follow_trail;
 		//fx
@@ -134,7 +135,9 @@ switch state {
 	trail_sound_pitch = oGhost.trail_sound_pitch_min + oGhost.trail_sound_pitch_multiply * power((oGhost.trail_length/(oGhost.trail_length_max)), 2);
 	audio_sound_pitch(trail_sound_id, trail_sound_pitch);
 	
-	oGhost.spd = 0;
+	if (instance_exists(oGhost)) {
+		oGhost.spd = 0;
+	}
 	
 	// goto launch state
 	if (place_meeting(x,y,oGhost)) {

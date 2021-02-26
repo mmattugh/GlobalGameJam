@@ -61,6 +61,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"oGate","path":"objects/oGate/oGate.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":96.0,"resourceVersion":"1.0","name":"inst_46216907","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"oGate","path":"objects/oGate/oGate.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":80.0,"resourceVersion":"1.0","name":"inst_20FBD76A","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"oGate","path":"objects/oGate/oGate.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":64.0,"resourceVersion":"1.0","name":"inst_7A6F06C8","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"oWall","path":"objects/oWall/oWall.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":3.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-16.0,"y":400.0,"resourceVersion":"1.0","name":"inst_1EAE3A2C","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":true,"inheritLayerSettings":true,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"TileWalls","path":"tilesets/TileWalls/TileWalls.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":30,"SerialiseHeight":30,"TileSerialiseData":[
 101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,22,101,101,101,101,101,101,101,101,22,22,101,
@@ -153,6 +154,7 @@
     {"name":"inst_46216907","path":"rooms/level_3_1/level_3_1.yy",},
     {"name":"inst_20FBD76A","path":"rooms/level_3_1/level_3_1.yy",},
     {"name":"inst_7A6F06C8","path":"rooms/level_3_1/level_3_1.yy",},
+    {"name":"inst_1EAE3A2C","path":"rooms/level_3_1/level_3_1.yy",},
   ],
   "inheritCreationOrder": true,
   "sequenceId": null,
