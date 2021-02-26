@@ -259,6 +259,7 @@ switch state {
 	
 	break; #endregion
 	
+	#region cutscene specific states
 	case pStates.bench:
 	hsp = 0;
 	vsp = 0;
@@ -303,6 +304,7 @@ switch state {
 	oCamera.x = x;
 	oCamera.y = y;
 	break;
+	#endregion
 }
 #endregion
 
@@ -430,13 +432,14 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 	x += hsp;
 	y += vsp;
 } else {
-	var temp_hsp = hsp;
-	var temp_vsp = vsp;
+	var temp_hsp = floor(hsp);
+	var temp_vsp = floor(vsp);
 
 	var sign_hsp = sign(hsp);
 	var sign_vsp = sign(vsp);
-	//var frac_hsp = frac(hsp);
-	//var frac_vsp = frac(vsp);
+	
+	var frac_hsp = frac(hsp);
+	var frac_vsp = frac(vsp);
 	while (abs(temp_hsp) > 0 && abs(temp_vsp) > 0) {
 		if !(place_meeting(x+sign_hsp, y+sign_vsp, Solid)) {
 			x += sign_hsp;
@@ -474,6 +477,14 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 			vsp = 0;
 			break;
 		}
+	}
+
+	if !place_meeting(x + frac_hsp, y, Solid) {
+		x += frac_hsp;
+	}
+	
+	if !place_meeting(x, y + frac_vsp, Solid) {
+		y += frac_vsp;
 	}
 }
 
