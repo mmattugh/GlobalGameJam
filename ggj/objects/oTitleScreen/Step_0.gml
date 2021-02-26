@@ -45,14 +45,9 @@ if (selected_pressed) {
 				fade_out = true;
 				volume = 0;
 			}
-			// save states
-			ini_open(SAVE_FILE);
-
-			ini_write_real("config", "screenshake_intensity", global.screenshake_intensity );
-			ini_write_real("config", "sound_volume",  global.sound_volume			 	   );
-			ini_write_real("config", "music_volume",  global.music_volume			 	   );
-
-			ini_close();
+			
+			save_options_state();
+			
 			break;
 			case 1:
 			var inst = instance_create_depth(0,0,depth,oRoomTransition);
@@ -63,14 +58,7 @@ if (selected_pressed) {
 				volume = 0;
 			}
 			
-			// save states
-			ini_open(SAVE_FILE);
-
-			ini_write_real("config", "screenshake_intensity", global.screenshake_intensity );
-			ini_write_real("config", "sound_volume",  global.sound_volume			 	   );
-			ini_write_real("config", "music_volume",  global.music_volume			 	   );
-
-			ini_close();
+			save_options_state();
 			break;
 			case 2:		
 			page = 1;

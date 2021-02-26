@@ -42,6 +42,9 @@ if global.gamepad_connected == true {
 	} else {
 		pad_left_p = false;
 	}
+	
+	global.key_exit = gamepad_button_check(global.gamepad_slot, gp_select);
+
 } else {
 	global.key_right = keyboard_check(vk_right) or keyboard_check(ord("D"));
 	global.key_left = keyboard_check(vk_left) or keyboard_check(ord("A"));
@@ -52,4 +55,5 @@ if global.gamepad_connected == true {
 
 	global.key_right_p = keyboard_check_pressed(vk_right) or keyboard_check_pressed(ord("D"));
 	global.key_left_p  = keyboard_check_pressed(vk_left)  or keyboard_check_pressed(ord("A"));
+	global.key_exit = keyboard_check_pressed(vk_escape);
 }

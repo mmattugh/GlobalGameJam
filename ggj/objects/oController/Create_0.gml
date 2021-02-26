@@ -8,6 +8,8 @@ global.key_interact = 0;
 global.key_right_p = 0;
 global.key_left_p = 0;
 
+global.key_exit = 0;
+
 // gamepad
 global.gamepad_connected = false;
 global.gamepad_slot = 0;

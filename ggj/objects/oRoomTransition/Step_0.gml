@@ -16,10 +16,6 @@ switch state {
 	}
 	break;
 	case 1:	
-	if (instance_exists(oCharacter)) {
-		oCharacter.state = pStates.freeze;
-	}
-	
 	if (delay > 0) {
 		delay--;
 		exit;

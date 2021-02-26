@@ -8,6 +8,8 @@ page = 0;
 pages = 3;
 delay = 0;
 
+global.speedrun_time = 0;
+
 ini_open(SAVE_FILE);
 target_room = ini_read_real("save", "latest_room", noone);
 ini_close();
@@ -105,6 +107,18 @@ update_text = function() {
 	text[0][1] = "endless";
 	text[0][2] = "options";
 	text[0][3] = "credits";
+}
+	
+save_options_state = function() {
+// save states
+ini_open(SAVE_FILE);
+
+ini_write_real("config", "screenshake_intensity", global.screenshake_intensity );
+ini_write_real("config", "sound_volume",  global.sound_volume			 	   );
+ini_write_real("config", "music_volume",  global.music_volume			 	   );
+ini_write_real("config", "speedrun",  global.speedrun			 	   );
+
+ini_close();	
 }
 
 update_text();
