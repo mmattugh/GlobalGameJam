@@ -89,7 +89,7 @@ if (go_back) {
 			trail_length++;
 		}
 	
-		if (trail_length >= trail_length_max) {
+		if (trail_length >= trail_length_max and !go_back) {
 			spd = 0;
 			
 			scr_freeze(40)
