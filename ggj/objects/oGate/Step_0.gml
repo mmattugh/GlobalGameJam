@@ -18,5 +18,4 @@
 		}
 	}
 //}
-image_index = soul_count;
 shake = lerp(shake, 0, 0.2);

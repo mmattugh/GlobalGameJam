@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Cutscene Objects",
+    "path": "folders/Objects/Cutscene Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "oSunflower",

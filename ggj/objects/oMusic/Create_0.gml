@@ -2,25 +2,25 @@
 
 #region level music data
 level_music[level_1] = SELF_OST;
-level_music[level_2_1] = SELF_OST;
-level_music[level_2_2] = SELF_OST;
 level_music[level_2] = SELF_OST;
+level_music[level_3] = SELF_OST;
 level_music[level_4] = SELF_OST;
-level_music[level_laser_1] = SELF_OST;
-level_music[level_laser_1_2_2] = SELF_OST;
-level_music[level_laser_1_2_3] = SELF_OST;
+level_music[level_5] = SELF_OST;
+level_music[level_6_laser_1] = SELF_OST;
+level_music[level_7_laser_2] = SELF_OST;
+level_music[level_8_laser_3] = SELF_OST;
 
 level_music[level_intermission] = Facetime_the_Spacetime_Loop;
 
-level_music[level_3_1] = Facetime_the_Spacetime_Loop;
-level_music[level_3] = Facetime_the_Spacetime_Loop;
-level_music[level_laser_1_2] = Facetime_the_Spacetime_Loop;
-level_music[level_teach_fall] = Facetime_the_Spacetime_Loop;
-level_music[level_block_1] = Facetime_the_Spacetime_Loop;
-level_music[level_8] = Facetime_the_Spacetime_Loop;
-level_music[level_5] = Facetime_the_Spacetime_Loop;
-level_music[level_8_5] = Facetime_the_Spacetime_Loop;
-level_music[level_6] = Facetime_the_Spacetime_Loop;
+level_music[level_9] = Facetime_the_Spacetime_Loop;
+level_music[level_10] = Facetime_the_Spacetime_Loop;
+level_music[level_11_laser_4] = Facetime_the_Spacetime_Loop;
+level_music[level_12_teach_fall] = Facetime_the_Spacetime_Loop;
+level_music[level_13_block_1] = Facetime_the_Spacetime_Loop;
+level_music[level_14_block_2] = Facetime_the_Spacetime_Loop;
+level_music[level_15_tall] = Facetime_the_Spacetime_Loop;
+level_music[level_16_block_3] = Facetime_the_Spacetime_Loop;
+level_music[level_17_block_4] = Facetime_the_Spacetime_Loop;
 
 level_music[level_flick] = Facetime_the_Spacetime_Loop;
 
