@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "Endless_Muffled.ogg",
-  "duration": 82.48228,
+  "duration": 83.5271759,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
