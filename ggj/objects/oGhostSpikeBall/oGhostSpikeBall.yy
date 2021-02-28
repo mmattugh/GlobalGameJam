@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sGhostSpikesDown",
-    "path": "sprites/sGhostSpikesDown/sGhostSpikesDown.yy",
+    "name": "sGhostSpikeBall",
+    "path": "sprites/sGhostSpikeBall/sGhostSpikeBall.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,7 +24,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oGhostSpikes","path":"objects/oGhostSpikes/oGhostSpikes.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oGhostSpikeBall","path":"objects/oGhostSpikeBall/oGhostSpikeBall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oGhostSpikeBall","path":"objects/oGhostSpikeBall/oGhostSpikeBall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -33,7 +34,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oGhostSpikes",
+  "name": "oGhostSpikeBall",
   "tags": [],
   "resourceType": "GMObject",
 }
