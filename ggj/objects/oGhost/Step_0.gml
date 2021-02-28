@@ -105,6 +105,32 @@ if (go_back) {
 		y += lengthdir_y(spd, move_direction);
 	
 		#region check for collision
+		var bonk = instance_place(x,y,oBonkBlock);
+		if (bonk) {
+			// apply impulse
+			var dir = move_direction;
+			var h_impulse = lengthdir_x(bonk.bonk_impulse, dir);
+			var v_impulse = lengthdir_y(bonk.bonk_impulse, dir);
+			if (bonk.lock_directions) {
+				if (abs(h_impulse) > abs(v_impulse)) {
+					bonk.hsp = bonk.bonk_impulse*sign(h_impulse);
+					bonk.vsp = 0;
+				} else {
+					bonk.hsp = 0;
+					bonk.vsp = bonk.bonk_impulse*sign(v_impulse);
+				}
+			} else {
+				bonk.hsp += h_impulse;
+				bonk.vsp += v_impulse;
+			}
+			oCamera.screenshake += 5;
+			
+			// bonk as normal
+			destroy_self();
+			
+			play_sound(Ghost_Hit_Wall, 0, false, 0.8, 0.02, global.sound_volume*1.2);
+		}
+		
 		if	(place_meeting(x,y,oWall) or place_meeting(x,y,pHazard)) {
 			destroy_self();
 			

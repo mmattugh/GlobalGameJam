@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sDeath",
-    "path": "sprites/sDeath/sDeath.yy",
+    "name": "sSpikes",
+    "path": "sprites/sSpikes/sSpikes.yy",
   },
   "solid": false,
   "visible": true,
@@ -20,7 +20,10 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"pHazard","path":"objects/pHazard/pHazard.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"pHazard","path":"objects/pHazard/pHazard.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {

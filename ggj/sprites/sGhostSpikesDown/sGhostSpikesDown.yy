@@ -1,5 +1,5 @@
 {
-  "bboxMode": 2,
+  "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
   "origin": 0,
@@ -9,7 +9,7 @@
   "swfPrecision": 2.525,
   "bbox_left": 0,
   "bbox_right": 15,
-  "bbox_top": 8,
+  "bbox_top": 11,
   "bbox_bottom": 15,
   "HTile": false,
   "VTile": false,
@@ -24,15 +24,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"5f3c9d7d-eb5b-44fe-ab29-92286b10de21","path":"sprites/sDeath/sDeath.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"5f3c9d7d-eb5b-44fe-ab29-92286b10de21","path":"sprites/sDeath/sDeath.yy",},"LayerId":{"name":"45b48563-d4fa-4c29-ad10-2d3cb5a767dc","path":"sprites/sDeath/sDeath.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sDeath","path":"sprites/sDeath/sDeath.yy",},"resourceVersion":"1.0","name":"5f3c9d7d-eb5b-44fe-ab29-92286b10de21","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"f43fb81e-4f6c-4ebd-b4de-a4c6489e5d7a","path":"sprites/sGhostSpikesDown/sGhostSpikesDown.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"f43fb81e-4f6c-4ebd-b4de-a4c6489e5d7a","path":"sprites/sGhostSpikesDown/sGhostSpikesDown.yy",},"LayerId":{"name":"61c18f76-1d35-431a-8ce3-440bd11e3de2","path":"sprites/sGhostSpikesDown/sGhostSpikesDown.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sGhostSpikesDown","path":"sprites/sGhostSpikesDown/sGhostSpikesDown.yy",},"resourceVersion":"1.0","name":"f43fb81e-4f6c-4ebd-b4de-a4c6489e5d7a","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sDeath","path":"sprites/sDeath/sDeath.yy",},
+    "spriteId": {"name":"sGhostSpikesDown","path":"sprites/sGhostSpikesDown/sGhostSpikesDown.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 15.0,
+    "playbackSpeed": 30.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"b74774cf-8307-4495-a114-45ef103a0379","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5f3c9d7d-eb5b-44fe-ab29-92286b10de21","path":"sprites/sDeath/sDeath.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"90d26fd9-bb1b-485b-b391-de794c22c3af","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f43fb81e-4f6c-4ebd-b4de-a4c6489e5d7a","path":"sprites/sGhostSpikesDown/sGhostSpikesDown.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sDeath","path":"sprites/sDeath/sDeath.yy",},
+    "parent": {"name":"sGhostSpikesDown","path":"sprites/sGhostSpikesDown/sGhostSpikesDown.yy",},
     "resourceVersion": "1.3",
-    "name": "sDeath",
+    "name": "sGhostSpikesDown",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"45b48563-d4fa-4c29-ad10-2d3cb5a767dc","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"61c18f76-1d35-431a-8ce3-440bd11e3de2","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Sprites",
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sDeath",
+  "name": "sGhostSpikesDown",
   "tags": [],
   "resourceType": "GMSprite",
 }
