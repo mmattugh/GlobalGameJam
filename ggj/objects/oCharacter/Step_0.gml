@@ -60,7 +60,7 @@ switch state {
 	// horizontal speed	
 	var h_dir = sign(global.key_right - global.key_left);
 	
-	if (sign(h_dir) != 0) {
+	if (sign(h_dir) != 0 or abs(hsp) > move_speed) {
 		hsp = approach(hsp, move_speed * h_dir, move_accel);
 	}
 	
@@ -74,7 +74,9 @@ switch state {
 	
 	// vertical speed
 	if (on_ground) {
-		vsp = 0;
+		if !(sprung_this_frame) {
+			vsp = 0;
+		}
 	} else {
 		vsp = approach(vsp, grav_max_speed, grav_accel);
 		
@@ -493,24 +495,7 @@ if !place_meeting(x+hsp, y+vsp, Solid) {
 #region reset timers
 // prevent timer regen til ghost state is finished
 if (on_ground and has_ghost = false and state == pStates.move) {
-	
-	has_ghost = true;
-	combo = 0;
-	combo_exclamations = "";	
-
-	instance_create_depth(x,y,depth-2,fxRecharged);
-	play_sound(Ghost_Recharge, 40, false, 1.0, 0.05, global.sound_volume*0.5);
-
-	
-	oCamera.screenshake += 2;
-		repeat (5)
-	{
-		with instance_create_depth(x,y-16,depth+1,fxSmoke)
-		{
-			direction = random_range(0,360)
-			speed = random_range(1,2)
-		}
-	}
+	set_has_ghost();
 }
 
 if (reset_move_accel_timer > 0) {
@@ -522,4 +507,6 @@ if (reset_move_accel_timer > 0) {
 }
 
 combo_sin = dsin(current_time*0.4);
+sprung_this_frame = false;
+
 #endregion

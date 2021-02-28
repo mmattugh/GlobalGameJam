@@ -27,6 +27,8 @@ launch_hsp  = 5;
 launch_vsp  = 5;
 smoke_FX = 0;
 
+sprung_this_frame = false;
+
 combo = 0;
 combo_sin = 0;
 combo_exclamations = "";
@@ -85,3 +87,24 @@ if !(instance_exists(oCamera)) {
 
 
 
+function set_has_ghost() {
+	
+	has_ghost = true;
+	combo = 0;
+	combo_exclamations = "";	
+
+	instance_create_depth(x,y,depth-2,fxRecharged);
+	play_sound(Ghost_Recharge, 40, false, 1.0, 0.05, global.sound_volume*0.5);
+
+	
+	oCamera.screenshake += 2;
+		repeat (5)
+	{
+		with instance_create_depth(x,y-16,depth+1,fxSmoke)
+		{
+			direction = random_range(0,360)
+			speed = random_range(1,2)
+		}
+	}
+	
+}
