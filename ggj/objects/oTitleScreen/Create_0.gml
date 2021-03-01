@@ -5,13 +5,20 @@ oMusic.track_index = SELF_TITLE_SCREEN_LOOP;
 oMusic.muffled_track_index = noone;
 
 page = 0;
-pages = 3;
 delay = 0;
 
 global.speedrun_time = 0;
 
 ini_open(SAVE_FILE);
 target_room = ini_read_real("save", "latest_room", noone);
+flicked = ini_read_real("save", "flicked", false);
+
+// backward compatibility with old save files -- can be safely removed later
+var best_time = ini_read_real("save", "best_time", -1);
+if (best_time != -1) {
+	flicked = true;
+	ini_write_real("save", "flicked", true);
+}
 ini_close();
 
 if (target_room == noone or global.speedrun) {
@@ -37,7 +44,20 @@ text[2][1] = "mmatt_ugh";
 text[2][2] = "dev_dwarf";
 text[2][3] = "connor grail";
 
-x_offsets = array_create(6, 0);
+// build level select
+text[3][0] = "back";
+
+level_select_size = 1;
+for (var i = level_1; i != room_next(level_flick); i = room_next(i)) {
+	text[3][level_select_size] = remove_underscores(room_get_name(i));
+	level_select_rooms[level_select_size] = i;
+	level_select_size++;
+}
+
+selected[3] = 0;
+selected_max[3] = level_select_size-1;
+
+x_offsets = array_create(level_select_size, 0);
 
 text_x = 192;
 text_y = 500;
@@ -102,6 +122,10 @@ update_text = function() {
 		text[0][0] += "to continue";
 	
 		text[1][5] = "delete save file";
+	}
+	
+	if (flicked) {
+		text[0][0] = "level select";
 	}
 	
 	text[0][1] = "endless";

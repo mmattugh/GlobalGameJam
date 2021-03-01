@@ -134,3 +134,9 @@ function gamepad_anykey(argument0, deadzone) {
 	}
 	return false;
 }
+
+///@desc remove_underscores
+///@param str
+function remove_underscores(str) {
+	return string_replace_all(str, "_", " ");	
+}

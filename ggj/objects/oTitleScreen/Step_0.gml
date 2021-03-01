@@ -5,8 +5,6 @@ var selected_dir = sign(global.key_down - global.key_up);
 var selected_pressed = global.key_interact;
 
 oCamera.zoom = lerp(oCamera.zoom, 1.1, 0.1);
-text_x = lerp(text_x , 192, 0.2);
-text_y = lerp(text_y , 192, 0.2);
 
 // set selected
 if (delay > 0) {
@@ -15,7 +13,7 @@ if (delay > 0) {
 }
 
 if (selected_dir != 0) {
-	delay = 15;
+	delay = 8;
 	play_sound(Footsteps_01, 50, false, 1.0, 0.02, global.sound_volume);
 
 	selected[page] += selected_dir;
@@ -38,15 +36,19 @@ if (selected_pressed) {
 		switch selected[page] {
 			case 0:
 			
-			var inst = instance_create_depth(0,0,depth,oRoomTransition);
-			inst.target_room = target_room;
+			if flicked {
+				page = 3;
+			} else {
+				var inst = instance_create_depth(0,0,depth,oRoomTransition);
+				inst.target_room = target_room;
 			
-			with oMusic {
-				fade_out = true;
-				volume = 0;
+				with oMusic {
+					fade_out = true;
+					volume = 0;
+				}
+			
+				save_options_state();
 			}
-			
-			save_options_state();
 			
 			break;
 			case 1:
@@ -71,7 +73,7 @@ if (selected_pressed) {
 		}
 	
 		break;
-		case 1:
+		case 1: //options
 	
 		switch selected[page] {
 			case 0:
@@ -123,7 +125,7 @@ if (selected_pressed) {
 		}
 
 		break;
-		case 2:
+		case 2: // credits
 	
 		switch selected[page] {
 			case 0:
@@ -142,10 +144,29 @@ if (selected_pressed) {
 			break;
 		}
 		break;
+		
+		case 3: // level select
+		
+		if (selected[page] == 0) {
+			page = 0;	
+		} else {
+			var inst = instance_create_depth(0,0,depth,oRoomTransition);
+			inst.target_room = level_select_rooms[selected[page]];
+			
+			with oMusic {
+				fade_out = true;
+				volume = 0;
+			}
+			
+			save_options_state();
+		}
+		
+		break;
 	}
 	
 	play_sound(Land, 50, false, 1.0, 0.02, global.sound_volume);
-	x_offsets = array_create(7, 7);
+	x_offsets = array_create(level_select_size+1, 7);
+
 }
 
 // move camera
@@ -166,8 +187,20 @@ switch page {
 	oCamera.y = lerp(oCamera.y, room_height/2 + s, 0.4);
 	oCamera.x = lerp(oCamera.x, room_width, 0.4);
 	break;
+	case 3:
+	oCamera.y = lerp(oCamera.y, room_height + s + selected[page]*string_height("m"), 0.4);
+	oCamera.x = lerp(oCamera.x, room_width*1/2, 0.4);
+	break;
 }
 
-for (var i = 0; i < 6; i++) {
+//if (page == 3) {
+//	text_x = lerp(text_x , room_width/2+192, 0.2);
+//	text_y = lerp(text_y , 0, 0.2);
+//} else {
+	text_x = lerp(text_x , 192, 0.2);
+	text_y = lerp(text_y , 192, 0.2);	
+//}
+
+for (var i = 0; i < level_select_size; i++) {
 	x_offsets[i] = lerp(x_offsets[i], 0, 0.2);
 }	

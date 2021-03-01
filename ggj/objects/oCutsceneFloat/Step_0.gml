@@ -9,10 +9,13 @@ if (oCharacter.state == pStates.move) {
 			did_float = true;
 		
 			instance_create_depth(x,0,oCharacter.depth,oCutsceneHand);
+			
+			// save beat game
+			ini_open(SAVE_FILE);
+			ini_write_real("save", "flicked", true);
 		
 			// save best time
 			if (global.speedrun) {
-				ini_open(SAVE_FILE);
 				var prev_best = ini_read_real("save", "best_time", -1);
 		
 				if (prev_best > global.speedrun_time or prev_best == -1) {
@@ -24,8 +27,9 @@ if (oCharacter.state == pStates.move) {
 			
 					}
 				}
-				ini_close();
+				
 			}
+			ini_close();
 		}
 	}
 }
