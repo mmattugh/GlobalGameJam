@@ -6,8 +6,7 @@ if oCharacter.state == pStates.death {
 	
 	instance_destroy();
 	
-	instance_create_depth(x,y,depth-1,fxEnd);
-	
+	rotated_instance_create(x,y,0,0,depth-1,fxEnd);
 	exit;	
 }
 
@@ -101,8 +100,8 @@ if (go_back) {
 	
 		#endregion
 	
-		x += lengthdir_x(spd, move_direction);
-		y += lengthdir_y(spd, move_direction);
+		x += lengthdir_x(spd, move_direction+270-global.down_direction);
+		y += lengthdir_y(spd, move_direction+270-global.down_direction);
 	
 		#region check for collision
 		var bonk = instance_place(x,y,oBonkBlock);
@@ -147,7 +146,6 @@ if (go_back) {
 			
 			oCharacter.state = pStates.death;
 			play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
-	show_debug_message("zapped at ghost");
 	//show_debug_message(string(oLaser.img_index));
 
 			exit;

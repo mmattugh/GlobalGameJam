@@ -21,6 +21,11 @@ screenshake_decrease = 1.5;
 screenshake_curve_threshold = 10;
 screenshake_curve = 0.9;
 
+angle = 0;
+angle_lerp_speed = 0.2;
+target_angle = 0;
+angle_offset = 0;
+
 // 
 screenshake = 0;
 state = cStates.follow;

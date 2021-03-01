@@ -71,6 +71,7 @@ var true_height= zoom*global.camera_height;
 target_x = clamp(target_x, true_width/2 , room_width -true_width/2);
 target_y = clamp(target_y, true_height/2, room_height-true_height/2);
 zoom = lerp(zoom, target_zoom, zoom_lerp);
+angle = angle_lerp(angle, target_angle+angle_offset, angle_lerp_speed);
 
 // move to target_position
 x = lerp(x, target_x, follow_lerp);
@@ -94,6 +95,8 @@ if (screenshake > 0) {
 
 camera_set_view_size(camera, true_width, true_height);
 camera_set_view_pos(camera, view_x, view_y);
+camera_set_view_angle(camera, angle);
+
 
 #region parallax visuals
 if (room == level_intermission) {

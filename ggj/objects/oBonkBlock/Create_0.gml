@@ -7,6 +7,8 @@ vfriction = 0.3;
 bonk_impulse = 6;
 lock_directions = true;
 
+sprung_this_frame = false;
+
 
 attached_spikes_count = 0;
 attached_spikes = ds_list_create();

@@ -49,3 +49,12 @@ window_set_colour(global.colors.bg);
 if (NG_ENABLED) {
 	newgrounds_create_core("51458:SUgrUedz");
 }
+
+rotate_world = function(amount) {
+	global.down_direction = (global.down_direction + amount + 360) mod 360;
+	oCamera.angle_offset = (oCamera.angle_offset + amount + 360) mod 360;
+	
+	with oCharacter {
+		obj_unfuck(amount);	
+	}
+}

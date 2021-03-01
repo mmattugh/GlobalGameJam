@@ -36,3 +36,4 @@ if (hsp != 0 or vsp != 0) {
 	}
 }
 
+sprung_this_frame = false;

@@ -6,7 +6,7 @@
     "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "move_with_physics",
+  "name": "physics_stuff",
   "tags": [],
   "resourceType": "GMScript",
 }

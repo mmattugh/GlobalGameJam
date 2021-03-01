@@ -93,14 +93,16 @@ function set_has_ghost() {
 	combo = 0;
 	combo_exclamations = "";	
 
-	instance_create_depth(x,y,depth-2,fxRecharged);
+	//instance_create_depth(x,y,depth-2,fxRecharged);
+	rotated_instance_create(x,y,0,0,depth-2,fxRecharged);
 	play_sound(Ghost_Recharge, 40, false, 1.0, 0.05, global.sound_volume*0.5);
 
 	
 	oCamera.screenshake += 2;
 		repeat (5)
 	{
-		with instance_create_depth(x,y-16,depth+1,fxSmoke)
+		//with instance_create_depth(x,y-16,depth+1,fxSmoke)
+		with rotated_instance_create(x,y,0,-16,depth+1,fxSmoke)
 		{
 			direction = random_range(0,360)
 			speed = random_range(1,2)

@@ -80,8 +80,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"60e986e9-4075-4a81-9445-b8b59ae604aa","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "ggj",
-    "path": "ggj.yyp",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sGhostSpikeBall",

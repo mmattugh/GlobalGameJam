@@ -12,7 +12,7 @@
 		repeat (5) {
 			with instance_create_depth(x+random_range(0, sprite_width),y+random_range(0, sprite_height),depth-1,choose(fxSmoke,fxSmoke,fxSmokeLarge))
 			{
-				direction = random_range(75,105)
+				direction = random_range(75,105)+270-global.down_direction
 				speed = random_range(1,3)
 			}
 		}
