@@ -101,6 +101,7 @@
     {"id":{"name":"Laser_Telegraph","path":"sounds/Laser_Telegraph/Laser_Telegraph.yy",},"order":16,},
     {"id":{"name":"oLaserTelegraph","path":"objects/oLaserTelegraph/oLaserTelegraph.yy",},"order":15,},
     {"id":{"name":"sSpring","path":"sprites/sSpring/sSpring.yy",},"order":46,},
+    {"id":{"name":"sFlipLever","path":"sprites/sFlipLever/sFlipLever.yy",},"order":54,},
     {"id":{"name":"sTilesDecor","path":"sprites/sTilesDecor/sTilesDecor.yy",},"order":1,},
     {"id":{"name":"Self_Zapped_by_Laser","path":"sounds/Self_Zapped_by_Laser/Self_Zapped_by_Laser.yy",},"order":13,},
     {"id":{"name":"Shoot_02","path":"sounds/Shoot_02/Shoot_02.yy",},"order":2,},

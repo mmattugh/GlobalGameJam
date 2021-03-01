@@ -22,7 +22,7 @@ screenshake_curve_threshold = 10;
 screenshake_curve = 0.9;
 
 angle = 0;
-angle_lerp_speed = 0.2;
+angle_lerp_speed = 0.07505;
 target_angle = 0;
 angle_offset = 0;
 
