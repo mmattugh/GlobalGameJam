@@ -104,6 +104,29 @@ if (go_back) {
 		y += lengthdir_y(spd, move_direction+270-global.down_direction);
 	
 		#region check for collision
+		var cog = instance_place(x,y,oCog);
+		if (cog) {
+			// get direction
+			var dir = point_direction(x,y,cog.x-32*sin(cog.image_angle),cog.y-32*dcos(cog.image_angle)) - cog.image_angle;
+			
+			if (sign(dcos(dir)) == 1) {
+				with oGame {
+					rotate_world(-90);	
+				}
+				oCog.target_angle -= 90;
+			} else if (sign(dcos(dir)) == -1) {
+				with oGame {
+					rotate_world(90);	
+				}
+				oCog.target_angle += 90;
+			}
+			
+			// bonk as normal
+			destroy_self();
+			
+			play_sound(Ghost_Hit_Wall, 0, false, 0.8, 0.02, global.sound_volume*1.2);
+		}		
+		
 		var bonk = instance_place(x,y,oBonkBlock);
 		if (bonk) {
 			// apply impulse
