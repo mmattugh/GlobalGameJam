@@ -92,6 +92,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"oGateHasSoul","path":"objects/oGateHasSoul/oGateHasSoul.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":496.0,"y":208.0,"resourceVersion":"1.0","name":"inst_2E665026","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"oGateHasSoul","path":"objects/oGateHasSoul/oGateHasSoul.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":496.0,"y":192.0,"resourceVersion":"1.0","name":"inst_649BA936","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"oGateHasSoul","path":"objects/oGateHasSoul/oGateHasSoul.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":496.0,"y":176.0,"resourceVersion":"1.0","name":"inst_5E864316","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"oWall","path":"objects/oWall/oWall.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":2.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-16.0,"y":256.0,"resourceVersion":"1.0","name":"inst_668F2A93","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":true,"inheritLayerSettings":true,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"TileWalls","path":"tilesets/TileWalls/TileWalls.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":33,"SerialiseHeight":20,"TileSerialiseData":[
 189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,189,
@@ -203,6 +204,7 @@
     {"name":"inst_2E665026","path":"rooms/level_13_block_1/level_13_block_1.yy",},
     {"name":"inst_649BA936","path":"rooms/level_13_block_1/level_13_block_1.yy",},
     {"name":"inst_5E864316","path":"rooms/level_13_block_1/level_13_block_1.yy",},
+    {"name":"inst_668F2A93","path":"rooms/level_13_block_1/level_13_block_1.yy",},
   ],
   "inheritCreationOrder": true,
   "sequenceId": null,
