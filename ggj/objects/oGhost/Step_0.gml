@@ -107,14 +107,15 @@ if (go_back) {
 		var cog = instance_place(x,y,oCog);
 		if (cog) {
 			// get direction
-			var dir = point_direction(x,y,cog.x-32*sin(cog.image_angle),cog.y-32*dcos(cog.image_angle)) - cog.image_angle;
+			var dir = angle_difference(move_direction,cog.image_angle)+270-global.down_direction;
+			show_message(dir);
 			
-			if (sign(dcos(dir)) == 1) {
+			if (sign(dsin(dir)) == 1) {
 				with oGame {
 					rotate_world(-90);	
 				}
 				oCog.target_angle -= 90;
-			} else if (sign(dcos(dir)) == -1) {
+			} else if (sign(dsin(dir)) == -1) {
 				with oGame {
 					rotate_world(90);	
 				}
