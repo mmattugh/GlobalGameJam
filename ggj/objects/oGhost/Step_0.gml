@@ -108,8 +108,6 @@ if (go_back) {
 		if (cog) {
 			// get direction
 			var dir = angle_difference(move_direction,cog.image_angle)+270-global.down_direction;
-			show_message(dir);
-			
 			if (sign(dsin(dir)) == 1) {
 				with oGame {
 					rotate_world(-90);	
