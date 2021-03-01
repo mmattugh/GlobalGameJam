@@ -104,8 +104,31 @@ if (go_back) {
 		y += lengthdir_y(spd, move_direction+270-global.down_direction);
 	
 		#region check for collision
+		
+		var lever = instance_place(x,y,oFlipLever);
+		if (lever) {
+			// bonk as normal
+			destroy_self();
+			
+			play_sound(Ghost_Hit_Wall, 0, false, 0.8, 0.02, global.sound_volume*1.2);
+			
+			// rotate
+			scr_freeze(40);
+			lever.orientation *= -1;
+			
+			with oGame {
+				rotate_world(180);	
+			}	
+		}
+		
 		var cog = instance_place(x,y,oCog);
 		if (cog) {
+			scr_freeze(40);
+			// bonk as normal
+			destroy_self();
+			
+			play_sound(Ghost_Hit_Wall, 0, false, 0.8, 0.02, global.sound_volume*1.2);
+			
 			// get direction
 			var dir = angle_difference(move_direction,cog.image_angle)+270-global.down_direction;
 			if (sign(dsin(dir)) == 1) {
@@ -119,15 +142,11 @@ if (go_back) {
 				}
 				oCog.target_angle += 90;
 			}
-			
-			// bonk as normal
-			destroy_self();
-			
-			play_sound(Ghost_Hit_Wall, 0, false, 0.8, 0.02, global.sound_volume*1.2);
 		}		
 		
 		var bonk = instance_place(x,y,oBonkBlock);
 		if (bonk) {
+			scr_freeze(40);
 			// apply impulse
 			var dir = move_direction;
 			var h_impulse = lengthdir_x(bonk.bonk_impulse, dir);
@@ -150,6 +169,7 @@ if (go_back) {
 			destroy_self();
 			
 			play_sound(Ghost_Hit_Wall, 0, false, 0.8, 0.02, global.sound_volume*1.2);
+			
 		}
 		
 		if	(place_meeting(x,y,oWall) or place_meeting(x,y,pHazard)) {

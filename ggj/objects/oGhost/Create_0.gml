@@ -52,6 +52,12 @@ destroy_self = function() {
 	//oCamera.zoom = 1.1*oCamera.target_zoom;
 	oCamera.screenshake = 15;
 	
+	with instance_create_depth(	x + lengthdir_x(9, move_direction+270-global.down_direction),
+								y + lengthdir_y(9, move_direction+270-global.down_direction),
+								depth-1, fxGhostBonk) {
+		image_angle = other.move_direction+270-global.down_direction;							
+	}
+	
 	exit;
 }
 
