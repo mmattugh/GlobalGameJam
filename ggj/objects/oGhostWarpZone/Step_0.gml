@@ -3,9 +3,9 @@
 if (place_meeting(x,y,oGhost)) {
 	if instance_exists(oGhost) {
 		with oGhost {
-		event_perform(ev_step, 0)
+			event_perform(ev_step, 0)
 		
-		max_spd = 2.5;
+			max_spd = in_red_spd;
 		
 			//if (trail_length_max == trail_length_max_init) {
 				trail_length_max++;;

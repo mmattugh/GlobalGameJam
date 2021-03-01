@@ -105,6 +105,11 @@ if (go_back) {
 	
 		#region check for collision
 		
+		var red = place_meeting(x,y,oGhostWarpZone);
+		if (!red) {
+			max_spd = default_max_spd;
+		}
+		
 		var lever = instance_place(x,y,oFlipLever);
 		if (lever) {
 			// bonk as normal

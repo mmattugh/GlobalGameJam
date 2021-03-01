@@ -1,9 +1,10 @@
 /// @description 
 depth = 0;
 // tweakable
-max_spd = 2.5;
+default_max_spd = 2.5;
 turning_max_spd = 1.75;
-
+in_red_spd = 1.5;
+max_spd = default_max_spd;
 
 acceleration = 0.5;
 
@@ -14,7 +15,7 @@ turn_lerp = 0.5;
 
 // values used when colliding with red;
 in_red_turn_speed = 4;
-in_red_turn_lerp = 0.5;
+in_red_turn_lerp = 0.4;
 
 immune_time = 60;
 

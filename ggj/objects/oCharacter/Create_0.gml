@@ -13,6 +13,8 @@ enum pStates {
 	cutscene_flicked,
 }
 
+global.active_player_object = id;
+
 // movement parameters -- tweak these
 move_speed	= 2;
 move_accel_default = 0.5;
