@@ -19,14 +19,14 @@ if (station_object != noone) {
 }
 
 #region set follow target
-switch oCharacter.state {
+switch global.active_player_object.state {
 	
 	case pStates.ghost:
 	follow_object = oGhost;
 	break;
 	case pStates.move:
 	case pStates.death:
-	follow_object = oCharacter;
+	follow_object = global.active_player_object;
 	break;
 	case pStates.follow_trail:
 	case pStates.launch_from_trail:

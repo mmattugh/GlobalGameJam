@@ -45,6 +45,11 @@ if (on_ground) {
 #region gameplay state machine
 switch state {
 	case pStates.move			  : #region
+	// goto husk state
+	if (go_to_husk && on_ground) {
+		state = pStates.husk;
+	}
+	
 	// goto ghost state
 	if (global.key_interact) && (has_ghost) {	
 		state = pStates.ghost;
@@ -66,6 +71,7 @@ switch state {
 		with rotated_instance_create(x,y,0,-8,depth,oGhost) 
 		{
 			move_direction = ghost_direction;
+			creator_player_object = other.id;
 		}
 		
 		global.key_interact = false;
@@ -239,41 +245,53 @@ switch state {
 	}	
 	
 	break;							#endregion
+	case pStates.husk: #region
+	
+	if (go_to_husk) {
+		go_to_husk = false;
+		vsp = 0;
+		hsp = 0;
+	}
+	
+	break; #endregion
 	case pStates.death: #region
-	
-	if instance_exists(pCameraStationZone) {
-		instance_destroy(pCameraStationZone);
-	}
-	
-	if audio_is_playing(Stretch_Loop) {
-		audio_stop_sound(Stretch_Loop);	
-	}
-	
-	if audio_is_playing(Stretch_Loop_Reversed) {
-		audio_stop_sound(Stretch_Loop_Reversed);	
-	}
-	
 	hsp = 0;
 	vsp = 0;
 	
-	if (death_delay <= 0) {
-		death_zoom = lerp(death_zoom, 0.9, 0.2);
-	
-	} else {
-		death_delay--;	
-	}
-	oCamera.zoom = death_zoom;
-	oCamera.zoom_lerp = 0.2;
-	oCamera.target_x = x;
-	oCamera.target_y = y;
-	
-	
-	if (death_zoom < 0.81) {
-		if (death_restart_delay <= 0) {
-			
-		} else {
-			death_restart_delay--;
+	if (global.active_player_object == id) {
+		if instance_exists(pCameraStationZone) {
+			instance_destroy(pCameraStationZone);
 		}
+	
+		if audio_is_playing(Stretch_Loop) {
+			audio_stop_sound(Stretch_Loop);	
+		}
+	
+		if audio_is_playing(Stretch_Loop_Reversed) {
+			audio_stop_sound(Stretch_Loop_Reversed);	
+		}
+
+		if (death_delay <= 0) {
+			death_zoom = lerp(death_zoom, 0.9, 0.2);
+	
+		} else {
+			death_delay--;	
+		}
+		oCamera.zoom = death_zoom;
+		oCamera.zoom_lerp = 0.2;
+		oCamera.target_x = x;
+		oCamera.target_y = y;
+	
+	
+		if (death_zoom < 0.81) {
+			if (death_restart_delay <= 0) {
+			
+			} else {
+				death_restart_delay--;
+			}
+		}
+	} else {
+		instance_destroy();	
 	}
 	
 	break; #endregion
@@ -345,13 +363,13 @@ if (!on_ground and vsp > 0) {
 
 switch state {
 	// same graphics state for both
-	case pStates.move:
+	case pStates.move: #region
 	{
 		//fx
 		smoke_FX++;
 		if (smoke_FX > 2) && (has_ghost) {
 			//with (instance_create_depth(random_range(x-2,x+2),y-16,oCharacter.depth+1,fxSmoke))
-			with (rotated_instance_create(x,y,random_range(-2,2),-16,oCharacter.depth+1,fxSmoke))
+			with (rotated_instance_create(x,y,random_range(-2,2),-16,depth+1,fxSmoke))
 			{
 			other.smoke_FX = 0;
 			}
@@ -407,8 +425,8 @@ switch state {
 		}
 	}
 	
-	}break;#region
-	case pStates.ghost:
+	}break;#endregion
+	case pStates.ghost: #region
 	sprite_index = sCharacter_Spirit;
 
 	break; #endregion
@@ -425,6 +443,12 @@ switch state {
 	else trail_FX ++;
 	break; #endregion
 	case pStates.launch_from_trail: #region
+	
+	break; #endregion
+	case pStates.husk				: #region
+	sprite_index = sCharacter_Sit;
+	image_speed = 0.5;
+
 	
 	break; #endregion
 	case pStates.death: #region
@@ -452,8 +476,6 @@ switch state {
 // move 
 var prev = image_angle;
 image_angle = 270-global.down_direction;
-
-show_debug_message(string(hsp) + " " + string(vsp) + " " + string(rotated_place_meeting(x,y,0,0,Solid)));
 
 move_with_physics();
 image_angle = prev;

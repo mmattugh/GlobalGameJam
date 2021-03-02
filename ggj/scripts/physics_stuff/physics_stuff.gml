@@ -154,12 +154,36 @@ if !place_meeting(x+xsp, y+ysp, Solid) {
 		y += frac_vsp;
 	}
 	if (place_meeting(x,y,Solid)) {
-		show_debug_message("ERRRR");
-		for (var i = 0; i < 360; i+=90) {
-			if (!place_meeting(x+dcos(i),y+dsin(i),Solid)) {
-				x += dcos(i); y += dsin(i);
-			}
-		}
+		//show_debug_message("big problem baby");
+		//var height = sprite_get_height(mask_index);
+		//var width = sprite_get_width(mask_index);
+		//var h = height;
+		//var v = width;
+		//var xsp, ysp;
+		//switch global.down_direction {
+		//	case 0:
+		//	xsp = -v;
+		//	ysp =  h;
+		//	break;
+		//	case 90:
+		//	xsp = -h;
+		//	ysp = -v;
+		//	break
+		//	case 180:
+		//	xsp =  v;
+		//	ysp = -h;
+		//	break;
+		//	case 270:
+		//	xsp =  h;
+		//	ysp =  v;
+		//	break;
+		//}
+		
+		//for (var i = 0; i < 360; i+=90) {
+		//	if (!place_meeting(x+dcos(i)*xsp,y+dsin(i)*ysp,Solid)) {
+		//		x += dcos(i)*xsp; y += dsin(i)*ysp;
+		//	}
+		//}
 	}
 	
 }
@@ -259,4 +283,41 @@ function obj_unfuck(diff) {
 	
 	x += xsp;
 	y += ysp;
+	
+	
+
+	if (place_meeting(x,y,Solid)) {
+		
+		v = height;
+		h = width;
+		var xsp, ysp;
+		switch global.down_direction {
+			case 0:
+			xsp = -v;
+			ysp =  h;
+			break;
+			case 90:
+			xsp = -h;
+			ysp = -v;
+			break
+			case 180:
+			xsp =  v;
+			ysp = -h;
+			break;
+			case 270:
+			xsp =  h;
+			ysp =  v;
+			break;
+		}
+		
+		for (var i = 0; i < 360; i+=90) {
+			if (!place_meeting(x+dcos(i)*xsp,y+dsin(i)*ysp,Solid)) {
+				x += dcos(i)*xsp; y += dsin(i)*ysp;
+			}
+		}
+		
+		return
+	}
+	
+	show_debug_message("big problem baby");
 }

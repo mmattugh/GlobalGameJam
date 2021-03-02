@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "sGodRay",
-    "path": "sprites/sGodRay/sGodRay.yy",
+    "name": "sFlipLeverSolid",
+    "path": "sprites/sFlipLeverSolid/sFlipLeverSolid.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Solid",
+    "path": "objects/Solid/Solid.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -20,17 +23,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oGodRay","path":"objects/oGodRay/oGodRay.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Cutscene Objects",
-    "path": "folders/Objects/Cutscene Objects.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oGodRay",
+  "name": "oFlipLeverSolid",
   "tags": [],
   "resourceType": "GMObject",
 }

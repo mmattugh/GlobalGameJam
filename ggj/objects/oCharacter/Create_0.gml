@@ -5,6 +5,8 @@ enum pStates {
 	ghost,
 	follow_trail,
 	launch_from_trail,
+	wall_slide,
+	husk,
 	death,
 	freeze,
 	bench,
@@ -13,7 +15,11 @@ enum pStates {
 	cutscene_flicked,
 }
 
-global.active_player_object = id;
+if (object_index == oCharacter) {
+	global.active_player_object = id;
+}
+go_to_husk = false;
+
 
 // movement parameters -- tweak these
 move_speed	= 2;

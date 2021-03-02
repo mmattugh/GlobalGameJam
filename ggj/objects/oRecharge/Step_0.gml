@@ -26,11 +26,11 @@ switch (state)
 		depth = 0;
 		sprite_index = sRecharge
 		mask_index = sRecharge
-		if (place_meeting(x,y,oCharacter))
+		if (place_meeting(x,y,global.active_player_object))
 		{
-			oCharacter.has_ghost = true;
+			global.active_player_object.has_ghost = true;
 			//instance_create_depth(oCharacter.x,oCharacter.y,oCharacter.depth-2,fxRecharged);
-			rotated_instance_create(oCharacter.x,oCharacter.y,0,0,oCharacter.depth-2,fxRecharged);
+			rotated_instance_create(global.active_player_object.x,global.active_player_object.y,0,0,global.active_player_object.depth-2,fxRecharged);
 			//oCharacter.hsp = 0;
 			//oCharacter.vsp = 0;
 			play_sound(Ghost_Recharge, 40, false, 1.0, 0.05, global.sound_volume*0.5);

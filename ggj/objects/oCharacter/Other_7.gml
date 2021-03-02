@@ -5,7 +5,7 @@ if (state = pStates.death)
 			// TODO: save endless highscore	
 			//ng_postScore("Combo", oCharacter.combo);
 			
-			newgrounds_postscore("9962", oCharacter.combo);
+			newgrounds_postscore("9962", global.active_player_object.combo);
 
 		}
 	}

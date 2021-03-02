@@ -54,7 +54,9 @@ rotate_world = function(amount) {
 	global.down_direction = (global.down_direction + amount + 360) mod 360;
 	oCamera.angle_offset = (oCamera.angle_offset + amount + 360) mod 360;
 	
-	with oCharacter {
+	with global.active_player_object {
 		obj_unfuck(amount);	
 	}
+	
+	
 }

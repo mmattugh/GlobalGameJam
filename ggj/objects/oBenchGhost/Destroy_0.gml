@@ -7,6 +7,6 @@ with oMusic {
 	instance_destroy();	
 }
 
-oCharacter.has_ghost = true;
+global.active_player_object.has_ghost = true;
 		
 instance_create_depth(0,0,0,oMusic);

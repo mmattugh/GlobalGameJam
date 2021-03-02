@@ -4,7 +4,7 @@ switch state {
 	image_speed = 0;
 	image_index = 0;
 	
-	var inst = instance_place(x,y,oCharacter);
+	var inst = instance_place(x,y,global.active_player_object.object_index);
 	if (inst == noone or inst.state != pStates.move) {
 		inst = instance_place(x,y,oBonkBlock);	
 	}
@@ -12,7 +12,6 @@ switch state {
 		if !(inst.sprung_this_frame) {
 			var new_vsp, new_hsp, new_xscale, new_yscale;
 			var ang = round((image_angle+global.down_direction-270+360) mod 360);
-			show_debug_message(string(ang));
 			switch ang {
 				case 90:
 				new_vsp = min(0, inst.vsp);
@@ -51,7 +50,7 @@ switch state {
 				draw_yscale = new_yscale;
 			
 			
-				if object_index == oCharacter and !(has_ghost) {
+				if object_index == global.active_player_object.object_index and !(has_ghost) {
 					set_has_ghost();			
 				}
 			}

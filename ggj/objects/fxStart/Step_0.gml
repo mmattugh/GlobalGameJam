@@ -1,4 +1,4 @@
-if (global.key_interact) or (oCharacter.state != pStates.ghost)
+if (global.key_interact) or (global.active_player_object.state != pStates.ghost)
 {
 	instance_create_depth(x,y,0,fxMiddle);
 	instance_destroy();

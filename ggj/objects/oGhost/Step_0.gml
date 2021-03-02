@@ -1,7 +1,7 @@
 /// @description 
 mask_index = sPlayerHitbox;
 
-if oCharacter.state == pStates.death {
+if creator_player_object.state == pStates.death or creator_player_object.state == pStates.husk {
 	
 	
 	instance_destroy();
@@ -47,7 +47,7 @@ if (go_back) {
 			trail_target_next = trail_target.prev;
 		}
 	} else {
-		oCharacter.state = pStates.move;
+		creator_player_object.state = pStates.move;
 		//oCamera.zoom = 0.9*oCamera.target_zoom;
 		oCamera.screenshake = 4;
 		scr_freeze(10);
@@ -56,7 +56,8 @@ if (go_back) {
 		instance_destroy();
 	}
 } else {
-	switch oCharacter.state {
+	switch creator_player_object.state {
+		case pStates.husk: 
 		case pStates.death: #region
 	
 		instance_destroy(oGhostTrail);
@@ -82,6 +83,8 @@ if (go_back) {
 				trail_previous.next = trail_new;
 			}
 		
+			trail_new.creator_player_object = creator_player_object;
+		
 			trail_new.prev = trail_previous;
 			trail_previous = trail_new;
 		
@@ -92,7 +95,7 @@ if (go_back) {
 			spd = 0;
 			
 			scr_freeze(40)
-			oCharacter.state = pStates.follow_trail;
+			creator_player_object.state = pStates.follow_trail;
 			oCamera.screenshake += 5;
 			play_sound(choose(Shoot_01, Shoot_02, Shoot_03), 0, false, 1.0, 0.02, global.sound_volume);
 			audio_stop_sound(trail_sound_id);
@@ -104,6 +107,48 @@ if (go_back) {
 		y += lengthdir_y(spd, move_direction+270-global.down_direction);
 	
 		#region check for collision
+		
+		var husk = instance_place(x,y,oCharacter);
+		if (husk != noone and husk != creator_player_object) {
+			// turn current player to husk
+			global.active_player_object.go_to_husk = true;
+			global.active_player_object.state = pStates.move;
+			
+			// activate husk
+			husk.state = pStates.move;
+			global.active_player_object = husk;
+			
+			#region unfuck
+			var angle_change_since_init = round(-((global.down_direction-husk.draw_angle+720-270) mod 360) + 180);
+			if (abs(angle_change_since_init) == 90) { 
+				with global.active_player_object {
+					var prev = image_angle;
+					image_angle = 270-global.down_direction
+					obj_unfuck(angle_change_since_init);	
+					image_angle = prev;
+				}
+			} else if (abs(angle_change_since_init) == 180 or abs(angle_change_since_init) == 0) {
+				with (global.active_player_object) {
+					var prev = image_angle;
+					image_angle = 270-global.down_direction
+					obj_unfuck(180);	
+					image_angle = prev;
+				}
+			}
+			#endregion
+			
+			// make sure jump doesnt get cancelled
+			with husk {
+				vsp = -1;
+				move_with_physics();
+			}
+			husk.vsp -= husk.jump_accel;
+
+			// destroy self
+			instance_destroy();
+	
+			rotated_instance_create(x,y,0,0,depth-1,fxEnd);
+		}
 		
 		var red = place_meeting(x,y,oGhostWarpZone);
 		if (!red) {
@@ -191,7 +236,7 @@ if (go_back) {
 				audio_stop_sound(trail_sound_id);	
 			}
 			
-			oCharacter.state = pStates.death;
+			creator_player_object.state = pStates.death;
 			play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
 	//show_debug_message(string(oLaser.img_index));
 
@@ -256,7 +301,7 @@ if (go_back) {
 	draw_yscale = lerp(draw_yscale, 1.0, 0.2);
 
 	// update sfx
-	if (oCharacter.state != pStates.ghost) {
+	if (creator_player_object.state != pStates.ghost) {
 		audio_stop_sound(trail_sound_id);
 		
 		if (!played_end_sound) {

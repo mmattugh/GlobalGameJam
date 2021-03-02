@@ -5,10 +5,10 @@ if (oCharacter.state == pStates.move) {
 			oMusic.track_index = SELF_TITLE_SCREEN_LOOP;
 			oMusic.muffled_track_index = SELF_TITLE_SCREEN_LOOP;
 	
-			oCharacter.state = pStates.cutscene_float;
+			global.active_player_object.state = pStates.cutscene_float;
 			did_float = true;
 		
-			instance_create_depth(x,0,oCharacter.depth,oCutsceneHand);
+			instance_create_depth(x,0,global.active_player_object.depth,oCutsceneHand);
 		
 			// save best time
 			if (global.speedrun) {

@@ -40,6 +40,8 @@ audio_sound_gain(trail_sound_id, global.sound_volume, 0);
 trail_sound_pitch_min = 0.3;
 trail_sound_pitch_multiply = 2.7;
 
+creator_player_object = noone;
+
 destroy_self = function() {
 	//oCharacter.state = pStates.move;
 	//instance_destroy(oGhostTrail);
