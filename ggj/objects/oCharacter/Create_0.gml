@@ -24,7 +24,7 @@ if (object_index == oCharacter) {
 go_to_husk = false;
 go_to_husk_used = false;
 
-husk_lifetime = (3 + .5) * 60; // 10 seconds
+husk_lifetime = (10 + .5) * 60; // 10 seconds
 
 
 // movement parameters -- tweak these
