@@ -45,8 +45,11 @@ if (on_ground) {
 #region gameplay state machine
 switch state {
 	case pStates.move			  : #region
+	
 	// goto husk state
-	if (go_to_husk && on_ground) {
+	if (go_to_husk_used && on_ground) {
+		state = pStates.husk_used;	
+	} else if (go_to_husk && on_ground) {
 		state = pStates.husk;
 	}
 	
@@ -76,6 +79,25 @@ switch state {
 		
 		global.key_interact = false;
 	}
+	
+	#region husk specific code
+	if (global.oldest_player_object != id) {
+		if ((husk_lifetime+6) mod 60 == 0) {
+			var timer = (husk_lifetime+6)/60;
+			// create timer effect	
+			with rotated_instance_create(x,y,5,4,depth,fxTimer) 
+			{
+				str = string(timer);
+			}
+		}
+		husk_lifetime--;
+		
+		if (husk_lifetime <= 0 and !go_to_husk_used) {
+			deactivate_this_husk();	
+		}
+	}
+
+	#endregion
 	
 	// horizontal speed	
 	var h_dir = sign(global.key_right - global.key_left);
@@ -254,11 +276,21 @@ switch state {
 	}
 	
 	break; #endregion
+	case pStates.husk_used: #region
+	
+	if (go_to_husk_used) {
+		depth += 1;
+		go_to_husk_used = false;
+		vsp = 0;
+		hsp = 0;
+	}
+	
+	break; #endregion
 	case pStates.death: #region
 	hsp = 0;
 	vsp = 0;
 	
-	if (global.active_player_object == id) {
+	if (global.oldest_player_object == id) {
 		if instance_exists(pCameraStationZone) {
 			instance_destroy(pCameraStationZone);
 		}
@@ -290,7 +322,14 @@ switch state {
 				death_restart_delay--;
 			}
 		}
+		
+	} else if (global.active_player_object == id) {
+		// return to oldest
+		// turn current player to husk
+		deactivate_this_husk();
+		
 	} else {
+		// TODO: dead husk gibs/ husk corpse
 		instance_destroy();	
 	}
 	
@@ -447,6 +486,11 @@ switch state {
 	break; #endregion
 	case pStates.husk				: #region
 	sprite_index = sCharacter_Sit;
+	image_speed = 0.5;
+	
+	break; #endregion
+	case pStates.husk_used: #region
+	sprite_index = sCharacter_Sit_Used;
 	image_speed = 0.5;
 
 	

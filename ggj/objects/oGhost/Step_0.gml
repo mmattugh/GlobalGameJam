@@ -115,34 +115,7 @@ if (go_back) {
 			global.active_player_object.state = pStates.move;
 			
 			// activate husk
-			husk.state = pStates.move;
-			global.active_player_object = husk;
-			
-			#region unfuck
-			var angle_change_since_init = round(-((global.down_direction-husk.draw_angle+720-270) mod 360) + 180);
-			if (abs(angle_change_since_init) == 90) { 
-				with global.active_player_object {
-					var prev = image_angle;
-					image_angle = 270-global.down_direction
-					obj_unfuck(angle_change_since_init);	
-					image_angle = prev;
-				}
-			} else if (abs(angle_change_since_init) == 180 or abs(angle_change_since_init) == 0) {
-				with (global.active_player_object) {
-					var prev = image_angle;
-					image_angle = 270-global.down_direction
-					obj_unfuck(180);	
-					image_angle = prev;
-				}
-			}
-			#endregion
-			
-			// make sure jump doesnt get cancelled
-			with husk {
-				vsp = -1;
-				move_with_physics();
-			}
-			husk.vsp -= husk.jump_accel;
+			husk.activate_husk(husk);
 
 			// destroy self
 			instance_destroy();

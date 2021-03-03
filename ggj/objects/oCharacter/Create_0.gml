@@ -7,6 +7,7 @@ enum pStates {
 	launch_from_trail,
 	wall_slide,
 	husk,
+	husk_used,
 	death,
 	freeze,
 	bench,
@@ -17,8 +18,13 @@ enum pStates {
 
 if (object_index == oCharacter) {
 	global.active_player_object = id;
+	global.oldest_player_object = id;
+
 }
 go_to_husk = false;
+go_to_husk_used = false;
+
+husk_lifetime = (3 + .5) * 60; // 10 seconds
 
 
 // movement parameters -- tweak these
@@ -117,4 +123,54 @@ function set_has_ghost() {
 		}
 	}
 	
+}
+
+function activate_husk(husk_id) {
+	// activate husk
+	husk_id.state = pStates.move;
+	global.active_player_object = husk_id;
+			
+	#region unfuckn
+	var angle_change_since_init = round(-((global.down_direction-husk_id.draw_angle+720-270) mod 360) + 180);
+	if (abs(angle_change_since_init) == 90) { 
+		with husk_id {
+			var prev = image_angle;
+			image_angle = 270-global.down_direction
+			obj_unfuck(angle_change_since_init);	
+			image_angle = prev;
+		}
+	} else if (abs(angle_change_since_init) == 180 or abs(angle_change_since_init) == 0) {
+		with (husk_id) {
+			var prev = image_angle;
+			image_angle = 270-global.down_direction
+			obj_unfuck(180);	
+			image_angle = prev;
+		}
+	}
+	#endregion
+			
+	// make sure jump doesnt get cancelled
+	with husk_id {
+		vsp = -1;
+		move_with_physics();
+	}
+	husk_id.vsp -= husk_id.jump_accel/2;
+}
+
+function deactivate_this_husk() {
+	id.state = pStates.move;
+	id.go_to_husk_used = true;
+	//id.hsp = 0;
+	//id.vsp = 0;
+	
+	if (instance_exists(oGhost)) {
+		with oGhost {
+			// destroy self
+			instance_destroy();
+	
+			rotated_instance_create(x,y,0,0,depth-1,fxEnd);	
+		}
+	}
+	
+	activate_husk(global.oldest_player_object);
 }
