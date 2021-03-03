@@ -1,9 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
-image_xscale = lerp(image_xscale, 1.0, 0.35);
-image_yscale = lerp(image_yscale, 1.0, 0.35);
+image_xscale = lerp(image_xscale, target_image_xscale, 0.35);
+image_yscale = lerp(image_yscale, target_image_yscale, 0.35);
 
 target_offset = lerp(target_offset, target_target_offset, 0.25);
+
+target_image_xscale = lerp(target_image_xscale, target_target_image_xscale, 0.25);
+target_image_yscale = lerp(target_image_yscale, target_target_image_yscale, 0.25);
 
 switch global.down_direction {
 	case 270:
@@ -23,7 +26,7 @@ switch global.down_direction {
 if (white_time > 0) {
 	white_time--;
 	
-	if (white_time) {
+	if (white_time > 2) {
 		rotated_instance_create(x,y,0,0,depth+1,fxSmoke);	
 	}
 }

@@ -85,9 +85,17 @@ switch state {
 		if ((husk_lifetime+6) mod 60 == 0) {
 			var timer = (husk_lifetime+6)/60;
 			// create timer effect	
-			with rotated_instance_create(x,y,5,4,depth,fxTimer) 
+			with rotated_instance_create(x,y,5*flipped,4,depth,fxTimer) 
 			{
 				str = string(timer);
+				target_offset += min(other.vsp, 0);
+				
+				if (timer <= 3) {
+					target_target_image_xscale *= 1.25;
+					target_target_image_yscale *= 1.25;
+					target_image_xscale *= 1.25;
+					target_image_yscale *= 1.25;
+				}
 			}
 		}
 		husk_lifetime--;
