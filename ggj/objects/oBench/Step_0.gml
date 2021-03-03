@@ -6,7 +6,7 @@ if (!made_music_obj) {
 	}
 }
 
-if (oCharacter.state == pStates.bench ) {
+if (global.active_player_object.state == pStates.bench ) {
 	if (instance_exists(oBenchGhost) and oBenchGhost.state == 3) {
 		text_y = lerp(text_y, y - 200, 0.2);
 	

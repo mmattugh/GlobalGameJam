@@ -1,14 +1,14 @@
 
-if (oCharacter.state != pStates.move) or 
-   (abs(oCharacter.vsp) > oCharacter.jump_accel) or
-   (abs(oCharacter.hsp) > oCharacter.move_speed) or 
+if (global.active_player_object.state != pStates.move) or 
+   (abs(global.active_player_object.vsp) > global.active_player_object.jump_accel) or
+   (abs(global.active_player_object.hsp) > global.active_player_object.move_speed) or 
    (global.key_down) {
 	hitbox.mask_index = sNothing;	
 } else {
 	hitbox.mask_index = sWall;	
 }
 
-if (place_meeting(x,y,oCharacter)) {
+if (place_meeting(x,y,global.active_player_object)) {
 	// create particles
 	for (var i = 0; i < 4; ++i) {
 		with instance_create_depth(x,y,depth-1, fxBreakableWallParticle) {

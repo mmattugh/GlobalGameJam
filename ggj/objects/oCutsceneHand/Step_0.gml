@@ -4,9 +4,9 @@
 
 switch state {
 	case 0:
-	oCamera.y = (y + oCharacter.y)/2;
+	oCamera.y = (y + global.active_player_object.y)/2;
 
-	var target_y = oCharacter.y
+	var target_y = global.active_player_object.y
 	y = approach(y, target_y, 2);
 	
 	if (y == target_y) {
@@ -14,15 +14,15 @@ switch state {
 		image_index = 2;
 		spd = 0;
 		
-		oCharacter.state = pStates.cutscene_grabbed;
+		global.active_player_object.state = pStates.cutscene_grabbed;
 	}
 	break;
 	case 1:
 	y = approach(y, 80, 2);
 	
-	if (oCharacter.state != pStates.cutscene_flicked) {
+	if (global.active_player_object.state != pStates.cutscene_flicked) {
 		//oCamera.y = y
-		oCharacter.y = y;
+		global.active_player_object.y = y;
 	}
 	
 	if (y == 80) {

@@ -14,7 +14,7 @@ switch state {
 	break; 
 	
 	case 1:
-	image_angle = angle_lerp(image_angle, point_direction(x,y,oCharacter.x,oCharacter.y-8), 0.25);
+	image_angle = angle_lerp(image_angle, point_direction(x,y,global.active_player_object.x,global.active_player_object.y-8), 0.25);
 	direction = image_angle;
 
 	spd = approach(spd, spd_max, 0.07);
@@ -24,14 +24,14 @@ switch state {
 	//x = lerp(x, oCharacter.x, x_lerp);
 	//y = lerp(y, oCharacter.y-8, y_lerp);
 	
-	x = lerp(x, oCharacter.x, 0.01);
-	y = lerp(y, oCharacter.y, 0.01);
+	x = lerp(x, global.active_player_object.x, 0.01);
+	y = lerp(y, global.active_player_object.y, 0.01);
 	
 	x += lengthdir_x(spd, direction);
 	y += lengthdir_y(spd, direction);
 
 
-	if place_meeting(x,y,oCharacter) {
+	if place_meeting(x,y,global.active_player_object) {
 		play_sound(Self_Wisp_Collect, 50, false, 1.0, 0.02, global.sound_volume);
 
 		instance_destroy();

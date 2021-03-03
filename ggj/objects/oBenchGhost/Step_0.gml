@@ -59,7 +59,7 @@ switch state {
 		
 		if (global.key_left_p and !global.gamepad_is_connected) {
 			play_sound(choose(Footsteps_01, Footsteps_02), 50, false, 1.0, 0.05, global.sound_volume);	
-			oCharacter.x -= 0.5;
+			global.active_player_object.x -= 0.5;
 			x += 1;
 			hit -= 1;
 			oMusic.track_pitch += 0.5;
@@ -68,7 +68,7 @@ switch state {
 		}
 		if (global.key_right_p and !global.gamepad_is_connected) {
 			play_sound(choose(Footsteps_01, Footsteps_02), 50, false, 1.0, 0.05, global.sound_volume);	
-			oCharacter.x += 0.5;
+			global.active_player_object.x += 0.5;
 			x -= 1;
 			hit -= 1;
 			oMusic.track_pitch += 0.5;
@@ -80,10 +80,10 @@ switch state {
 	
 	if (hit <= 0) {
 		scr_freeze(15)
-		oCharacter.state = pStates.follow_trail;
-		oCharacter.has_ghost = true;
+		global.active_player_object.state = pStates.follow_trail;
+		global.active_player_object.has_ghost = true;
 		//fx
-		instance_create_depth(oCharacter.x,oCharacter.y-16,0,fxStart);
+		instance_create_depth(global.active_player_object.x,global.active_player_object.y-16,0,fxStart);
 		play_sound(choose(Shoot_01, Shoot_02, Shoot_03), 0, false, 0.8, 0.02, global.sound_volume);
 		
 		state = 4;

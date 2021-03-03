@@ -1,13 +1,12 @@
 /// @description 
 mask_index = sPlayerHitbox;
 
-if oCharacter.state == pStates.death {
+if creator_player_object.state == pStates.death or creator_player_object.state == pStates.husk {
 	
 	
 	instance_destroy();
 	
-	instance_create_depth(x,y,depth-1,fxEnd);
-	
+	rotated_instance_create(x,y,0,0,depth-1,fxEnd);
 	exit;	
 }
 
@@ -48,7 +47,7 @@ if (go_back) {
 			trail_target_next = trail_target.prev;
 		}
 	} else {
-		oCharacter.state = pStates.move;
+		creator_player_object.state = pStates.move;
 		//oCamera.zoom = 0.9*oCamera.target_zoom;
 		oCamera.screenshake = 4;
 		scr_freeze(10);
@@ -57,7 +56,8 @@ if (go_back) {
 		instance_destroy();
 	}
 } else {
-	switch oCharacter.state {
+	switch creator_player_object.state {
+		case pStates.husk: 
 		case pStates.death: #region
 	
 		instance_destroy(oGhostTrail);
@@ -83,6 +83,8 @@ if (go_back) {
 				trail_previous.next = trail_new;
 			}
 		
+			trail_new.creator_player_object = creator_player_object;
+		
 			trail_new.prev = trail_previous;
 			trail_previous = trail_new;
 		
@@ -93,7 +95,7 @@ if (go_back) {
 			spd = 0;
 			
 			scr_freeze(40)
-			oCharacter.state = pStates.follow_trail;
+			creator_player_object.state = pStates.follow_trail;
 			oCamera.screenshake += 5;
 			play_sound(choose(Shoot_01, Shoot_02, Shoot_03), 0, false, 1.0, 0.02, global.sound_volume);
 			audio_stop_sound(trail_sound_id);
@@ -101,10 +103,98 @@ if (go_back) {
 	
 		#endregion
 	
-		x += lengthdir_x(spd, move_direction);
-		y += lengthdir_y(spd, move_direction);
+		x += lengthdir_x(spd, move_direction+270-global.down_direction);
+		y += lengthdir_y(spd, move_direction+270-global.down_direction);
 	
 		#region check for collision
+		
+		var husk = instance_place(x,y,oCharacter);
+		if (husk != noone and husk != creator_player_object) {
+			// turn current player to husk
+			global.active_player_object.go_to_husk = true;
+			global.active_player_object.state = pStates.move;
+			
+			// activate husk
+			husk.activate_husk(husk);
+
+			// destroy self
+			instance_destroy();
+	
+			rotated_instance_create(x,y,0,0,depth-1,fxEnd);
+		}
+		
+		var red = place_meeting(x,y,oGhostWarpZone);
+		if (!red) {
+			max_spd = default_max_spd;
+		}
+		
+		var lever = instance_place(x,y,oFlipLever);
+		if (lever) {
+			// bonk as normal
+			destroy_self();
+			
+			play_sound(Ghost_Hit_Wall, 0, false, 0.8, 0.02, global.sound_volume*1.2);
+			
+			// rotate
+			scr_freeze(40);
+			lever.orientation *= -1;
+			
+			with oGame {
+				rotate_world(180);	
+			}	
+		}
+		
+		var cog = instance_place(x,y,oCog);
+		if (cog) {
+			scr_freeze(40);
+			// bonk as normal
+			destroy_self();
+			
+			play_sound(Ghost_Hit_Wall, 0, false, 0.8, 0.02, global.sound_volume*1.2);
+			
+			// get direction
+			var dir = angle_difference(move_direction,cog.image_angle)+270-global.down_direction;
+			if (sign(dsin(dir)) == 1) {
+				with oGame {
+					rotate_world(-90);	
+				}
+				oCog.target_angle -= 90;
+			} else if (sign(dsin(dir)) == -1) {
+				with oGame {
+					rotate_world(90);	
+				}
+				oCog.target_angle += 90;
+			}
+		}		
+		
+		var bonk = instance_place(x,y,oBonkBlock);
+		if (bonk) {
+			scr_freeze(40);
+			// apply impulse
+			var dir = move_direction;
+			var h_impulse = lengthdir_x(bonk.bonk_impulse, dir);
+			var v_impulse = lengthdir_y(bonk.bonk_impulse, dir);
+			if (bonk.lock_directions) {
+				if (abs(h_impulse) > abs(v_impulse)) {
+					bonk.hsp = bonk.bonk_impulse*sign(h_impulse);
+					bonk.vsp = 0;
+				} else {
+					bonk.hsp = 0;
+					bonk.vsp = bonk.bonk_impulse*sign(v_impulse);
+				}
+			} else {
+				bonk.hsp += h_impulse;
+				bonk.vsp += v_impulse;
+			}
+			oCamera.screenshake += 5;
+			
+			// bonk as normal
+			destroy_self();
+			
+			play_sound(Ghost_Hit_Wall, 0, false, 0.8, 0.02, global.sound_volume*1.2);
+			
+		}
+		
 		if	(place_meeting(x,y,oWall) or place_meeting(x,y,pHazard)) {
 			destroy_self();
 			
@@ -119,9 +209,8 @@ if (go_back) {
 				audio_stop_sound(trail_sound_id);	
 			}
 			
-			oCharacter.state = pStates.death;
+			creator_player_object.state = pStates.death;
 			play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
-	show_debug_message("zapped at ghost");
 	//show_debug_message(string(oLaser.img_index));
 
 			exit;
@@ -185,7 +274,7 @@ if (go_back) {
 	draw_yscale = lerp(draw_yscale, 1.0, 0.2);
 
 	// update sfx
-	if (oCharacter.state != pStates.ghost) {
+	if (creator_player_object.state != pStates.ghost) {
 		audio_stop_sound(trail_sound_id);
 		
 		if (!played_end_sound) {

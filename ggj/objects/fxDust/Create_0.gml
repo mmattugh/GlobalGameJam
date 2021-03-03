@@ -1,0 +1,4 @@
+/// @description Insert description here
+// You can write your code in this editor
+vsp = random_range(-0.3,-0.5)
+image_speed = random_range(0.4,1);

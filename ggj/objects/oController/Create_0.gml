@@ -1,30 +1,4 @@
-global.key_right		= 0;
-global.key_left			= 0;
-global.key_jump			= 0;
-global.key_up			= 0;
-global.key_down			= 0;
-global.key_interact		= 0;
-global.key_right_p		= 0;
-global.key_left_p		= 0;
-global.key_exit			= 0;
-global.key_restart		= 0;
-froze_last_frame = true;
-
-enum input_keys {
-	right  ,
-	left,
-	jump,
-	up,
-	down,
-	interact,
-	right_p,
-	left_p,
-	escape,
-	restart,
-	
-	size, // size of this enum, keep this at bottom
-}
-
+#region system setup + library
 #region gamepad setup
 // gamepad state holders
 global.gamepad_connected = false;
@@ -36,7 +10,7 @@ gamepad_threshold_h = 0.33;
 gamepad_threshold_v = 0.6;
 #endregion
 
-#region alternative key bindings. TODO: make configurable via options
+#region setup binding functions and data
 
 input_state = array_create(input_keys.size, 0);
 input_bindings = array_create(input_keys.size);
@@ -46,11 +20,10 @@ enum input_modes {
 	pressed,
 	released
 }
+
+
 // creates a new key binding object
-key_binding = function(_key_enum, _default_key_binding, _input_mode) constructor {
-	// initalize data values
-	key_enum = _key_enum;
-	
+key_binding = function(_default_key_binding, _input_mode) constructor {
 	key_bindings = 1;
 	key_binding[0] = _default_key_binding;
 	
@@ -77,49 +50,6 @@ key_binding = function(_key_enum, _default_key_binding, _input_mode) constructor
 	}
 	
 }
-
-// create bindings
-input_bindings[input_keys.right	  ] = new key_binding(input_keys.right, vk_right, input_modes.held);
-input_bindings[input_keys.right	  ].add_alternative_binding(ord("D"));
-input_bindings[input_keys.right	  ].add_gamepad_binding(gp_axislh, true, 1);
-
-input_bindings[input_keys.left	  ] = new key_binding(input_keys.left, vk_left, input_modes.held);
-input_bindings[input_keys.left	  ].add_alternative_binding(ord("S"));
-input_bindings[input_keys.left	  ].add_gamepad_binding(gp_axislh, true, -1);
-
-input_bindings[input_keys.jump	  ] = new key_binding(input_keys.jump, vk_space, input_modes.pressed);
-input_bindings[input_keys.jump	  ].add_alternative_binding(vk_up);
-input_bindings[input_keys.jump	  ].add_alternative_binding(ord("W"));
-input_bindings[input_keys.jump	  ].add_gamepad_binding(gp_face1, false, -1);
-
-input_bindings[input_keys.up	  ] = new key_binding(input_keys.up, vk_up, input_modes.held);
-input_bindings[input_keys.up	  ].add_alternative_binding(ord("W"));
-input_bindings[input_keys.up	  ].add_gamepad_binding(gp_axislv, true, -1);
-
-input_bindings[input_keys.down	  ] = new key_binding(input_keys.down, vk_down, input_modes.held);
-input_bindings[input_keys.down	  ].add_alternative_binding(ord("S"));
-input_bindings[input_keys.down	  ].add_gamepad_binding(gp_axislv, true, 1);
-
-input_bindings[input_keys.interact] = new key_binding(input_keys.interact, vk_lshift, input_modes.pressed);
-input_bindings[input_keys.interact].add_alternative_binding(ord("X"));
-input_bindings[input_keys.interact].add_alternative_binding(ord("J"));
-input_bindings[input_keys.interact].add_gamepad_binding(gp_face3, false, -1);
-input_bindings[input_keys.interact].add_gamepad_binding(gp_shoulderlb, false, -1);
-input_bindings[input_keys.interact].add_gamepad_binding(gp_shoulderrb, false, -1);
-
-input_bindings[input_keys.right_p	  ] = new key_binding(input_keys.right_p, vk_right, input_modes.pressed);
-input_bindings[input_keys.right_p	  ].add_alternative_binding(ord("D"));
-input_bindings[input_keys.right_p	  ].add_gamepad_binding(gp_axislh, true, 1);
-
-input_bindings[input_keys.left_p	  ] = new key_binding(input_keys.left_p, vk_left, input_modes.pressed);
-input_bindings[input_keys.left_p	  ].add_alternative_binding(ord("S"));
-input_bindings[input_keys.left_p	  ].add_gamepad_binding(gp_axislh, true, -1);
-
-input_bindings[input_keys.escape  ] = new key_binding(input_keys.escape, vk_escape, input_modes.pressed);
-input_bindings[input_keys.escape].add_gamepad_binding(gp_select, false, -1);
-
-input_bindings[input_keys.restart  ] = new key_binding(input_keys.restart, ord("R"), input_modes.pressed);
-input_bindings[input_keys.restart].add_gamepad_binding(gp_start, false, -1);
 
 check_binding = function(i) {
 	binding = input_bindings[i];	
@@ -197,4 +127,88 @@ check_binding = function(i) {
 		}
 	}
 }
+#endregion
+#endregion
+
+// define global variables for each input
+// this is just for convenient use from other objects,
+// it is not required.
+
+// IMPORTANT: make sure to update these in the step event.
+#region define global vars
+global.key_right		= 0;
+global.key_left			= 0;
+global.key_jump			= 0;
+global.key_up			= 0;
+global.key_down			= 0;
+global.key_interact		= 0;
+global.key_right_p		= 0;
+global.key_left_p		= 0;
+global.key_exit			= 0;
+global.key_restart		= 0;
+#endregion
+
+#region define an enum for inputs, each "type" of input needs a corresponding enum entry
+enum input_keys {
+	right  ,
+	left,
+	jump,
+	up,
+	down,
+	interact,
+	right_p,
+	left_p,
+	escape,
+	restart,
+	
+	size, // size of this enum, keep this at bottom
+}
+#endregion
+
+// create input bindings. Use the enums + functions to define
+// what keys/buttons/joysticks control each input
+
+// leaving this one above region as example usage
+input_bindings[input_keys.right	  ] = new key_binding(vk_right, input_modes.held);
+input_bindings[input_keys.right	  ].add_alternative_binding(ord("D"));
+input_bindings[input_keys.right	  ].add_gamepad_binding(gp_axislh, true, 1);
+
+#region define the rest of the inputs
+input_bindings[input_keys.left	  ] = new key_binding(vk_left, input_modes.held);
+input_bindings[input_keys.left	  ].add_alternative_binding(ord("S"));
+input_bindings[input_keys.left	  ].add_gamepad_binding(gp_axislh, true, -1);
+
+input_bindings[input_keys.jump	  ] = new key_binding(vk_space, input_modes.pressed);
+input_bindings[input_keys.jump	  ].add_alternative_binding(vk_up);
+input_bindings[input_keys.jump	  ].add_alternative_binding(ord("W"));
+input_bindings[input_keys.jump	  ].add_gamepad_binding(gp_face1, false, -1);
+
+input_bindings[input_keys.up	  ] = new key_binding(vk_up, input_modes.held);
+input_bindings[input_keys.up	  ].add_alternative_binding(ord("W"));
+input_bindings[input_keys.up	  ].add_gamepad_binding(gp_axislv, true, -1);
+
+input_bindings[input_keys.down	  ] = new key_binding(vk_down, input_modes.held);
+input_bindings[input_keys.down	  ].add_alternative_binding(ord("S"));
+input_bindings[input_keys.down	  ].add_gamepad_binding(gp_axislv, true, 1);
+
+input_bindings[input_keys.interact] = new key_binding(vk_lshift, input_modes.pressed);
+input_bindings[input_keys.interact].add_alternative_binding(ord("X"));
+input_bindings[input_keys.interact].add_alternative_binding(ord("J"));
+input_bindings[input_keys.interact].add_gamepad_binding(gp_face3, false, -1);
+input_bindings[input_keys.interact].add_gamepad_binding(gp_shoulderlb, false, -1);
+input_bindings[input_keys.interact].add_gamepad_binding(gp_shoulderrb, false, -1);
+
+input_bindings[input_keys.right_p ] = new key_binding(vk_right, input_modes.pressed);
+input_bindings[input_keys.right_p ].add_alternative_binding(ord("D"));
+input_bindings[input_keys.right_p ].add_gamepad_binding(gp_axislh, true, 1);
+								 
+input_bindings[input_keys.left_p  ] = new key_binding(vk_left, input_modes.pressed);
+input_bindings[input_keys.left_p  ].add_alternative_binding(ord("S"));
+input_bindings[input_keys.left_p  ].add_gamepad_binding(gp_axislh, true, -1);
+
+input_bindings[input_keys.escape  ] = new key_binding(vk_escape, input_modes.pressed);
+input_bindings[input_keys.escape  ].add_gamepad_binding(gp_select, false, -1);
+
+input_bindings[input_keys.restart ] = new key_binding(ord("R"), input_modes.pressed);
+input_bindings[input_keys.restart ].add_gamepad_binding(gp_start, false, -1);
 #endregion

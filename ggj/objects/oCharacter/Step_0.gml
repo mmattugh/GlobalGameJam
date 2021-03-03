@@ -1,5 +1,34 @@
 /// @description Insert description here
-on_ground = place_meeting(x,y+1,Solid) 
+#region hazard collisions
+mask_index = sPlayerHitbox;
+// get hit by laser
+var inst = instance_place(x,y,oLaser);
+if (inst and inst.active and state != pStates.death) {
+	if (audio_is_playing(trail_sound_id)) {
+		audio_stop_sound(trail_sound_id);	
+	}
+	
+	//      Camera      //
+	scr_freeze(8);
+	image_index = 0;
+	state = pStates.death;
+	play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
+	
+	exit;
+}
+
+if (place_meeting(x,y,pHazard)) {
+	if (state != pStates.death) {
+		image_index = 0;
+		play_sound(Self_Death, 50, false, 1.0, 0.02, global.sound_volume);
+		state = pStates.death;
+	}
+}
+
+#endregion
+
+// set on ground
+on_ground = rotated_place_meeting(x, y, 0, 1, Solid) 
 
 // coyote time
 if (on_ground) {
@@ -12,33 +41,25 @@ if (on_ground) {
 	}
 }
 
-mask_index = sPlayerHitbox;
-
-// get hit by laser
-var inst = instance_place(x,y,oLaser);
-if (inst and inst.active and state != pStates.death) {
-	if (audio_is_playing(trail_sound_id)) {
-		audio_stop_sound(trail_sound_id);	
-	}
-	
-	//      Camera      //
-	scr_freeze(8);
-		image_index = 0;
-	state = pStates.death;
-	play_sound(Self_Zapped_by_Laser, 50, false, 1.0, 0.02, global.sound_volume);
-	
-	exit;
-}
 
 #region gameplay state machine
 switch state {
 	case pStates.move			  : #region
+	
+	// goto husk state
+	if (go_to_husk_used && on_ground) {
+		state = pStates.husk_used;	
+	} else if (go_to_husk && on_ground) {
+		state = pStates.husk;
+	}
+	
 	// goto ghost state
 	if (global.key_interact) && (has_ghost) {	
 		state = pStates.ghost;
 		
 		//fx
-		instance_create_depth(x,y-8,0,fxStart);
+		//instance_create_depth(x,y-8,0,fxStart);
+		rotated_instance_create(x,y,0,-8,0,fxStart);
 		has_ghost = false;
 		ghost_regen_timer = ghost_regen_time;
 		trail_target = noone;
@@ -49,18 +70,47 @@ switch state {
 		oCamera.screenshake += 7;
 		
 		var ghost_direction = 90;
-		with instance_create_depth(x,y-8,depth,oGhost) 
+		//with instance_create_depth(x,y-8,depth,oGhost) 
+		with rotated_instance_create(x,y,0,-8,depth,oGhost) 
 		{
 			move_direction = ghost_direction;
+			creator_player_object = other.id;
 		}
 		
 		global.key_interact = false;
 	}
 	
+	#region husk specific code
+	if (global.oldest_player_object != id) {
+		if ((husk_lifetime+6) mod 60 == 0) {
+			var timer = (husk_lifetime+6)/60;
+			// create timer effect	
+			with rotated_instance_create(x,y,5*flipped,4,depth-1,fxTimer) 
+			{
+				str = string(timer);
+				target_offset += min(other.vsp, 0);
+				
+				if (timer <= 3) {
+					target_target_image_xscale *= 1.25;
+					target_target_image_yscale *= 1.25;
+					target_image_xscale *= 1.25;
+					target_image_yscale *= 1.25;
+				}
+			}
+		}
+		husk_lifetime--;
+		
+		if (husk_lifetime <= 0 and !go_to_husk_used) {
+			deactivate_this_husk();	
+		}
+	}
+
+	#endregion
+	
 	// horizontal speed	
 	var h_dir = sign(global.key_right - global.key_left);
 	
-	if (sign(h_dir) != 0) {
+	if (sign(h_dir) != 0 or abs(hsp) > move_speed) {
 		hsp = approach(hsp, move_speed * h_dir, move_accel);
 	}
 	
@@ -74,7 +124,9 @@ switch state {
 	
 	// vertical speed
 	if (on_ground) {
-		vsp = 0;
+		if !(sprung_this_frame) {
+			vsp = 0;
+		}
 	} else {
 		vsp = approach(vsp, grav_max_speed, grav_accel);
 		
@@ -91,11 +143,12 @@ switch state {
 	
 	
 	// jump
-	if (jump_buffer_timer > 0) && (on_ground) {
+	if (jump_buffer_timer > 0) && (on_ground) && (!sprung_this_frame) {
 		//Jump FX
-		instance_create_depth(x,y,depth+1,fxJump);
+		//instance_create_depth(x,y,depth+1,fxJump);
+		rotated_instance_create(x,y,0,0,depth+1,fxJump);
 		//
-		vsp = vsp - jump_accel;
+		vsp = -jump_accel;
 		draw_xscale = 0.5;
 		draw_yscale = 1.5;
 	}
@@ -109,7 +162,8 @@ switch state {
 		scr_freeze(15)
 		state = pStates.follow_trail;
 		//fx
-		instance_create_depth(x,y-16,0,fxStart);
+		//instance_create_depth(x,y-16,0,fxStart);
+		rotated_instance_create(x,y,0,-16,0,fxStart);
 		play_sound(choose(Shoot_01, Shoot_02, Shoot_03), 0, false, 0.8, 0.02, global.sound_volume);
 		audio_stop_sound(oGhost.trail_sound_id);
 	}
@@ -206,7 +260,8 @@ switch state {
 	if (place_meeting(x,y,oGhost))
 	{
 		//fx
-		instance_create_depth(x,y-16,0,fxEnd);
+		//instance_create_depth(x,y-16,0,fxEnd);
+		rotated_instance_create(x,y,0,-16,0,fxEnd);
 		
 		//Disable controls for a moment
 		reset_move_accel_timer = 20;
@@ -220,41 +275,70 @@ switch state {
 	}	
 	
 	break;							#endregion
+	case pStates.husk: #region
+	
+	if (go_to_husk) {
+		go_to_husk = false;
+		vsp = 0;
+		hsp = 0;
+	}
+	
+	break; #endregion
+	case pStates.husk_used: #region
+	
+	if (go_to_husk_used) {
+		depth += 1;
+		go_to_husk_used = false;
+		vsp = 0;
+		hsp = 0;
+	}
+	
+	break; #endregion
 	case pStates.death: #region
-	
-	if instance_exists(pCameraStationZone) {
-		instance_destroy(pCameraStationZone);
-	}
-	
-	if audio_is_playing(Stretch_Loop) {
-		audio_stop_sound(Stretch_Loop);	
-	}
-	
-	if audio_is_playing(Stretch_Loop_Reversed) {
-		audio_stop_sound(Stretch_Loop_Reversed);	
-	}
-	
 	hsp = 0;
 	vsp = 0;
 	
-	if (death_delay <= 0) {
-		death_zoom = lerp(death_zoom, 0.9, 0.2);
-	
-	} else {
-		death_delay--;	
-	}
-	oCamera.zoom = death_zoom;
-	oCamera.zoom_lerp = 0.2;
-	oCamera.target_x = x;
-	oCamera.target_y = y;
-	
-	
-	if (death_zoom < 0.81) {
-		if (death_restart_delay <= 0) {
-			
-		} else {
-			death_restart_delay--;
+	if (global.oldest_player_object == id) {
+		if instance_exists(pCameraStationZone) {
+			instance_destroy(pCameraStationZone);
 		}
+	
+		if audio_is_playing(Stretch_Loop) {
+			audio_stop_sound(Stretch_Loop);	
+		}
+	
+		if audio_is_playing(Stretch_Loop_Reversed) {
+			audio_stop_sound(Stretch_Loop_Reversed);	
+		}
+
+		if (death_delay <= 0) {
+			death_zoom = lerp(death_zoom, 0.9, 0.2);
+	
+		} else {
+			death_delay--;	
+		}
+		oCamera.zoom = death_zoom;
+		oCamera.zoom_lerp = 0.2;
+		oCamera.target_x = x;
+		oCamera.target_y = y;
+	
+	
+		if (death_zoom < 0.81) {
+			if (death_restart_delay <= 0) {
+			
+			} else {
+				death_restart_delay--;
+			}
+		}
+		
+	} else if (global.active_player_object == id) {
+		// return to oldest
+		// turn current player to husk
+		deactivate_this_husk();
+		
+	} else {
+		// TODO: dead husk gibs/ husk corpse
+		instance_destroy();	
 	}
 	
 	break; #endregion
@@ -326,17 +410,17 @@ if (!on_ground and vsp > 0) {
 
 switch state {
 	// same graphics state for both
-	case pStates.move:
+	case pStates.move: #region
 	{
-		//fx
-		smoke_FX++;
-		if (smoke_FX > 2) && (has_ghost) with (instance_create_depth(random_range(x-2,x+2),y-16,oCharacter.depth+1,fxSmoke))
-		{
-		other.smoke_FX = 0;
-		}
+	//fx
+	smoke_FX++;
+	if (smoke_FX > 2) && (has_ghost) {
+		//with (instance_create_depth(random_range(x-2,x+2),y-16,oCharacter.depth+1,fxSmoke))
+		rotated_instance_create(x,y,random_range(-2,2),-16,depth+1,fxSmoke);
+		smoke_FX = 0;
+	}
 		
-		
-			draw_angle = 0;
+	draw_angle = angle_lerp(draw_angle, 270-global.down_direction, 0.5);
 	if (sign(hsp) != 0) flipped = sign(hsp);
 	
 	if !on_ground {
@@ -353,7 +437,8 @@ switch state {
 		else image_index = 1;
 	} else {
 		if (sprite_index == sCharacter_Air) {
-			instance_create_depth(x,y,depth+1,fxLand);			
+			//instance_create_depth(x,y,depth+1,fxLand);	
+			rotated_instance_create(x,y,0,0,depth+1,fxLand);
 			draw_xscale = 1.5;
 			draw_yscale = 0.5;
 			
@@ -367,9 +452,11 @@ switch state {
 			// do footstep sound
 			var pitch = 1.0;
 			
-			if (place_meeting(x,y+1, oWallPlatform)) {
+			if (rotated_place_meeting(x,y, 0, 1, oWallPlatform)) {
 				pitch = 1.2;	
 			}
+			
+		
 			
 			if (image_index >= 2 and image_index < 3) 
 			or (image_index >= 5) {
@@ -377,16 +464,30 @@ switch state {
 					play_sound(choose(Footsteps_01, Footsteps_02), 50, false, pitch, 0.05, global.sound_volume);	
 					played_footstep_sound = true;	
 				}
+				
+				if (!fx_made_dust) {
+					if (image_index >= 5) {
+						rotated_instance_create(x,y,random_range(-2,2)+3,-2,depth,fxDust)	;
+					} else {
+						rotated_instance_create(x,y,random_range(-2,2)-3,-2,depth,fxDust);	
+					}
+					
+					fx_made_dust = true;
+					if (chance(2)) {
+						fx_made_dust = false;	
+					}
+				}
 			} else {
 				played_footstep_sound = false;	
+				fx_made_dust = false;
 			}
 		} else {
 			sprite_index = sCharacter_Idle;
 		}
 	}
 	
-	}break;#region
-	case pStates.ghost:
+	}break;#endregion
+	case pStates.ghost: #region
 	sprite_index = sCharacter_Spirit;
 
 	break; #endregion
@@ -396,12 +497,24 @@ switch state {
 	
 	if (trail_FX > 2)
 	{
-		instance_create_depth(x,y,depth+1,fxCharacterTrail);
+		//instance_create_depth(x,y,depth+1,fxCharacterTrail);
+		rotated_instance_create(x,y,0,0,depth+1,fxCharacterTrail);
 		trail_FX = 0;
 	}
 	else trail_FX ++;
 	break; #endregion
 	case pStates.launch_from_trail: #region
+	
+	break; #endregion
+	case pStates.husk				: #region
+	sprite_index = sCharacter_Sit;
+	image_speed = 0.5;
+	
+	break; #endregion
+	case pStates.husk_used: #region
+	sprite_index = sCharacter_Sit_Used;
+	image_speed = 0.5;
+
 	
 	break; #endregion
 	case pStates.death: #region
@@ -426,91 +539,17 @@ switch state {
 
 #endregion
 
-#region move object
+// move 
+var prev = image_angle;
+image_angle = 270-global.down_direction;
 
-if !place_meeting(x+hsp, y+vsp, Solid) {
-	x += hsp;
-	y += vsp;
-} else {
-	var temp_hsp = floor(hsp);
-	var temp_vsp = floor(vsp);
-
-	var sign_hsp = sign(hsp);
-	var sign_vsp = sign(vsp);
-	
-	var frac_hsp = frac(hsp);
-	var frac_vsp = frac(vsp);
-	while (abs(temp_hsp) > 0 && abs(temp_vsp) > 0) {
-		if !(place_meeting(x+sign_hsp, y+sign_vsp, Solid)) {
-			x += sign_hsp;
-			y += sign_vsp;				  
-			temp_hsp = approach(temp_hsp, 0, 1);
-			temp_vsp = approach(temp_vsp, 0, 1);
-		} else {
-			if place_meeting(x + sign_hsp, y, Solid) {
-				temp_hsp = 0;	
-				hsp = 0;
-			}
-			if place_meeting(x, y + sign_vsp, Solid) {
-				temp_vsp = 0;
-				vsp = 0;
-			}
-			break;
-		}
-	}
-	
-	for (var i = 0; i < abs(temp_hsp); i++) {
-		if !place_meeting(x + sign_hsp, y, Solid) {
-			x += sign_hsp;
-		} else {
-			temp_hsp = 0;
-			hsp = 0;
-			break;
-		}
-	}
-	
-	for (var i = 0; i < abs(temp_vsp); i++) {
-		if !place_meeting(x, y + sign_vsp, Solid) {
-			y += sign_vsp;
-		} else {
-			temp_vsp = 0;
-			vsp = 0;
-			break;
-		}
-	}
-
-	if !place_meeting(x + frac_hsp, y, Solid) {
-		x += frac_hsp;
-	}
-	
-	if !place_meeting(x, y + frac_vsp, Solid) {
-		y += frac_vsp;
-	}
-}
-
-#endregion
+move_with_physics();
+image_angle = prev;
 
 #region reset timers
 // prevent timer regen til ghost state is finished
 if (on_ground and has_ghost = false and state == pStates.move) {
-	
-	has_ghost = true;
-	combo = 0;
-	combo_exclamations = "";	
-
-	instance_create_depth(x,y,depth-2,fxRecharged);
-	play_sound(Ghost_Recharge, 40, false, 1.0, 0.05, global.sound_volume*0.5);
-
-	
-	oCamera.screenshake += 2;
-		repeat (5)
-	{
-		with instance_create_depth(x,y-16,depth+1,fxSmoke)
-		{
-			direction = random_range(0,360)
-			speed = random_range(1,2)
-		}
-	}
+	set_has_ghost();
 }
 
 if (reset_move_accel_timer > 0) {
@@ -522,4 +561,9 @@ if (reset_move_accel_timer > 0) {
 }
 
 combo_sin = dsin(current_time*0.4);
+sprung_this_frame = false;
+
 #endregion
+
+// reset hitbox
+//mask_index = sPlayerHitbox;

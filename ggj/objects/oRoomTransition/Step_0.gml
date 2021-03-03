@@ -25,7 +25,7 @@ switch state {
 	
 	if (timer == 0) {
 		if (instance_exists(oCharacter)) {
-			oCharacter.state = pStates.move;
+			global.active_player_object.state = pStates.move;
 		}
 		
 		if !instance_exists(oMusic) {

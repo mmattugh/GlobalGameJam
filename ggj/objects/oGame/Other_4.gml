@@ -4,3 +4,4 @@ if (last_room != room) {
 	last_room = room;
 	global.rooms++;
 }
+global.down_direction = 270;

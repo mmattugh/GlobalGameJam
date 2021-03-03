@@ -11,7 +11,7 @@ switch state {
 		if (delay <= 20 && delay > 18) {
 			oCamera.screenshake = 12;
 			repeat(25) {
-				instance_create_depth(oCharacter.x+random_range(-12, 12), oCharacter.y - 6 + random_range(-12, 12), depth+1, choose(fxSmoke, fxSmokeLarge, fxSmoke));	
+				instance_create_depth(global.active_player_object.x+random_range(-12, 12), global.active_player_object.y - 6 + random_range(-12, 12), depth+1, choose(fxSmoke, fxSmokeLarge, fxSmoke));	
 			}
 		}
 		
@@ -20,7 +20,7 @@ switch state {
 		}
 		
 		if (delay <= 0) {
-			oCharacter.sprite_index = sCharacter_Happy;
+			global.active_player_object.sprite_index = sCharacter_Happy;
 			state = 1;
 		}
 	}
@@ -63,7 +63,7 @@ switch state {
 		oCamera.zoom = 0.9;
 		oCamera.screenshake = 25;
 		
-		oCharacter.state = pStates.cutscene_flicked;
+		global.active_player_object.state = pStates.cutscene_flicked;
 		
 		play_sound(Flick, 0, false, 1.0, 0, global.sound_volume);	
 

@@ -19,7 +19,7 @@ if place_meeting(x,y,oCharacter) {
 	instance_destroy();
 	with instance_create_depth(x,y,depth,oWisp) {
 
-		direction = 90;	
+		direction = 90+270-global.down_direction;
 	}
 	with instance_create_depth(x,y,depth,fxSoulAfterImage)
 	{

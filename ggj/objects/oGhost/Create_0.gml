@@ -1,9 +1,10 @@
 /// @description 
 depth = 0;
 // tweakable
-max_spd = 2.5;
+default_max_spd = 2.5;
 turning_max_spd = 1.75;
-
+in_red_spd = 1.5;
+max_spd = default_max_spd;
 
 acceleration = 0.5;
 
@@ -14,7 +15,7 @@ turn_lerp = 0.5;
 
 // values used when colliding with red;
 in_red_turn_speed = 4;
-in_red_turn_lerp = 0.5;
+in_red_turn_lerp = 0.4;
 
 immune_time = 60;
 
@@ -39,6 +40,8 @@ audio_sound_gain(trail_sound_id, global.sound_volume, 0);
 trail_sound_pitch_min = 0.3;
 trail_sound_pitch_multiply = 2.7;
 
+creator_player_object = noone;
+
 destroy_self = function() {
 	//oCharacter.state = pStates.move;
 	//instance_destroy(oGhostTrail);
@@ -51,6 +54,12 @@ destroy_self = function() {
 	// set camera values
 	//oCamera.zoom = 1.1*oCamera.target_zoom;
 	oCamera.screenshake = 15;
+	
+	with instance_create_depth(	x + lengthdir_x(9, move_direction+270-global.down_direction),
+								y + lengthdir_y(9, move_direction+270-global.down_direction),
+								depth-1, fxGhostBonk) {
+		image_angle = other.move_direction+270-global.down_direction;							
+	}
 	
 	exit;
 }

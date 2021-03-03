@@ -16,7 +16,7 @@ create_hit_particles = function() {
 	repeat (20) {
 		with instance_create_depth(hit_point_x+random_range(-16, 16),hit_point_y+random_range(-16, 16),depth-1,choose(fxSmoke,fxSmoke,fxSmokeLarge))
 		{
-			direction = random_range(75,105)
+			direction = random_range(75,105)+270-global.down_direction
 			speed = random_range(1,3)
 			image_speed = 0.5;
 		}
