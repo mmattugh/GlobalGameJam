@@ -24,11 +24,18 @@ for (var i = input_keys.right; i < input_keys.size; i++) {
 // set globals for wide usage
 global.key_right		= input_state[input_keys.right];
 global.key_left			= input_state[input_keys.left];
-global.key_jump			= input_state[input_keys.jump];
 global.key_up			= input_state[input_keys.up];
 global.key_down			= input_state[input_keys.down];
-global.key_interact		= input_state[input_keys.interact];
 global.key_right_p		= input_state[input_keys.right_p];
 global.key_left_p		= input_state[input_keys.left_p];
 global.key_exit			= input_state[input_keys.escape];
 global.key_restart		= input_state[input_keys.restart];
+
+// dont update if these hold data from freeze
+if (froze_last_frame and (global.key_jump or global.key_interact)) {
+	froze_last_frame = false; 	
+} else {
+	froze_last_frame = false; 
+	global.key_jump			= input_state[input_keys.jump];
+	global.key_interact		= input_state[input_keys.interact];
+}

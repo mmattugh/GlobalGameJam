@@ -8,7 +8,7 @@ global.key_right_p		= 0;
 global.key_left_p		= 0;
 global.key_exit			= 0;
 global.key_restart		= 0;
-
+froze_last_frame = true;
 
 enum input_keys {
 	right  ,
