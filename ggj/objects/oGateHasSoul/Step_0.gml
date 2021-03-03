@@ -5,7 +5,11 @@
 event_inherited();
 
 if (has_soul) {
-	image_index = approach(image_index, 3, 0.3);	
+	image_index += .1;
+	if (ceil(image_index) == image_number)
+	{
+		image_index = 1;
+	}
 } else {
 	image_index = 0;
 }
