@@ -104,7 +104,6 @@ if !(instance_exists(oCamera)) {
 
 
 function set_has_ghost() {
-	
 	has_ghost = true;
 	combo = 0;
 	combo_exclamations = "";	
@@ -130,6 +129,8 @@ function set_has_ghost() {
 function activate_husk(husk_id) {
 	// activate husk
 	husk_id.state = pStates.move;
+	husk_id.go_to_husk = false;
+	husk_id.go_to_husk_used = false;
 	global.active_player_object = husk_id;
 			
 	#region unfuckn

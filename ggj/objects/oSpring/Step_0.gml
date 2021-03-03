@@ -4,7 +4,7 @@ switch state {
 	image_speed = 0;
 	image_index = 0;
 	
-	var inst = instance_place(x,y,global.active_player_object.object_index);
+	var inst = instance_place(x,y,global.active_player_object);
 	if (inst == noone or inst.state != pStates.move) {
 		inst = instance_place(x,y,oBonkBlock);	
 	}
