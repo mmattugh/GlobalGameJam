@@ -54,6 +54,16 @@ for (var i = level_1; i != room_next(level_flick); i = room_next(i)) {
 	level_select_size++;
 }
 
+bonus_level_start = level_select_size;
+bonus_level_text = "warning: these levels are hard";
+
+for (var i = level_bonus_1; i != room_next(level_bonus_5); i = room_next(i)) {
+	text[3][level_select_size] = remove_underscores(room_get_name(i));
+	level_select_rooms[level_select_size] = i;
+	level_select_size++;
+	show_debug_message("added");
+}
+
 selected[3] = 0;
 selected_max[3] = level_select_size-1;
 
