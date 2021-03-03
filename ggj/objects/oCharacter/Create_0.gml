@@ -127,6 +127,10 @@ function set_has_ghost() {
 }
 
 function activate_husk(husk_id) {
+	scr_freeze(60);
+	oCamera.screenshake += 8;
+	oCamera.zoom = 1.1;
+	
 	// activate husk
 	husk_id.state = pStates.move;
 	husk_id.go_to_husk = false;
