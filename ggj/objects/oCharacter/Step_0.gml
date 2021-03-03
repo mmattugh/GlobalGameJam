@@ -412,15 +412,13 @@ switch state {
 	// same graphics state for both
 	case pStates.move: #region
 	{
-		//fx
-		smoke_FX++;
-		if (smoke_FX > 2) && (has_ghost) {
-			//with (instance_create_depth(random_range(x-2,x+2),y-16,oCharacter.depth+1,fxSmoke))
-			with (rotated_instance_create(x,y,random_range(-2,2),-16,depth+1,fxSmoke))
-			{
-			other.smoke_FX = 0;
-			}
-		}
+	//fx
+	smoke_FX++;
+	if (smoke_FX > 2) && (has_ghost) {
+		//with (instance_create_depth(random_range(x-2,x+2),y-16,oCharacter.depth+1,fxSmoke))
+		rotated_instance_create(x,y,random_range(-2,2),-16,depth+1,fxSmoke);
+		smoke_FX = 0;
+	}
 		
 	draw_angle = angle_lerp(draw_angle, 270-global.down_direction, 0.5);
 	if (sign(hsp) != 0) flipped = sign(hsp);
@@ -458,14 +456,30 @@ switch state {
 				pitch = 1.2;	
 			}
 			
+		
+			
 			if (image_index >= 2 and image_index < 3) 
 			or (image_index >= 5) {
 				if (!played_footstep_sound) {
 					play_sound(choose(Footsteps_01, Footsteps_02), 50, false, pitch, 0.05, global.sound_volume);	
 					played_footstep_sound = true;	
 				}
+				
+				if (!fx_made_dust) {
+					if (image_index >= 5) {
+						rotated_instance_create(x,y,random_range(-2,2)+3,-2,depth,fxDust)	;
+					} else {
+						rotated_instance_create(x,y,random_range(-2,2)-3,-2,depth,fxDust);	
+					}
+					
+					fx_made_dust = true;
+					if (chance(2)) {
+						fx_made_dust = false;	
+					}
+				}
 			} else {
 				played_footstep_sound = false;	
+				fx_made_dust = false;
 			}
 		} else {
 			sprite_index = sCharacter_Idle;

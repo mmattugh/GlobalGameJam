@@ -41,6 +41,7 @@ launch_hsp  = 5;
 launch_vsp  = 5;
 smoke_FX = 0;
 
+
 sprung_this_frame = false;
 
 combo = 0;
@@ -80,6 +81,7 @@ death_restart_delay_max = 15;
 death_restart_delay = death_restart_delay_max;
 
 played_footstep_sound = false;
+fx_made_dust = false;
 
 trail_sound_id = noone;
 trail_sound_pitch = 0;
