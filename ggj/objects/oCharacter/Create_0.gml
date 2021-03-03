@@ -150,6 +150,14 @@ function activate_husk(husk_id) {
 	#endregion
 			
 	// make sure jump doesnt get cancelled
+	rotated_instance_create(x,y,0,0,depth+1,fxJump);
+	repeat(8) {
+		with (rotated_instance_create(x,y,random_range(-2,2),-8,depth+1,choose(fxSmoke,fxSmoke,fxSmokeLarge)))
+		{
+		other.smoke_FX = 0;
+		}
+	}
+	
 	with husk_id {
 		vsp = -1;
 		move_with_physics();
