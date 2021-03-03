@@ -135,6 +135,7 @@ function activate_husk(husk_id) {
 	husk_id.state = pStates.move;
 	husk_id.go_to_husk = false;
 	husk_id.go_to_husk_used = false;
+	husk_id.husk_lifetime = max(husk_id.husk_lifetime, 10);
 	global.active_player_object = husk_id;
 			
 	#region unfuckn

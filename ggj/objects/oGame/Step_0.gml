@@ -1,6 +1,6 @@
 global.animationSpeed += 0.15;
 
-if global.speedrun and (instance_exists(oCharacter) and global.active_player_object.state != pStates.freeze and !instance_exists(oCutsceneHand)) {
+if global.speedrun and !(global.game_world_paused) and (instance_exists(oCharacter) and global.active_player_object.state != pStates.freeze and !instance_exists(oCutsceneHand)) {
 	global.speedrun_time++;
 }
 

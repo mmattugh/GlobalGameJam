@@ -8,6 +8,7 @@ global.gamepad_is_xbox = true;
 // gamepad deadzone constants: TODO: make configurable via options
 gamepad_threshold_h = 0.33;
 gamepad_threshold_v = 0.6;
+
 #endregion
 
 #region setup binding functions and data

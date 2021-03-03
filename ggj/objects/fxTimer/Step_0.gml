@@ -10,20 +10,20 @@ target_image_yscale = lerp(target_image_yscale, target_target_image_yscale, 0.25
 
 switch global.down_direction {
 	case 270:
-	y = lerp(y, global.active_player_object.y - target_offset, 0.35);
-	x = global.active_player_object.x;
+	y = lerp(y, creator.y - target_offset, 0.35);
+	x = creator.x;
 	break;
 	case 0:
-	y = global.active_player_object.y;
-	x = lerp(x, global.active_player_object.x + target_offset, 0.35);
+	y = creator.y;
+	x = lerp(x, creator.x + target_offset, 0.35);
 	break;
 	case 90:
-	y = lerp(y, global.active_player_object.y + target_offset, 0.35);
-	x = global.active_player_object.x;
+	y = lerp(y, creator.y + target_offset, 0.35);
+	x = creator.x;
 	break;
 	case 180:
-	y = global.active_player_object.y;
-	x = lerp(x, global.active_player_object.x - target_offset, 0.35);
+	y = creator.y;
+	x = lerp(x, creator.x - target_offset, 0.35);
 	break;		
 }
 

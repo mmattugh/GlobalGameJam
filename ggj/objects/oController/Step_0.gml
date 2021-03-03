@@ -31,10 +31,26 @@ global.key_exit			= input_state[input_keys.escape];
 global.key_restart		= input_state[input_keys.restart];
 
 // dont update if these hold data from freeze
-if (froze_last_frame and (global.key_jump or global.key_interact)) {
-	froze_last_frame = false; 	
+if (global.game_world_paused > -1) {
+	global.key_right		= global.key_right		or   input_state[input_keys.right];
+	global.key_left			= global.key_left		or	 input_state[input_keys.left];
+	global.key_up			= global.key_up			or   input_state[input_keys.up];
+	global.key_down			= global.key_down		or	 input_state[input_keys.down];
+	global.key_right_p		= global.key_right_p	or	 input_state[input_keys.right_p];
+	global.key_left_p		= global.key_left_p		or   input_state[input_keys.left_p];
+	global.key_exit			= global.key_exit		or	 input_state[input_keys.escape];
+	global.key_restart		= global.key_restart	or	 input_state[input_keys.restart];
+	global.key_jump			= global.key_jump		or	 input_state[input_keys.jump];
+	global.key_interact		= global.key_interact	or	 input_state[input_keys.interact];
 } else {
-	froze_last_frame = false; 
+	global.key_right		= input_state[input_keys.right];
+	global.key_left			= input_state[input_keys.left];
+	global.key_up			= input_state[input_keys.up];
+	global.key_down			= input_state[input_keys.down];
+	global.key_right_p		= input_state[input_keys.right_p];
+	global.key_left_p		= input_state[input_keys.left_p];
+	global.key_exit			= input_state[input_keys.escape];
+	global.key_restart		= input_state[input_keys.restart];
 	global.key_jump			= input_state[input_keys.jump];
 	global.key_interact		= input_state[input_keys.interact];
 }

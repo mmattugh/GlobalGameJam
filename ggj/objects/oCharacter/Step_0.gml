@@ -96,6 +96,8 @@ switch state {
 					target_image_xscale *= 1.25;
 					target_image_yscale *= 1.25;
 				}
+				
+				creator = other.id;
 			}
 		}
 		husk_lifetime--;
@@ -335,7 +337,8 @@ switch state {
 		// return to oldest
 		// turn current player to husk
 		deactivate_this_husk();
-		
+		husk_lifetime = 0;
+
 	} else {
 		// TODO: dead husk gibs/ husk corpse
 		instance_destroy();	

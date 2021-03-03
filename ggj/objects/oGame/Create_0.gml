@@ -15,6 +15,8 @@ global.camera_width = 320;
 global.camera_height = 320;
 global.camera_set_window_size = false;
 
+global.game_world_paused = 0;
+
 global.rooms = 0;
 last_room = noone;
 // load values

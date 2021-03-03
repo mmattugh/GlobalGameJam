@@ -1,4 +1,4 @@
-if (oCharacter.state == pStates.move) {
+if (global.active_player_object.state == pStates.move) {
 	if (place_meeting(x,y,oCharacter)) {
 		if (!did_float) {
 			instance_create_depth(0,0,0,oMusic);

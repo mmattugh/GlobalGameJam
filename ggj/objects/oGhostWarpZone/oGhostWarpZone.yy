@@ -7,7 +7,10 @@
   "visible": false,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oGetsPaused",
+    "path": "objects/oGetsPaused/oGetsPaused.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
