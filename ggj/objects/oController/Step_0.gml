@@ -11,7 +11,6 @@ if (global.gamepad_connected) {
 
 #region the monster
 // loop through keys
-var binding;
 for (var i = input_keys.right; i < input_keys.size; i++) {	
 	// reset
 	input_state[i] = 0;
