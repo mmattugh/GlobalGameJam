@@ -165,6 +165,8 @@ function activate_husk(husk_id) {
 		}
 	}
 	
+	husk_id.draw_xscale = 1.5;
+	husk_id.draw_yscale = 0.5;
 	with husk_id {
 		vsp = -1;
 		move_with_physics();
