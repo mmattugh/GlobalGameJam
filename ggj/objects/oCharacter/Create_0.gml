@@ -103,7 +103,16 @@ if !(instance_exists(oCamera)) {
 
 
 
-function set_has_ghost() {
+function set_has_ghost() {	
+	#region // save combo
+	if (combo > global.best_combo) {
+		ini_open(SAVE_FILE);
+		ini_write_real("save", "best_combo", combo);
+		ini_close();
+		global.best_combo = combo;
+	}
+	#endregion
+	
 	has_ghost = true;
 	combo = 0;
 	combo_exclamations = "";	
@@ -111,7 +120,6 @@ function set_has_ghost() {
 	//instance_create_depth(x,y,depth-2,fxRecharged);
 	rotated_instance_create(x,y,0,0,depth-2,fxRecharged);
 	play_sound(Ghost_Recharge, 40, false, 1.0, 0.05, global.sound_volume*0.5);
-
 	
 	oCamera.screenshake += 2;
 		repeat (5)

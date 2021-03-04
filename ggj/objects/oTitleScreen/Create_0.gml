@@ -139,6 +139,12 @@ update_text = function() {
 	}
 	
 	text[0][1] = "endless";
+	
+	// display best combo
+	if (global.best_combo > 3) {
+		text[0][1] += ": " + string(global.best_combo);
+	}
+	
 	text[0][2] = "options";
 	text[0][3] = "credits";
 }

@@ -18,6 +18,7 @@ global.camera_set_window_size = false;
 global.game_world_paused = 0;
 
 global.rooms = 0;
+
 last_room = noone;
 // load values
 ini_open(SAVE_FILE);
@@ -26,6 +27,9 @@ global.screenshake_intensity = ini_read_real("config", "screenshake_intensity", 
 global.sound_volume			 = ini_read_real("config", "sound_volume", 0.7);
 global.music_volume			 = ini_read_real("config", "music_volume", 0.3);
 global.speedrun				 = ini_read_real("config", "speedrun", 0.0);
+
+global.best_combo			 = ini_read_real("save", "best_combo", 3);
+
 
 ini_close();
 	
