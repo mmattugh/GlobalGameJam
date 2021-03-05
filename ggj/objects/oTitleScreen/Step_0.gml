@@ -134,13 +134,19 @@ if (selected_pressed) {
 			
 			break;
 			case 1:
-			url_open_ext("https://twitter.com/mmatt_ugh", "_blank");
+			if (!COOL_MATH_ENABLED) {
+				url_open_ext("https://twitter.com/mmatt_ugh", "_blank");
+			}
 			break;
 			case 2:
-			url_open_ext("https://twitter.com/dev_dwarf", "_blank");		
+			if (!COOL_MATH_ENABLED) {
+				url_open_ext("https://twitter.com/dev_dwarf", "_blank");		
+			}
 			break;
 			case 3:
-			url_open_ext("https://twitter.com/ConnorGrail", "_blank");
+			if (!COOL_MATH_ENABLED) {
+				url_open_ext("https://twitter.com/ConnorGrail", "_blank");
+			}
 			break;
 		}
 		break;

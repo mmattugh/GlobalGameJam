@@ -5,11 +5,13 @@
 event_inherited();
 
 if (has_soul) {
-	image_index += .1;
-	if (ceil(image_index) == image_number)
+	img_index += .1;
+	if (ceil(img_index) == image_number)
 	{
-		image_index = 1;
+		img_index = 1;
 	}
 } else {
-	image_index = 0;
+	img_index = 0;
 }
+
+image_index = floor(img_index);

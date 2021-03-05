@@ -14,6 +14,12 @@ if (global.speedrun && global.key_exit) {
 
 // restart
 if (global.key_restart) {
-	if (room != level_intermission)
+	if (room != level_intermission) {
 		room_restart();	
+	
+		if (COOL_MATH_ENABLED) {
+			coolmathCallLevelRestart(room-test_room);
+		}
+	}
+	
 }

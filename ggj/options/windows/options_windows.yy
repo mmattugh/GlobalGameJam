@@ -1,7 +1,8 @@
 {
   "ConfigValues": {
-    "dev": {"option_windows_start_fullscreen":"false","option_windows_resize_window":"true",},
+    "dev": {"option_windows_start_fullscreen":"false","option_windows_resize_window":"true","option_windows_display_name":"SELF","option_windows_icon":"icons/icon.ico",},
     "ITCH": {"option_windows_icon":"icons/icon.ico","option_windows_description_info":"the best","option_windows_product_info":"the game","option_windows_company_info":"the crew","option_windows_display_name":"SELF",},
+    "COOL_MATH": {"option_windows_display_name":"SELF [DEMO]","option_windows_icon":"icons/icon.ico",},
   },
   "option_windows_display_name": "Created with GameMaker Studio 2",
   "option_windows_executable_name": "${project_name}.exe",

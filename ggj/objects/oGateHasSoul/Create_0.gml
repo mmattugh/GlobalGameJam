@@ -5,3 +5,5 @@
 event_inherited();
 
 has_soul = false;
+
+img_index = 0;

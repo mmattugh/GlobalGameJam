@@ -233,6 +233,7 @@
     {"id":{"name":"oGame","path":"objects/oGame/oGame.yy",},"order":1,},
     {"id":{"name":"level_4","path":"rooms/level_4/level_4.yy",},"order":13,},
     {"id":{"name":"oLaserStepOn","path":"objects/oLaserStepOn/oLaserStepOn.yy",},"order":31,},
+    {"id":{"name":"COOL_MATH_API","path":"extensions/COOL_MATH_API/COOL_MATH_API.yy",},"order":2,},
     {"id":{"name":"oRoomTransition","path":"objects/oRoomTransition/oRoomTransition.yy",},"order":5,},
     {"id":{"name":"level_parent","path":"rooms/level_parent/level_parent.yy",},"order":6,},
     {"id":{"name":"SELF_MUFFLED","path":"sounds/SELF_MUFFLED/SELF_MUFFLED.yy",},"order":17,},
@@ -276,6 +277,7 @@
       {"name":"dev","children":[],},
       {"name":"NG","children":[],},
       {"name":"ITCH","children":[],},
+      {"name":"COOL_MATH","children":[],},
     ],
   },
   "RoomOrderNodes": [
