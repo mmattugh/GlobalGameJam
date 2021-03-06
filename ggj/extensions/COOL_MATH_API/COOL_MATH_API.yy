@@ -1,6 +1,7 @@
 {
   "ConfigValues": {
     "dev": {"copyToTargets":"32",},
+    "ITCH": {"copyToTargets":"32",},
   },
   "optionsFile": "options.json",
   "options": [],
@@ -55,7 +56,7 @@
   "tvosThirdPartyFrameworkEntries": [],
   "IncludedResources": [],
   "androidPermissions": [],
-  "copyToTargets": -1,
+  "copyToTargets": 32,
   "iosCocoaPods": "",
   "tvosCocoaPods": "",
   "iosCocoaPodDependencies": "",

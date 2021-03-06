@@ -36,7 +36,7 @@ if (selected_pressed) {
 		switch selected[page] {
 			case 0:
 			
-			if flicked {
+			if (flicked and !global.speedrun) {
 				page = 3;
 			} else {
 				var inst = instance_create_depth(0,0,depth,oRoomTransition);

@@ -143,7 +143,11 @@ update_text = function() {
 		text[1][5] = "delete save file";
 	}
 	
-	if (flicked) {
+	if (global.speedrun) {
+		if (best_time != -1) {
+			text[0][0] = "pb: " + steps_to_time(best_time);
+		}
+	} else if (flicked) {
 		text[0][0] = "level select";
 	}
 	

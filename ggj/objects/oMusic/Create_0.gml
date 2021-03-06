@@ -24,6 +24,12 @@ level_music[level_17_block_4] = Facetime_the_Spacetime_Loop;
 
 level_music[level_flick] = Facetime_the_Spacetime_Loop;
 
+level_music[level_bonus_1] = Replica_Loop;
+level_music[level_bonus_2] = Replica_Loop;
+level_music[level_bonus_3] = Replica_Loop;
+level_music[level_bonus_4] = Replica_Loop;
+level_music[level_bonus_5] = Replica_Loop;
+
 level_music[level_endless] = Endless_Loop;
 
 wobbly_music_version[SELF_OST] = SELF_MUFFLED;
@@ -37,6 +43,9 @@ muffled_music_version[SELF_TITLE_SCREEN_LOOP] = SELF_TITLE_SCREEN_LOOP;
 
 wobbly_music_version[Endless_Loop] = Endless_Muffled;
 muffled_music_version[Endless_Loop] = Endless_Muffled;
+
+wobbly_music_version[Replica_Loop] = Replica_Muffled;
+muffled_music_version[Replica_Loop] = Replica_Muffled;
 
 #endregion
 

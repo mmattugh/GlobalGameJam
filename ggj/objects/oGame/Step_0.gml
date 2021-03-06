@@ -5,10 +5,18 @@ if global.speedrun and !(global.game_world_paused) and (instance_exists(oCharact
 }
 
 // exit run in speedrun mode
-if (global.speedrun && global.key_exit) {
-	with instance_create_depth(x,y,0,oRoomTransition) {
-		target_room = title_screen;
-		play_sound(Ghost_Hit_Wall, 0, false, 1.0, 0.02, global.sound_volume);
+if (global.key_exit) {
+	if (global.speedrun)
+	or (room == level_bonus_1)
+	or (room == level_bonus_2)
+	or (room == level_bonus_3)
+	or (room == level_bonus_4)
+	or (room == level_bonus_5)
+	{
+		with instance_create_depth(x,y,0,oRoomTransition) {
+			target_room = title_screen;
+			play_sound(Ghost_Hit_Wall, 0, false, 1.0, 0.02, global.sound_volume);
+		}
 	}
 }
 
