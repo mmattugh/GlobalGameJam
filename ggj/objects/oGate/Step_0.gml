@@ -1,12 +1,15 @@
 //if !instance_exists(oWisp) {
 	if (instance_number(oSoul) == 0) {
-		play_sound(Self_Gate_Destroy, 5, false, 1.0, 0.01, global.sound_volume);
+		if (!audio_is_playing(Self_Gate_Destroy)) {
+			play_sound(Self_Gate_Destroy, 5, false, 1.0, 0.01, global.sound_volume);
+		}
 		instance_destroy();	
 	}
 
 	if (instance_number(oSoul) != soul_count) {
-		play_sound(Gate_Rumble, 40, false, 1.0, 0.02, global.sound_volume);
-
+		if (!audio_is_playing(Gate_Rumble)) {
+			play_sound(Gate_Rumble, 40, false, 1.0, 0.02, global.sound_volume);
+		}
 		soul_count--;
 		shake = 4;
 		repeat (5) {

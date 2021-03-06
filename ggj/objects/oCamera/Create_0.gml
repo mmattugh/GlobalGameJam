@@ -1,5 +1,7 @@
 /// @description 
 
+if (instance_number(object_index) > 1) instance_destroy();
+
 enum cStates {
 	follow,
 	follow_x,
