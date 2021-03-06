@@ -176,7 +176,7 @@ input_bindings[input_keys.right	  ].add_gamepad_binding(gp_axislh, true, 1);
 
 #region define the rest of the inputs
 input_bindings[input_keys.left	  ] = new key_binding(vk_left, input_modes.held);
-input_bindings[input_keys.left	  ].add_alternative_binding(ord("S"));
+input_bindings[input_keys.left	  ].add_alternative_binding(ord("A"));
 input_bindings[input_keys.left	  ].add_gamepad_binding(gp_axislh, true, -1);
 
 input_bindings[input_keys.jump	  ] = new key_binding(vk_space, input_modes.pressed);
@@ -204,7 +204,7 @@ input_bindings[input_keys.right_p ].add_alternative_binding(ord("D"));
 input_bindings[input_keys.right_p ].add_gamepad_binding(gp_axislh, true, 1);
 								 
 input_bindings[input_keys.left_p  ] = new key_binding(vk_left, input_modes.pressed);
-input_bindings[input_keys.left_p  ].add_alternative_binding(ord("S"));
+input_bindings[input_keys.left_p  ].add_alternative_binding(ord("A"));
 input_bindings[input_keys.left_p  ].add_gamepad_binding(gp_axislh, true, -1);
 
 input_bindings[input_keys.escape  ] = new key_binding(vk_escape, input_modes.pressed);

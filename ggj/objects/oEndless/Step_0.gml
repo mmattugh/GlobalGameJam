@@ -14,25 +14,36 @@ if (global.active_player_object.combo > 15) {
 		
 		oCamera.screenshake += 7;
 		
+		instance_activate_object(oRecharge);
 		var inst = instance_nearest(0,0,oRecharge);
-		instance_create_depth(inst.x, inst.y, 0, fxEnd);
-		instance_destroy(inst);
+		if (inst != noone) {
+			instance_create_depth(inst.x, inst.y, 0, fxEnd);
+			instance_destroy(inst);
+		}
 	
 		var inst = instance_nearest(room_width,0,oRecharge);
-		instance_create_depth(inst.x, inst.y, 0, fxEnd);
-		instance_destroy(inst);
+		if (inst != noone) {
+			instance_create_depth(inst.x, inst.y, 0, fxEnd);
+			instance_destroy(inst);
+		}
 		
 		var inst = instance_nearest(room_width/2, 0, oRecharge);
-		inst.target_ystart -= 48;
-		inst.state = recharge.enabled
+		if (inst != noone) {
+			inst.target_ystart -= 48;
+			inst.state = recharge.enabled
+		}
 		
 		var inst = instance_nearest(0, room_height, oRecharge);
-		inst.target_ystart -= 16;
-		inst.state = recharge.enabled
+		if (inst != noone) {
+			inst.target_ystart -= 16;
+			inst.state = recharge.enabled
+		}
 	
 		var inst = instance_nearest(room_width, room_height, oRecharge);
-		inst.target_ystart -= 16;
-		inst.state = recharge.enabled
+		if (inst != noone) {
+			inst.target_ystart -= 16;
+			inst.state = recharge.enabled
+		}
 
 	}
 }

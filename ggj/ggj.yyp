@@ -175,6 +175,7 @@
     {"id":{"name":"oBench","path":"objects/oBench/oBench.yy",},"order":0,},
     {"id":{"name":"sPlatform","path":"sprites/sPlatform/sPlatform.yy",},"order":17,},
     {"id":{"name":"fxMiddle","path":"objects/fxMiddle/fxMiddle.yy",},"order":3,},
+    {"id":{"name":"README","path":"notes/README/README.yy",},"order":0,},
     {"id":{"name":"pHazard","path":"objects/pHazard/pHazard.yy",},"order":16,},
     {"id":{"name":"oCutsceneHand2","path":"objects/oCutsceneHand2/oCutsceneHand2.yy",},"order":4,},
     {"id":{"name":"oCutsceneHand","path":"objects/oCutsceneHand/oCutsceneHand.yy",},"order":3,},
