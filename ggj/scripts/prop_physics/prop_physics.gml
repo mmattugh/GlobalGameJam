@@ -13,12 +13,15 @@ function verlet_point_init() {
 	forces_x = 0;
 	forces_y = 0;
 
+
 	//drag should be a value between 0 and 1 and will be resistance to movement (0 = will not move, 1 = no resistance)
 	drag = 0.98; 
 
 	//use script verlet_part_set_mass(m) to set the mass, dont set directly
 	mass = 1;
 	inv_mass = 1;
+	
+	detached = false;
 	
 	life = 0;
 }
@@ -84,6 +87,29 @@ function verlet_point_do_collision() {
 	}	
 }
 
+function verlet_point_do_solid() {
+	var _inst = instance_place(x,y,Solid);
+	
+	if (_inst and !place_meeting(prev_pos_x, prev_pos_y, Solid)) {
+		var _dir = point_direction(_inst.x,_inst.y,x,y);
+		var _xpush = lengthdir_x(1, _dir);
+		var _ypush = lengthdir_y(1, _dir);
+		var _i = 0;
+		while (place_meeting(x,y,Solid) and _i < 5) {
+			x += _xpush
+			y += _ypush
+			_i++;
+		}
+		
+		// update constraints
+		var _id = id;
+		with oPhysicsLink {
+			if (point_a == _id or point_b == _id) {
+				verlet_spring_update();	
+			}
+		}
+	}
+}
 
 #endregion
 	
@@ -93,6 +119,9 @@ function verlet_spring_init() {
 	point_b = noone;	
 	resting_distance = 0;
 	strength = 1.0;
+	
+	// tear threshold -- very high normally
+	tear_threshold = 10000;
 }
 
 function verlet_spring_set(spring, pa, pb, dist) {
@@ -107,6 +136,7 @@ function verlet_spring_update() {
 	    var dx = point_b.x - point_a.x;
 	    var dy = point_b.y - point_a.y;
 	    var delta_length = sqrt(dx*dx+dy*dy);
+		
 	    if(delta_length > 1){
 	        var diff = (delta_length - resting_distance) / (delta_length*(point_a.inv_mass+point_b.inv_mass));
 	        diff *= strength;
@@ -115,6 +145,13 @@ function verlet_spring_update() {
 	        point_b.x -= point_b.inv_mass * dx * diff;
 	        point_b.y -= point_b.inv_mass * dy * diff;
 	    }
+		
+		if (delta_length > tear_threshold or point_a.detached) {
+			instance_destroy();
+			
+			// propagate detachments
+			point_b.detached = true;
+		}
 	}
 }
 #endregion
