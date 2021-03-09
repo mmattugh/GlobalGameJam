@@ -22,6 +22,7 @@ function verlet_point_init() {
 	inv_mass = 1/mass;
 	
 	detached = false;
+	detachment_force = 0;
 	
 	life = 0;
 }
@@ -130,6 +131,7 @@ function verlet_spring_init() {
 	
 	// tear threshold -- very high normally
 	tear_threshold = 10000;
+	tear_resistance = 1.0;
 }
 
 function verlet_spring_set(spring, pa, pb, dist) {
@@ -154,13 +156,33 @@ function verlet_spring_update() {
 	        point_b.y -= point_b.inv_mass * dy * diff;
 	    }
 		
-		if (delta_length > tear_threshold) 
-		or (point_a.detached and delta_length > tear_threshold*0.9)
-		{
+		if (delta_length > tear_threshold) {
 			instance_destroy();
 			
 			// propagate detachments
 			point_b.detached = true;
+			point_b.detachment_force = ceil(0.5*tear_resistance*(delta_length-tear_threshold));
+											
+			point_a.detached = true;		
+			point_a.detachment_force = ceil(0.5*tear_resistance*(delta_length-tear_threshold));
+		}
+		
+		if (point_a.detached) {
+			instance_destroy();
+			
+			if (point_a.detachment_force > 0) {
+				point_b.detached = true;
+				point_b.detachment_force = point_a.detachment_force-1;
+			}
+		}
+		
+		if (point_b.detached) {
+			instance_destroy();
+			
+			if (point_b.detachment_force > 0) {
+				point_a.detached = true;
+				point_a.detachment_force = point_b.detachment_force-1;
+			}
 		}
 	}
 }
