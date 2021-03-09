@@ -69,18 +69,21 @@ function verlet_point_set_mass(argument0, argument1) {
 	}
 }
 
-function verlet_point_uncollide(point, obj) {
-	var inst = instance_place(point.x,point.y,obj); 
-	if (inst) {
-		var dir = point_direction(inst.x,inst.y,point.x,point.y);
-		//var w = sprite_get_width(point.sprite_index);
-		var w = 1;
-		while (place_meeting(point.x,point.y,obj)) {
-			point.x += lengthdir_x(w,dir);
-			point.y += lengthdir_y(w,dir);	
-		}
+function verlet_point_do_collision() {
+	if (place_meeting(x,y,global.active_player_object)) {
+		var x_force = global.active_player_object.x - global.active_player_object.physics_xprevious;
+		var y_force = global.active_player_object.y - global.active_player_object.physics_yprevious;
+		verlet_point_apply_force(x_force, y_force);		
 	}
+	
+	var inst = instance_place(x,y,pMovableSolid) 
+	if (inst != noone and (inst.hsp != 0 or inst.vsp != 0)) {
+		var x_force = inst.x - inst.physics_xprevious;
+		var y_force = inst.y - inst.physics_yprevious;
+		verlet_point_apply_force(x_force, y_force);		
+	}	
 }
+
 
 #endregion
 	
