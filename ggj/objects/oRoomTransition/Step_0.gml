@@ -24,9 +24,9 @@ switch state {
 	timer = approach(timer, 0, timer_step);
 	
 	if (timer == 0) {
-		if (instance_exists(oCharacter)) {
-			global.active_player_object.state = pStates.move;
-		}
+		//if (instance_exists(oCharacter)) {
+		//	global.active_player_object.state = pStates.move;
+		//}
 		
 		if !instance_exists(oMusic) {
 			if room != level_1 and room != level_intermission and room != level_flick {
