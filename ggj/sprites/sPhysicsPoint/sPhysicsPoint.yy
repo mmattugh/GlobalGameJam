@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"59b01575-68ea-47e3-aa92-95393a92f672","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "ggj",
-    "path": "ggj.yyp",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sPhysicsPoint",

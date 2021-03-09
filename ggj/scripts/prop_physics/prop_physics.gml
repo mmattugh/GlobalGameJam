@@ -19,7 +19,7 @@ function verlet_point_init() {
 
 	//use script verlet_part_set_mass(m) to set the mass, dont set directly
 	mass = 1;
-	inv_mass = 1;
+	inv_mass = 1/mass;
 	
 	detached = false;
 	
@@ -73,9 +73,14 @@ function verlet_point_set_mass(argument0, argument1) {
 }
 
 function verlet_point_do_collision() {
+	if (mass == 0) return;
+	
 	if (place_meeting(x,y,global.active_player_object)) {
 		var x_force = global.active_player_object.x - global.active_player_object.physics_xprevious;
 		var y_force = global.active_player_object.y - global.active_player_object.physics_yprevious;
+		
+		x_force *= global.active_player_object.physics_mass*inv_mass;
+		y_force *= global.active_player_object.physics_mass*inv_mass;
 		verlet_point_apply_force(x_force, y_force);		
 	}
 	
@@ -83,6 +88,9 @@ function verlet_point_do_collision() {
 	if (inst != noone and (inst.hsp != 0 or inst.vsp != 0)) {
 		var x_force = inst.x - inst.physics_xprevious;
 		var y_force = inst.y - inst.physics_yprevious;
+		
+		x_force *= inst.physics_mass*inv_mass;
+		y_force *= inst.physics_mass*inv_mass;
 		verlet_point_apply_force(x_force, y_force);		
 	}	
 }
@@ -146,7 +154,9 @@ function verlet_spring_update() {
 	        point_b.y -= point_b.inv_mass * dy * diff;
 	    }
 		
-		if (delta_length > tear_threshold or point_a.detached) {
+		if (delta_length > tear_threshold) 
+		or (point_a.detached and delta_length > tear_threshold*0.9)
+		{
 			instance_destroy();
 			
 			// propagate detachments

@@ -8,8 +8,18 @@
 //	}
 //}
 
-with oPhysicsLink {
-	verlet_spring_update()	
+with oPhysicsPointMass {
+	if (collides) {
+		verlet_point_do_collision();	
+		//verlet_point_do_solid();
+	}
+}
+
+var constraint_iterations = 5;
+for (var i = 0; i < constraint_iterations; i++) {
+	with oPhysicsLink {
+		verlet_spring_update()	
+	}
 }
 
 with oPhysicsLink {
@@ -20,10 +30,6 @@ with oPhysicsLink {
 }
 
 with oPhysicsPointMass {
-	if (collides) {
-		verlet_point_do_collision();	
-		//verlet_point_do_solid();
-	}
 	//verlet_point_uncollide(id, Solid);
 	verlet_point_apply_gravity(0.5);
 	verlet_point_update();	
