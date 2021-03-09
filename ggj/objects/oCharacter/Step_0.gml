@@ -49,6 +49,34 @@ if (on_ground) {
 switch state {
 	case pStates.move			  : #region
 	
+	#region husk specific code
+	if (global.oldest_player_object != id) {
+		if ((husk_lifetime+6) mod 60 == 0) {
+			var timer = (husk_lifetime+6)/60;
+			// create timer effect	
+			with rotated_instance_create(x,y,5*flipped,4,depth-1,fxTimer) 
+			{
+				str = string(timer);
+				target_offset += min(other.vsp, 0);
+				
+				if (timer <= 3) {
+					target_target_image_xscale *= 1.25;
+					target_target_image_yscale *= 1.25;
+					target_image_xscale *= 1.25;
+					target_image_yscale *= 1.25;
+				}
+				
+				creator = other.id;
+			}
+		}
+		husk_lifetime--;
+		
+		if (husk_lifetime <= 0 and !go_to_husk_used) {
+			deactivate_this_husk();	
+		}
+	}
+	#endregion
+	
 	// goto husk state
 	if (go_to_husk_used && on_ground) {
 		state = pStates.husk_used;	
@@ -82,35 +110,7 @@ switch state {
 		
 		global.key_interact = false;
 	}
-	
-	#region husk specific code
-	if (global.oldest_player_object != id) {
-		if ((husk_lifetime+6) mod 60 == 0) {
-			var timer = (husk_lifetime+6)/60;
-			// create timer effect	
-			with rotated_instance_create(x,y,5*flipped,4,depth-1,fxTimer) 
-			{
-				str = string(timer);
-				target_offset += min(other.vsp, 0);
-				
-				if (timer <= 3) {
-					target_target_image_xscale *= 1.25;
-					target_target_image_yscale *= 1.25;
-					target_image_xscale *= 1.25;
-					target_image_yscale *= 1.25;
-				}
-				
-				creator = other.id;
-			}
-		}
-		husk_lifetime--;
-		
-		if (husk_lifetime <= 0 and !go_to_husk_used) {
-			deactivate_this_husk();	
-		}
-	}
 
-	#endregion
 	
 	// horizontal speed	
 	var h_dir = sign(global.key_right - global.key_left);
