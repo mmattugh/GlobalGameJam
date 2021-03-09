@@ -24,6 +24,10 @@ function verlet_point_init() {
 	detached = false;
 	detachment_force = 0;
 	
+	custom_gravity = false;
+	xgrav = 0;
+	ygrav = 0;
+	
 	life = 0;
 }
 
@@ -45,6 +49,11 @@ function verlet_point_apply_force(force_x, force_y) {
 }
 
 function verlet_point_apply_gravity(grav) {
+	if custom_gravity {
+		forces_x += xgrav;
+		forces_y += ygrav;
+	}
+	
 	switch global.down_direction {
 		case 0:	  
 		forces_x -= grav;
@@ -71,6 +80,12 @@ function verlet_point_set_mass(argument0, argument1) {
 	    part.mass = 0;
 	    part.inv_mass = 0;
 	}
+}
+
+function verlet_point_set_custom_gravity(p, xx,yy) {
+	p.custom_gravity = true;
+	p.xgrav = xx;
+	p.ygrav = yy;
 }
 
 function verlet_point_do_collision() {
@@ -146,6 +161,7 @@ function verlet_spring_update() {
 	    var dx = point_b.x - point_a.x;
 	    var dy = point_b.y - point_a.y;
 	    var delta_length = sqrt(dx*dx+dy*dy);
+		var dir = point_direction(0,0,dx,dy);
 		
 	    if(delta_length > 1){
 	        var diff = (delta_length - resting_distance) / (delta_length*(point_a.inv_mass+point_b.inv_mass));

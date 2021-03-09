@@ -10,7 +10,7 @@ for (var j = 0; j < 10; j++) {
 		if (inst) {
 			link = instance_create_depth(0,0,depth,oPhysicsLink);
 			verlet_spring_set(link, inst, newi, step);	
-			link.tear_threshold = step*4;
+			link.tear_threshold = step*3;
 			//link.tear_resistance = .10;
 
 		}
@@ -19,7 +19,7 @@ for (var j = 0; j < 10; j++) {
 		if (inst) {
 			link = instance_create_depth(0,0,depth,oPhysicsLink);
 			verlet_spring_set(link, inst, newi, step);	
-			link.tear_threshold = step*4;
+			link.tear_threshold = step*3;
 			//link.tear_resistance = .10;
 		}
 	}

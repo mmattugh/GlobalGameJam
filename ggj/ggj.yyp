@@ -34,6 +34,7 @@
     {"id":{"name":"sSoul","path":"sprites/sSoul/sSoul.yy",},"order":2,},
     {"id":{"name":"level_13_block_1","path":"rooms/level_13_block_1/level_13_block_1.yy",},"order":38,},
     {"id":{"name":"sSecretSunflower","path":"sprites/sSecretSunflower/sSecretSunflower.yy",},"order":36,},
+    {"id":{"name":"oStiffPropExample","path":"objects/oStiffPropExample/oStiffPropExample.yy",},"order":5,},
     {"id":{"name":"oGoTo","path":"objects/oGoTo/oGoTo.yy",},"order":14,},
     {"id":{"name":"level_1","path":"rooms/level_1/level_1.yy",},"order":3,},
     {"id":{"name":"sRecharge_Hit","path":"sprites/sRecharge_Hit/sRecharge_Hit.yy",},"order":26,},
