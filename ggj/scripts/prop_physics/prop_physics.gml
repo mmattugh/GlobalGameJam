@@ -154,6 +154,8 @@ function verlet_spring_update() {
 	        point_a.y += point_a.inv_mass * dy * diff;
 	        point_b.x -= point_b.inv_mass * dx * diff;
 	        point_b.y -= point_b.inv_mass * dy * diff;
+			point_a.image_angle = dir;
+			point_b.image_angle = dir;
 	    }
 		
 		if (delta_length > tear_threshold) {
@@ -161,10 +163,10 @@ function verlet_spring_update() {
 			
 			// propagate detachments
 			point_b.detached = true;
-			point_b.detachment_force = ceil(0.5*tear_resistance*(delta_length-tear_threshold));
-											
-			point_a.detached = true;		
-			point_a.detachment_force = ceil(0.5*tear_resistance*(delta_length-tear_threshold));
+			point_b.detachment_force = ceil(0.5*(delta_length-tear_threshold)/tear_resistance);
+																			 
+			point_a.detached = true;										 
+			point_a.detachment_force = ceil(0.5*(delta_length-tear_threshold)/tear_resistance);
 		}
 		
 		if (point_a.detached) {
