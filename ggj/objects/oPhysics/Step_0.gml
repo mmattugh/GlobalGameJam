@@ -14,14 +14,29 @@ with oPhysicsLink {
 
 with oPhysicsPointMass {
 	if (place_meeting(x,y,global.active_player_object)) {
-		var x_force = global.active_player_object.x - oPhysics.player_x_prev;
-		var y_force = global.active_player_object.y - oPhysics.player_y_prev;
-		verlet_part_apply_force(x_force, y_force);		
+		var x_force = global.active_player_object.x - global.active_player_object.physics_xprevious;
+		var y_force = global.active_player_object.y - global.active_player_object.physics_yprevious;
+		verlet_point_apply_force(x_force, y_force);		
+	}
+	
+	var inst = instance_place(x,y,pMovableSolid) 
+	if (inst != noone and (inst.hsp != 0 or inst.vsp != 0)) {
+		var x_force = inst.x - inst.physics_xprevious;
+		var y_force = inst.y - inst.physics_yprevious;
+		verlet_point_apply_force(x_force, y_force);		
 	}
 	//verlet_point_uncollide(id, Solid);
-	verlet_part_apply_force(0, 0.5);
+	verlet_point_apply_gravity(0.5);
 	verlet_point_update();	
 }
 
-player_x_prev = global.active_player_object.x;
-player_y_prev = global.active_player_object.y;
+
+with oCharacter {
+	physics_xprevious = x
+	physics_yprevious = y
+}
+
+with pMovableSolid {
+	physics_xprevious = x
+	physics_yprevious = y	
+}

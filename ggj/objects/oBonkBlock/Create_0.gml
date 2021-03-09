@@ -1,6 +1,10 @@
 /// @description 
 hsp = 0;
 vsp = 0;
+
+physics_xprevious = x;
+physics_yprevious = y;
+
 hfriction = 0.3;
 vfriction = 0.3;
 

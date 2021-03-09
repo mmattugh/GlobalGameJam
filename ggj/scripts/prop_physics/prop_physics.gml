@@ -35,9 +35,26 @@ function verlet_point_update() {
 	forces_y = 0;
 }
 
-function verlet_part_apply_force(force_x, force_y) {
+function verlet_point_apply_force(force_x, force_y) {
 	forces_x += force_x;
 	forces_y += force_y;
+}
+
+function verlet_point_apply_gravity(grav) {
+	switch global.down_direction {
+		case 0:	  
+		forces_x -= grav;
+		break;
+		case 90:  
+		forces_y -= grav;
+		break;
+		case 180: 
+		forces_x += grav;
+		break;
+		case 270: 
+		forces_y += grav;
+		break;
+	}
 }
 
 function verlet_point_set_mass(argument0, argument1) {

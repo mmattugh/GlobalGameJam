@@ -209,6 +209,7 @@
     {"id":{"name":"oMadeYouLook","path":"objects/oMadeYouLook/oMadeYouLook.yy",},"order":8,},
     {"id":{"name":"End_of_Ghost_Dash","path":"sounds/End_of_Ghost_Dash/End_of_Ghost_Dash.yy",},"order":21,},
     {"id":{"name":"oBreakableWall","path":"objects/oBreakableWall/oBreakableWall.yy",},"order":10,},
+    {"id":{"name":"pMovableSolid","path":"objects/pMovableSolid/pMovableSolid.yy",},"order":39,},
     {"id":{"name":"animation_end","path":"scripts/animation_end/animation_end.yy",},"order":1,},
     {"id":{"name":"level_bonus_4","path":"rooms/level_bonus_4/level_bonus_4.yy",},"order":41,},
     {"id":{"name":"oEndless","path":"objects/oEndless/oEndless.yy",},"order":6,},

@@ -68,6 +68,9 @@ trail_target = noone;
 trail_target_next = noone;
 trail_FX = 0;
 
+physics_xprevious = x;
+physics_yprevious = y;
+
 hsp = 0;
 vsp = 0;
 draw_xscale = 1.0;
