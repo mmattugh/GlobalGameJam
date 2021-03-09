@@ -548,7 +548,8 @@ switch state {
 // move 
 var prev = image_angle;
 image_angle = 270-global.down_direction;
-
+xprevious = x;
+yprevious = y;
 move_with_physics();
 image_angle = prev;
 
