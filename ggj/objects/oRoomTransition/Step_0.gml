@@ -14,6 +14,11 @@ switch state {
 			room_goto(target_room);	
 		}
 	}
+	
+	if (instance_exists(global.active_player_object)) {
+		global.active_player_object.state = pStates.freeze;
+	}
+	
 	break;
 	case 1:	
 	if (delay > 0) {
@@ -23,10 +28,13 @@ switch state {
 	
 	timer = approach(timer, 0, timer_step);
 	
+	if (timer < in_duration/3) {
+		if (instance_exists(oCharacter)) {
+			global.active_player_object.state = pStates.move;
+		}	
+	}
+	
 	if (timer == 0) {
-		//if (instance_exists(oCharacter)) {
-		//	global.active_player_object.state = pStates.move;
-		//}
 		
 		if !instance_exists(oMusic) {
 			if room != level_1 and room != level_intermission and room != level_flick {
