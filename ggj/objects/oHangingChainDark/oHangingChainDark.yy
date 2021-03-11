@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "sBonkBlock",
-    "path": "sprites/sBonkBlock/sBonkBlock.yy",
+    "name": "sGoTo",
+    "path": "sprites/sGoTo/sGoTo.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oHangingChain",
+    "path": "objects/oHangingChain/oHangingChain.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,8 +24,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oHangingChain","path":"objects/oHangingChain/oHangingChain.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oHangingChain","path":"objects/oHangingChain/oHangingChain.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oHangingChainDark","path":"objects/oHangingChainDark/oHangingChainDark.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -31,7 +33,7 @@
     "path": "folders/Objects/Prop Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oHangingChain",
+  "name": "oHangingChainDark",
   "tags": [],
   "resourceType": "GMObject",
 }

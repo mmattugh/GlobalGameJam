@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "sBonkBlock",
-    "path": "sprites/sBonkBlock/sBonkBlock.yy",
+    "name": "sChainLink",
+    "path": "sprites/sChainLink/sChainLink.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oPhysicsPointMass",
+    "path": "objects/oPhysicsPointMass/oPhysicsPointMass.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,8 +24,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oHangingChain","path":"objects/oHangingChain/oHangingChain.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oHangingChain","path":"objects/oHangingChain/oHangingChain.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oPhysicsChainLink","path":"objects/oPhysicsChainLink/oPhysicsChainLink.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -31,7 +33,7 @@
     "path": "folders/Objects/Prop Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oHangingChain",
+  "name": "oPhysicsChainLink",
   "tags": [],
   "resourceType": "GMObject",
 }
