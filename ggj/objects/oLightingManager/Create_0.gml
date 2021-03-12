@@ -1,8 +1,8 @@
 
 
 // parameters
-base_light = 0.49;
-lighting_noise_settings = 0.07
+base_light = 0.50;
+lighting_noise_settings = 0.06
 noise_fps = 12;
 
 camera_border = 0;

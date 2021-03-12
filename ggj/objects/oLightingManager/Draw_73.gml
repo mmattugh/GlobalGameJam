@@ -17,7 +17,7 @@ shader_set(shd_lighting);
 	var handle = shader_get_sampler_index(shd_lighting,"lighting");
 	texture_set_stage(handle,tex);
 	shader_set_uniform_f(lighting_uniform_noise_settings, lighting_noise_settings, round(current_time*0.001*noise_fps) mod noise_fps); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
-	shader_set_uniform_f(lighting_uniform_rotation_matrix, oCamera.angle*pi/180, 1.0); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+	shader_set_uniform_f(lighting_uniform_rotation_matrix, oCamera.angle*pi/180,  oCamera.zoom); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
 // draw game
 draw_surface_ext(application_surface,0,0,1/oCamera.zoom,1/oCamera.zoom,0,c_white,1.0);
 
