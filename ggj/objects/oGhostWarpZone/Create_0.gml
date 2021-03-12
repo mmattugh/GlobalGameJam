@@ -24,6 +24,11 @@ create_hit_particles = function() {
 }
 
 
+hitbox = instance_create_depth(x,y,depth,Solid);
+hitbox.image_xscale = image_xscale;
+hitbox.image_yscale = image_yscale;
+
+
 // build format
 //vertex_format_begin();
 //vertex_format_add_position();

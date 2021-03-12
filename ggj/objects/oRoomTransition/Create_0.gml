@@ -8,7 +8,7 @@ in_duration = 7;
 delay = 7;
 
 if (global.speedrun) {
-	timer_step = 0.3;
+	timer_step = 0.2;
 } else {
 	timer_step = 0.2;
 }

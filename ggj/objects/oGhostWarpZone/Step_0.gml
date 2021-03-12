@@ -1,5 +1,14 @@
 /// @description 
 
+if (global.active_player_object.state == pStates.ghost) or 
+   (global.active_player_object.state == pStates.follow_trail)
+{
+	hitbox.mask_index = sNothing;	
+} else {
+	hitbox.mask_index = sWall;	
+}
+
+
 if (place_meeting(x,y,oGhost)) {
 	if instance_exists(oGhost) {
 		with oGhost {
@@ -53,10 +62,6 @@ if (place_meeting(x,y,oCharacter)) {
 
 	}
 } else {
-	
-
-	
-	
 	if (hit_by_player) {
 		hit_magnitude = hit_magnitude_max*0.5*min(1, point_distance(0,0,global.active_player_object.hsp, global.active_player_object.vsp));
 		hit_by_player = false;

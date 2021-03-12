@@ -26,6 +26,25 @@ switch global.down_direction {
 	break;
 }
 
+#region push player out of the way if not player
+if (!object_is_ancestor(object_index, oCharacter)) 
+and( object_is_ancestor(object_index, Solid))
+and( place_meeting(x+xsp,y+ysp, global.active_player_object))
+{
+	var temp_hsp = global.active_player_object.hsp;
+	var temp_vsp = global.active_player_object.vsp;
+
+	global.active_player_object.hsp = hsp;
+	global.active_player_object.vsp = vsp;
+
+	with global.active_player_object {
+		move_with_physics();	
+	}
+	
+	global.active_player_object.hsp = temp_hsp;
+	global.active_player_object.vsp = temp_vsp;
+}
+#endregion
 
 if !place_meeting(x+xsp, y+ysp, Solid) {
 	x += xsp;

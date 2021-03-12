@@ -1,5 +1,7 @@
 /// @description 
 
+instance_create_depth(x,y,depth,oPlayerLight);
+
 enum pStates {
 	move,
 	ghost,
@@ -67,6 +69,10 @@ ghost_regen_time = 60;
 trail_target = noone;
 trail_target_next = noone;
 trail_FX = 0;
+
+physics_xprevious = x;
+physics_yprevious = y;
+physics_mass = 3;// 
 
 hsp = 0;
 vsp = 0;

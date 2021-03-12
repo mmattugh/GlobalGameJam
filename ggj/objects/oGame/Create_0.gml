@@ -18,6 +18,12 @@
 #macro COOL_MATH:WEB_ENABLED true
 
 #macro SAVE_FILE "config.ini"
+
+#macro LIGHTING_ENABLED true
+#macro NG:LIGHTING_ENABLED false
+#macro ITCH:LIGHTING_ENABLED false
+#macro COOL_MATH:LIGHTING_ENABLED false
+
 #endregion
 
 global.animationSpeed = 0;
@@ -98,6 +104,8 @@ if (COOL_MATH_ENABLED) {
 }
 
 #endregion
+
+instance_create_depth(0,0,0,oLightingManager);
 
 // define functions
 rotate_world = function(amount) {

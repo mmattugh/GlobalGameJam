@@ -2,13 +2,13 @@
 mask_index = sPlayerHitbox;
 
 if creator_player_object.state == pStates.death or creator_player_object.state == pStates.husk {
-	
-	
 	instance_destroy();
 	
 	rotated_instance_create(x,y,0,0,depth-1,fxEnd);
 	exit;	
 }
+
+in_red = place_meeting(x,y,oGhostWarpZone);
 
 
 if (go_back) {
