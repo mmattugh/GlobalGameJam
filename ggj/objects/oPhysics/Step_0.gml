@@ -7,15 +7,10 @@
 //		solve_links();	
 //	}
 //}
-physics_wind = (1+dsin(current_time*45/12))*physics_wind_magnitude;
-//physics_wind = physics_wind_magnitude;
-
 view_x1 = camera_get_view_x(view_camera[0]);
 view_y1 = camera_get_view_y(view_camera[0]);
 view_x2 = view_x1 + camera_get_view_width(view_camera[0]);
 view_y2 = view_y1 + camera_get_view_height(view_camera[0]);
-
-
 
 with oPhysicsPointMass {
 	physics_active = !other.near_screen();
@@ -37,9 +32,14 @@ for (var i = 0; i < constraint_iterations; i++) {
 	}
 }
 
+
+var w = 32;
+var v = x;
+if (cos(global.down_direction) != 0) v = y;
+
 with oPhysicsPointMass {
 	//verlet_point_uncollide(id, Solid);
-	verlet_point_apply_gravity(0.5, oPhysics.physics_wind);
+	verlet_point_apply_gravity(0.5, (oPhysics.physics_wind_magnitude * ((v + (current_time*0.001*12)) mod w)/w));
 	verlet_point_update();	
 }
 
