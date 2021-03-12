@@ -4,8 +4,11 @@ if (global.active_player_object.state == pStates.ghost) or
    (global.active_player_object.state == pStates.follow_trail)
 {
 	hitbox.mask_index = sNothing;	
+	image_speed = 1;
 } else {
 	hitbox.mask_index = sWall;	
+	image_speed = 0;
+	image_index = 0;
 }
 
 
