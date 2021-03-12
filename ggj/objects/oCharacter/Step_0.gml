@@ -163,7 +163,8 @@ switch state {
 	case pStates.ghost			  : #region
 	// goto prelaunch state
 	
-	if (global.key_interact && (!instance_exists(oGhost) or oGhost.go_back == false)) {
+	if (global.key_interact && (!instance_exists(oGhost) or oGhost.go_back == false) && !oGhost.in_red) {
+		
 		scr_freeze(15)
 		state = pStates.follow_trail;
 		//fx
