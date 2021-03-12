@@ -1,5 +1,7 @@
 
 
+lighting_enabled = LIGHTING_ENABLED;
+
 // parameters
 base_light = 0.50;
 lighting_noise_settings = 0.06

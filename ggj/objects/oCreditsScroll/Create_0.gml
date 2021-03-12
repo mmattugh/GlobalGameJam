@@ -16,6 +16,10 @@ subtext[0][2] = "sound music";
 
 footer[0] = "support us by donating on itch.io";
 
+if (COOL_MATH_ENABLED) {
+	footer[0] = "";	
+}
+
 // section 1: helpers
 header[1] = "additional help"
 var i = 0;

@@ -1,5 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+if !(lighting_enabled) {
+	exit;
+}
+
 if !(surface_exists(lighting_surface)) {
 	exit;	
 }
