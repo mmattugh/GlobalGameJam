@@ -56,7 +56,7 @@ function verlet_point_apply_force(force_x, force_y) {
 	forces_y += force_y;
 }
 
-function verlet_point_apply_gravity(grav) {
+function verlet_point_apply_gravity(grav, wind) {
 	if !physics_active return;
 	
 	if custom_gravity {
@@ -67,14 +67,18 @@ function verlet_point_apply_gravity(grav) {
 	switch global.down_direction {
 		case 0:	  
 		forces_x -= grav;
+		forces_y += wind;
 		break;
 		case 90:  
+		forces_x -= wind;
 		forces_y -= grav;
 		break;
 		case 180: 
 		forces_x += grav;
+		forces_y -= wind;
 		break;
 		case 270: 
+		forces_x += wind;
 		forces_y += grav;
 		break;
 	}

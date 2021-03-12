@@ -5,13 +5,14 @@ var step = 6;
 for (var j = 0; j < 10; j++) {
 	for (var i = 0; i < 6; i++) {
 		var newi = instance_create_depth(x+i*step,y+j*step,depth,oPhysicsPointMass);
+		verlet_point_set_mass(newi, 2.0);
 		
 		var inst = instance_place(x+(i-1)*step, y+j*step, oPhysicsPointMass);
 		if (inst) {
 			link = instance_create_depth(0,0,depth,oPhysicsLink);
 			verlet_spring_set(link, inst, newi, step);	
-			link.tear_threshold = step*3;
-			//link.tear_resistance = .10;
+			link.tear_threshold = step*2.5;
+			link.tear_resistance = 1;
 
 		}
 		
@@ -19,8 +20,8 @@ for (var j = 0; j < 10; j++) {
 		if (inst) {
 			link = instance_create_depth(0,0,depth,oPhysicsLink);
 			verlet_spring_set(link, inst, newi, step);	
-			link.tear_threshold = step*3;
-			//link.tear_resistance = .10;
+			link.tear_threshold = step*2.5;
+			link.tear_resistance = 1;
 		}
 	}
 }

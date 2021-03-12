@@ -1,5 +1,7 @@
 /// @description 
 
+instance_create_depth(x,y,depth,oPlayerLight);
+
 enum pStates {
 	move,
 	ghost,

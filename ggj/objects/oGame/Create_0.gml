@@ -99,6 +99,8 @@ if (COOL_MATH_ENABLED) {
 
 #endregion
 
+instance_create_depth(0,0,0,oLightingManager);
+
 // define functions
 rotate_world = function(amount) {
 	global.down_direction = (global.down_direction + amount + 360) mod 360;

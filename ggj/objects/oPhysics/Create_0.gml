@@ -8,3 +8,8 @@ near_screen = function() {
 	&& (y < oPhysics.view_y2)
 	)
 }
+
+physics_wind_magnitude = 0.05;
+physics_wind = 0;
+
+depth = oCharacter.depth+2;

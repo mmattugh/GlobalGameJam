@@ -16,12 +16,11 @@ p1.sprite_index = sChainLinkLargeDark;
 var j = 0;
 for (var i = 0; i <= length; i += length/nodes) {
 	p2 = instance_create_depth(x+i*xstep,y+i*ystep,depth,oPhysicsChainLink);
-	verlet_point_set_mass(p2, 5.5)
+	verlet_point_set_mass(p2, 8.0)
 	p2.sprite_index = sChainLinkLargeDark;
 
 	if j++ mod 2 == 0 {
 		p2.angle_offset = 90;	
-		p2.collides = false;
 	}
 
 	link = instance_create_depth(0,0,depth,oPhysicsLink);
