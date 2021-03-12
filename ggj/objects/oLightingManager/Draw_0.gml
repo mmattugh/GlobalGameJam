@@ -13,8 +13,8 @@ surface_set_target(lighting_surface);
 // clear surface to base lighting color
 var val = 255*base_light;
 var base_color = make_color_rgb(val, val, val)
+var base_light_pow = power(base_light*2, 0.5)/2;
 draw_clear_alpha(base_color, 1.0);
-
 
 #region // draw entities
 // get camera coords
@@ -22,7 +22,7 @@ var camera_x = camera_get_view_x(view_camera[0])+160*(oCamera.zoom-1.0);
 var camera_y = camera_get_view_y(view_camera[0])+160*(oCamera.zoom-1.0);
 
 shader_set(shd_one_color);
-	shader_set_uniform_f(one_color_uniform_color, 0.5, 0.5, 0.5);
+	shader_set_uniform_f(one_color_uniform_color, base_light_pow, base_light_pow, base_light_pow);
 	
 with oGetsPaused {
 	//if !(object_is_ancestor(object_index, fxParent)) {
@@ -36,6 +36,14 @@ with oGetsPaused {
 		y += camera_y;
 	}
 }	
+
+with pHazard {
+	x -= camera_x;
+	y -= camera_y;
+	event_perform(ev_draw, 0);
+	x += camera_x;
+	y += camera_y;
+}
 
 shader_reset();
 #endregion
