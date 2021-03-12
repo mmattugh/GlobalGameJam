@@ -15,6 +15,7 @@ lighting_uniform_noise_settings = shader_get_uniform(shd_lighting, "noise_settin
 lighting_uniform_rotation_matrix= shader_get_uniform(shd_lighting, "rotation");
 color_lock_uniform_palette		= shader_get_sampler_index(shd_color_lock, "palette");
 color_lock_uniform_mix_percent  = shader_get_uniform(shd_color_lock, "mix_percent");
+one_color_uniform_color			= shader_get_uniform(shd_one_color, "color");
 
 lighting_surface = surface_create(320+camera_border, 320+camera_border);
 quantization_surface = surface_create(320, 320);

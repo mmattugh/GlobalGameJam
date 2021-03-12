@@ -24,14 +24,10 @@ draw_clear_alpha(base_color, 1.0);
 var camera_x = camera_get_view_x(view_camera[0])+160*(oCamera.zoom-1.0);
 var camera_y = camera_get_view_y(view_camera[0])+160*(oCamera.zoom-1.0);
 
-
-gpu_set_blendmode(bm_add);
-// draw lights
-with oLight {
-	draw_circle_color(x-camera_x,y-camera_y,radius,color,c_black,false);
-}
-
 // draw entities
+shader_set(shd_one_color);
+	shader_set_uniform_f(one_color_uniform_color, 0.5, 0.5, 0.5);
+	
 with oGetsPaused {
 	//if !(object_is_ancestor(object_index, fxParent)) {
 	//	draw_circle_color(x-camera_x,y-camera_y,sprite_width,entity_light_color,c_black,false);
@@ -43,17 +39,17 @@ with oGetsPaused {
 		x += camera_x;
 		y += camera_y;
 	}
-}
-//with fxParent {
-//	draw_circle_color(x-camera_x,y-camera_y,sprite_width,fx_light_color,c_black,false);	
-//}
+}	
 
-//with oGhost {
-//	draw_circle_color(x-camera_x,y-camera_y,sprite_width,c_gray,c_black,false);
-//}
-//with oGhostTrail {
-//	draw_circle_color(x-camera_x,y-camera_y,sprite_width*image_xscale,c_gray,c_black,false);
-//}
+shader_reset();
+
+
+gpu_set_blendmode(bm_add);
+// draw lights
+with oLight {
+	draw_circle_color(x-camera_x,y-camera_y,radius,color,c_black,false);
+}
+
 
 
 

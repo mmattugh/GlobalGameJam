@@ -1,4 +1,5 @@
 /// @description 
+	oCamera.zoom = 1.0;
 
 if WEB_ENABLED {
 	if (!clicked) {

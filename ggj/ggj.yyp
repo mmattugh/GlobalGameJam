@@ -210,6 +210,7 @@
     {"id":{"name":"level_10","path":"rooms/level_10/level_10.yy",},"order":11,},
     {"id":{"name":"sRecharged","path":"sprites/sRecharged/sRecharged.yy",},"order":35,},
     {"id":{"name":"Laser_Shoot","path":"sounds/Laser_Shoot/Laser_Shoot.yy",},"order":15,},
+    {"id":{"name":"shd_one_color","path":"shaders/shd_one_color/shd_one_color.yy",},"order":2,},
     {"id":{"name":"Self_Jump","path":"sounds/Self_Jump/Self_Jump.yy",},"order":11,},
     {"id":{"name":"oCameraFollowY","path":"objects/oCameraFollowY/oCameraFollowY.yy",},"order":2,},
     {"id":{"name":"sCameraZoneFollow","path":"sprites/sCameraZoneFollow/sCameraZoneFollow.yy",},"order":10,},
