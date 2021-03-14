@@ -87,7 +87,7 @@ switch state {
 	// goto ghost state
 	if (global.key_interact) && (has_ghost) {	
 		state = pStates.ghost;
-		
+		image_index = 0;
 		//fx
 		//instance_create_depth(x,y-8,0,fxStart);
 		rotated_instance_create(x,y,0,-8,0,fxStart);
@@ -164,8 +164,9 @@ switch state {
 	// goto prelaunch state
 	
 	if (global.key_interact && (!instance_exists(oGhost) or oGhost.go_back == false) && !oGhost.in_red) {
-		
+		image_index = 0;
 		scr_freeze(15)
+		
 		state = pStates.follow_trail;
 		//fx
 		//instance_create_depth(x,y-16,0,fxStart);
@@ -495,10 +496,17 @@ switch state {
 	
 	}break;#endregion
 	case pStates.ghost: #region
-	sprite_index = sCharacter_Spirit;
+	if (image_index !=  5) image_speed = 1;
+	else image_speed = 0;
+	sprite_index = sCharacter_Break;
 
 	break; #endregion
 	case pStates.follow_trail	  : #region
+	image_index = 0;
+	if (image_index !=  6) image_speed = 1;
+	else image_speed = 0;
+	sprite_index = sCharacter_Follow2;
+	
 	//draw_angle += 60*dsin(oGhost.trail_length*6*360/oGhost.trail_length_max);
 	
 	

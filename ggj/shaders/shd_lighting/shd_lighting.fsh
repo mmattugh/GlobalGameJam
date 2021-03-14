@@ -66,7 +66,7 @@ void main()
 	// noise 
     float n = noise_settings.x*(noise(v_vTexcoord*500.0, noise_settings.y)-1.0);
 	//final += n*(light*2.0-1.0); //uncomment to change noise based on light difference from mean
-	final += n;
+	final += n * (dot(color, vec4(1.0))/4.0);
 	
     gl_FragColor = final;
 }

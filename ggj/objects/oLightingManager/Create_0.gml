@@ -4,13 +4,13 @@ lighting_enabled = LIGHTING_ENABLED;
 
 // parameters
 base_light = 0.5;
-lighting_noise_settings = 0.06
-noise_fps = 12;
+lighting_noise_settings = 0.125;
+noise_fps = 5;
 
 camera_border = 0;
 
 color_lock_palette_tex = sprite_get_texture(sPal, 0);
-color_lock_mix_percent = 0.00; // how much of the base color is preserved in to the output;\
+color_lock_mix_percent = 0.01; // how much of the base color is preserved in to the output;\
 
 // uniforms 
 lighting_uniform_noise_settings = shader_get_uniform(shd_lighting, "noise_settings");
