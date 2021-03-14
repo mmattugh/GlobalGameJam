@@ -11,6 +11,9 @@ uniform sampler2D palette;
 // pass in mix percent, this is the amount of the default color remaining
 uniform float mix_percent;
 
+// used to toggle low contrast
+uniform float low_contrast;
+
 void main()
 {
 	// sample base texture from 
@@ -26,5 +29,9 @@ void main()
 	//palette_coord *= palette_coord;
 
 	// mix palette color with base color
-	gl_FragColor = mix(texture2D( palette, palette_coord), base_color, mix_percent);
+	gl_FragColor = 
+	mix(texture2D( palette, palette_coord), base_color, mix_percent) * (1.0-low_contrast)
+	+
+	mix(texture2D( palette, palette_coord), vec4(0.6,0.6,0.6,1.0), 0.5) * (low_contrast)
+	;
 }

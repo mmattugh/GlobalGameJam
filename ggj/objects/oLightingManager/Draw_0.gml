@@ -20,31 +20,29 @@ draw_clear_alpha(base_color, 1.0);
 // get camera coords
 var camera_x = camera_get_view_x(view_camera[0])+160*(oCamera.zoom-1.0);
 var camera_y = camera_get_view_y(view_camera[0])+160*(oCamera.zoom-1.0);
-
+var world_matrix = matrix_get(matrix_world);
 shader_set(shd_one_color);
 	shader_set_uniform_f(one_color_uniform_color, base_light_pow, base_light_pow, base_light_pow);
 	
+
+matrix_set(matrix_world, matrix_multiply(matrix_build(-camera_x, -camera_y, 0, 0, 0, 0, 1.0, 1.0, 1.0), world_matrix));
+	
+
 with oGetsPaused {
 	//if !(object_is_ancestor(object_index, fxParent)) {
 	//	draw_circle_color(x-camera_x,y-camera_y,sprite_width,entity_light_color,c_black,false);
 	//}
 	if (visible) {
-		x -= camera_x;
-		y -= camera_y;
 		event_perform(ev_draw, 0);
-		x += camera_x;
-		y += camera_y;
 	}
 }	
 
 with pHazard {
-	x -= camera_x;
-	y -= camera_y;
 	event_perform(ev_draw, 0);
-	x += camera_x;
-	y += camera_y;
 }
 
+
+matrix_set(matrix_world, world_matrix);
 shader_reset();
 #endregion
 

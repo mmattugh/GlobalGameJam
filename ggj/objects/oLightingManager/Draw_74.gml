@@ -43,6 +43,7 @@ if !(surface_exists(quantization_surface)) {
 shader_set(shd_color_lock);
 	texture_set_stage(color_lock_uniform_palette, color_lock_palette_tex);
 	shader_set_uniform_f(color_lock_uniform_mix_percent, color_lock_mix_percent)
+	shader_set_uniform_f(color_lock_uniform_low_contrast, color_lock_low_contrast);
 
 var window_w = window_get_width();
 var window_h = window_get_height();
