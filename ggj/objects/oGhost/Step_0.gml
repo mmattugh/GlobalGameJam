@@ -8,9 +8,6 @@ if creator_player_object.state == pStates.death or creator_player_object.state =
 	exit;	
 }
 
-in_red = place_meeting(x,y,oGhostWarpZone);
-
-
 if (go_back) {
 	image_index = 1;
 	

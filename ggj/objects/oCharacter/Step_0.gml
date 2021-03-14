@@ -31,7 +31,8 @@ if (place_meeting(x,y,pHazard)) {
 #endregion
 
 // set on ground
-on_ground = rotated_place_meeting(x, y, 0, 1, Solid) 
+on_ground	= rotated_place_meeting(x, y, 0, 1, Solid) 
+in_red		= rotated_place_meeting(x, y, 0, 0, oGhostWarpZone);
 
 // coyote time
 if (on_ground) {
@@ -159,11 +160,17 @@ switch state {
 	}
 	
 	
+	if (in_red) {
+		hsp = 0;
+		vsp = 0;	
+	}
+	
+	
 	break;							#endregion
 	case pStates.ghost			  : #region
 	// goto prelaunch state
 	
-	if (global.key_interact && (!instance_exists(oGhost) or oGhost.go_back == false) && !oGhost.in_red) {
+	if (global.key_interact && (!instance_exists(oGhost) or oGhost.go_back == false)) {
 		
 		scr_freeze(15)
 		state = pStates.follow_trail;
@@ -430,7 +437,10 @@ switch state {
 	draw_angle = angle_lerp(draw_angle, 270-global.down_direction, 0.5);
 	if (sign(hsp) != 0) flipped = sign(hsp);
 	
-	if !on_ground {
+	if (in_red) {
+		image_speed = 1;
+		sprite_index = sCharacter_Spirit;
+	} else if !on_ground {
 		image_speed = 0;
 		
 		if (sprite_index != sCharacter_Air) {

@@ -40,10 +40,11 @@ if !(surface_exists(quantization_surface)) {
 #region Apply quantization to the downscaled surface
 	
 	//set color lock parameters
+if !(keyboard_check(ord("Y"))) {
 shader_set(shd_color_lock);
 	texture_set_stage(color_lock_uniform_palette, color_lock_palette_tex);
 	shader_set_uniform_f(color_lock_uniform_mix_percent, color_lock_mix_percent)
-
+}
 var window_w = window_get_width();
 var window_h = window_get_height();
 
@@ -68,5 +69,7 @@ if (window_w != window_h)
 
 draw_surface_ext(quantization_surface, surface_x, surface_y, 1.0, 1.0, 0, c_white, 1.0);
 
+if !(keyboard_check(ord("Y"))) {
 shader_reset();
+}
 #endregion

@@ -1,5 +1,5 @@
 /// @description
-radius = 60 + random(60);
+radius = 60;
 
 intensity = random_range(0.5, 1);
 

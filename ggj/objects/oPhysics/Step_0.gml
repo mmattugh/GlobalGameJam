@@ -19,6 +19,8 @@ with oPhysicsPointMass {
 		custom_update();	
 	}
 	
+	if (link_count == 0) detached = true;
+	
 	if (collides) {
 		verlet_point_do_collision();	
 		//verlet_point_do_solid();

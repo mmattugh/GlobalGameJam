@@ -10,6 +10,7 @@ enum pStates {
 	wall_slide,
 	husk,
 	husk_used,
+	inside_red,
 	death,
 	freeze,
 	bench,

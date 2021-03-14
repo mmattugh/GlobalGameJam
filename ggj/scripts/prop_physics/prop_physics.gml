@@ -15,6 +15,7 @@ function verlet_point_init() {
 	forces_x = 0;
 	forces_y = 0;
 
+	link_count = 0;
 
 	//drag should be a value between 0 and 1 and will be resistance to movement (0 = will not move, 1 = no resistance)
 	drag = 0.98; 
@@ -24,6 +25,7 @@ function verlet_point_init() {
 	inv_mass = 1/mass;
 	
 	detached = false;
+	detached_from_main = false;
 	detachment_force = 0;
 	
 	custom_gravity = false;
@@ -145,12 +147,22 @@ function verlet_spring_init() {
 function verlet_spring_set(spring, pa, pb, dist) {
 	spring.point_a = pa;
 	spring.point_b = pb;	
+	pa.link_count++;
+	pb.link_count++;
+
 	spring.resting_distance = dist;	
 
 }
 
 function verlet_spring_update() {
-	if(point_a != noone && point_b != noone && point_a.physics_active && point_b.physics_active){
+	if !instance_exists(point_a) or !instance_exists(point_b) {
+		if (instance_exists(point_a)) point_a.detached = true;
+		if (instance_exists(point_b)) point_b.detached = true;
+		instance_destroy();	
+		return;
+	}
+	
+	if (point_a.physics_active && point_b.physics_active){
 	    var dx = point_b.x - point_a.x;
 	    var dy = point_b.y - point_a.y;
 	    var delta_length = sqrt(dx*dx+dy*dy);
@@ -195,6 +207,7 @@ function verlet_spring_update() {
 				point_a.detachment_force = point_b.detachment_force-1;
 			}
 		}
+		
 	}
 }
 #endregion

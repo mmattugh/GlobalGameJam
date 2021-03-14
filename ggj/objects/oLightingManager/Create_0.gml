@@ -3,7 +3,7 @@
 lighting_enabled = LIGHTING_ENABLED;
 
 // parameters
-base_light = 0.5;
+base_light = 0.05;
 lighting_noise_settings = 0.06
 noise_fps = 12;
 
