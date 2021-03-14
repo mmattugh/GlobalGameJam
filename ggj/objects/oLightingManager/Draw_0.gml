@@ -42,16 +42,17 @@ with pHazard {
 }
 
 
-matrix_set(matrix_world, world_matrix);
 shader_reset();
 #endregion
 
 gpu_set_blendmode(bm_add);
+
 // draw lights
 with oLight {
-	draw_circle_color(x-camera_x,y-camera_y,radius,color,c_black,false);
+	event_perform(ev_draw, 0);
 }
 
 // reset
+matrix_set(matrix_world, world_matrix);
 gpu_set_blendmode(bm_normal);
 surface_reset_target();

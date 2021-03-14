@@ -22,8 +22,6 @@ color_lock_uniform_low_contrast = shader_get_uniform(shd_color_lock, "low_contra
 
 one_color_uniform_color			= shader_get_uniform(shd_one_color, "color");
 
-
-
 lighting_surface = surface_create(320+camera_border, 320+camera_border);
 quantization_surface = surface_create(320, 320);
 

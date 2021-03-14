@@ -4,6 +4,7 @@
 // this works well for SELF because we really only care if things are red or not red.
 //
 varying vec2 v_vTexcoord;
+varying vec4 v_vColour;
 
 // pass in palette and number of colors
 uniform sampler2D palette;
@@ -17,7 +18,7 @@ uniform float low_contrast;
 void main()
 {
 	// sample base texture from 
-    vec4 base_color = texture2D( gm_BaseTexture, v_vTexcoord );
+    vec4 base_color = v_vColour*texture2D( gm_BaseTexture, v_vTexcoord );
 	
 	// get palette coord for look up table texture
 	vec2 palette_coord = vec2(base_color.r, 0.5*(base_color.g+base_color.b));

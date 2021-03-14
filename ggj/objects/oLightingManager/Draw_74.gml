@@ -60,10 +60,12 @@ var surface_y = (window_h - global.camera_height*ratio_h)/2;
 if (window_w != window_h)
 {
 	var w = 2;//+ sin(current_time*0.001);
+	var c = make_color_rgb(0, 70, 70);
+	
 	// draw border
 	draw_rectangle_color(
 		surface_x-w, surface_y-w, surface_x+surface_w+w, surface_y+surface_h+w, 
-		global.colors.blue,global.colors.blue,global.colors.blue,global.colors.blue, false
+		c,c,c,c, false
 	);
 }
 

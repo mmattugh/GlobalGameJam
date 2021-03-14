@@ -1,0 +1,1 @@
+light.fade_out = true;
