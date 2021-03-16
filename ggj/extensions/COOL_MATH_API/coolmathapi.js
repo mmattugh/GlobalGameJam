@@ -2,12 +2,13 @@
 function coolmathCallStart()
 {
 if (typeof parent.cmgGameEvent === "function") {
-try {
-parent.cmgGameEvent("start");
-} catch (e) {}
+  try {
+  parent.cmgGameEvent("start");
+  } catch (e) {}
 }
 console.log("game start event");
 }
+
 function coolmathCallLevelStart(level)
 {
 if (typeof parent.cmgGameEvent === "function") {
@@ -17,6 +18,7 @@ parent.cmgGameEvent("start", String(level));
 }
 console.log("level start " + level);
 }
+
 function coolmathCallLevelRestart(level)
 {
 if (typeof parent.cmgGameEvent === "function") {
@@ -26,11 +28,13 @@ parent.cmgGameEvent("replay", String(level));
 }
 console.log("level restart " + level);
 }
+
 var shouldUnlockAll = false;
 function unlockAllLevels()
 {
 shouldUnlockAll = true;
 }
+
 function coolmathShouldUnlockAll()
 {
 return shouldUnlockAll;

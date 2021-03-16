@@ -227,7 +227,6 @@ switch state {
 		if (NG_ENABLED) {
 			if (combo >= 25) {
 				newgrounds_unlockmedal("62018")
-				
 			}
 		
 			if (combo >= 50) {

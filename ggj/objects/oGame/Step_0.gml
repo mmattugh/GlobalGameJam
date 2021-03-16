@@ -26,7 +26,9 @@ if (global.key_restart) {
 		room_restart();	
 	
 		if (COOL_MATH_ENABLED) {
-			coolmathCallLevelRestart(room-test_room);
+			if (ds_map_exists(cool_math_room_data, room)) {	
+				coolmathCallLevelStart(cool_math_room_data[? room]);
+			}
 		}
 	}
 	

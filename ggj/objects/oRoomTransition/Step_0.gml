@@ -32,6 +32,10 @@ switch state {
 		if (instance_exists(oCharacter)) {
 			global.active_player_object.state = pStates.move;
 		}	
+	} else {
+		if (instance_exists(oCharacter)) {
+			global.active_player_object.state = pStates.freeze;
+		}
 	}
 	
 	if (timer == 0) {

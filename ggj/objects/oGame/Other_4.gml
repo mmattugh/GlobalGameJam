@@ -5,8 +5,8 @@ if (last_room != room) {
 	global.rooms++;
 	
 	if (COOL_MATH_ENABLED) {
-		if (room != title_screen and room != init and room != test_controls) {
-			coolmathCallLevelStart(room-test_room);
+		if (ds_map_exists(cool_math_room_data, room)) {	
+			coolmathCallLevelStart(cool_math_room_data[? room]);
 		}
 	}
 }

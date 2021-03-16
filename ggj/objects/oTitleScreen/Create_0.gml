@@ -15,7 +15,7 @@ flicked = ini_read_real("save", "flicked", false);
 
 // backward compatibility with old save files -- can be safely removed later
 var best_time = ini_read_real("save", "best_time", -1);
-var override = false;
+var override = true;
 
 if COOL_MATH_ENABLED {
 	if (coolmathShouldUnlockAll()) {

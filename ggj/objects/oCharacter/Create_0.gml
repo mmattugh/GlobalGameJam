@@ -118,7 +118,14 @@ function set_has_ghost() {
 		ini_close();
 		global.best_combo = combo;
 	}
+	
+	// post combo 
+	if (combo > 5 and NG_ENABLED) {
+		newgrounds_postscore("9962", combo);
+	}
 	#endregion
+	
+	
 	
 	has_ghost = true;
 	combo = 0;

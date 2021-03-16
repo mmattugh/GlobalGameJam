@@ -1,4 +1,4 @@
-if (state = pStates.death)
+if (state == pStates.death)
 {
 	if room == level_endless {
 		if (NG_ENABLED) {

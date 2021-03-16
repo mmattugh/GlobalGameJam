@@ -95,8 +95,36 @@ if (COOL_MATH_ENABLED) {
 	domain!="edit.coolmath-games.com"&&
 	domain!="www.coolmath-games.com")
 	{
-		game_end();
+		//game_end();
 	}
+	
+	// init level array
+	cool_math_room_data = ds_map_create();
+	ds_map_add(cool_math_room_data,level_1			  ,  01);
+	ds_map_add(cool_math_room_data,level_2			  ,  02);
+	ds_map_add(cool_math_room_data,level_3			  ,  03);
+	ds_map_add(cool_math_room_data,level_4			  ,  04);
+	ds_map_add(cool_math_room_data,level_5			  ,  05);
+	ds_map_add(cool_math_room_data,level_6_laser_1	  ,  06);
+	ds_map_add(cool_math_room_data,level_7_laser_2	  ,  07);
+	ds_map_add(cool_math_room_data,level_8_laser_3	  ,  08);
+	ds_map_add(cool_math_room_data,level_intermission , 09);
+	ds_map_add(cool_math_room_data,level_9			  , 10);
+	ds_map_add(cool_math_room_data,level_10			 , 11);
+	ds_map_add(cool_math_room_data,level_11_laser_4	 , 12);
+	ds_map_add(cool_math_room_data,level_12_teach_fall, 13);
+	ds_map_add(cool_math_room_data,level_13_block_1	, 14);
+	ds_map_add(cool_math_room_data,level_14_block_2	, 15);
+	ds_map_add(cool_math_room_data,level_15_tall	, 16);
+	ds_map_add(cool_math_room_data,level_16_block_3	, 17);
+	ds_map_add(cool_math_room_data,level_17_block_4	, 18);
+	ds_map_add(cool_math_room_data,level_flick		, 19);
+	ds_map_add(cool_math_room_data,level_bonus_1	, 20);
+	ds_map_add(cool_math_room_data,level_bonus_2	, 21);
+	ds_map_add(cool_math_room_data,level_bonus_3	, 22);
+	ds_map_add(cool_math_room_data,level_bonus_4	, 23);
+	ds_map_add(cool_math_room_data,level_bonus_5	, 24);
+	ds_map_add(cool_math_room_data,level_endless	, 25);
 	
 	#endregion
 } else {
