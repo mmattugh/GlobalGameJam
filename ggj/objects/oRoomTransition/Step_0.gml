@@ -29,7 +29,7 @@ switch state {
 	timer = approach(timer, 0, timer_step);
 	
 	if (timer < in_duration/3) {
-		if (instance_exists(oCharacter)) {
+		if (instance_exists(oCharacter) and global.active_player_object.state == pStates.move) {
 			global.active_player_object.state = pStates.move;
 		}	
 	} else {
