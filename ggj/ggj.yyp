@@ -175,6 +175,7 @@
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},"order":6,},
     {"id":{"name":"fxCharacterTrail","path":"objects/fxCharacterTrail/fxCharacterTrail.yy",},"order":5,},
     {"id":{"name":"sCorner","path":"sprites/sCorner/sCorner.yy",},"order":34,},
+    {"id":{"name":"FIX_WINDOW","path":"extensions/FIX_WINDOW/FIX_WINDOW.yy",},"order":3,},
     {"id":{"name":"oCharacterHusk","path":"objects/oCharacterHusk/oCharacterHusk.yy",},"order":33,},
     {"id":{"name":"made_you_look","path":"sprites/made_you_look/made_you_look.yy",},"order":37,},
     {"id":{"name":"level_14_block_2","path":"rooms/level_14_block_2/level_14_block_2.yy",},"order":35,},
