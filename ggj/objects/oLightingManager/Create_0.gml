@@ -5,7 +5,7 @@ lighting_enabled = LIGHTING_ENABLED;
 // parameters
 base_light = 0.5;
 lighting_noise_settings = 0.125;
-noise_fps = 5;
+noise_fps = 4;
 
 camera_border = 0;
 
