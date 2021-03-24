@@ -7,7 +7,7 @@ if combo >= 3 {
 		c1 = global.colors.red;
 		c2 = global.colors.bg;
 		
-		s = 1.0 + 0.02*combo;
+		s = 1.0 + 0.02*max(combo,20);
 	} else {
 		c1 = global.colors.white;
 		c2 = global.colors.bg;

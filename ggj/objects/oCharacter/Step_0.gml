@@ -219,7 +219,7 @@ switch state {
 			play_sound(Combo_Charge, 10, false, 0.5 + combo*0.05, 0., global.sound_volume);
 		}
 		
-		if (combo >= 7) {
+		if (combo >= 7 and combo < 25) {
 			combo_exclamations += "!";	
 		}
 		
