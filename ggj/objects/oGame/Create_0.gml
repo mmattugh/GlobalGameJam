@@ -47,6 +47,13 @@ global.music_volume			 = ini_read_real("config", "music_volume", 0.3);
 global.speedrun				 = ini_read_real("config", "speedrun", 0.0);
 
 global.best_combo			 = ini_read_real("save", "best_combo", 3);
+
+if (NG_ENABLED) {
+	var send_best_combo = global.best_combo;
+	var send_best_pb	= ini_read_real("save", "best_time", -1);
+}
+
+
 ini_close();
 	
 global.speedrun_time = 0;
@@ -71,6 +78,14 @@ window_set_colour(global.colors.bg);
 #region platform specific
 if (NG_ENABLED) {
 	newgrounds_create_core("51458:SUgrUedz");
+	
+	if (send_best_combo > 5) {
+		newgrounds_postscore("9962", send_best_combo);
+	}
+	
+	if (send_best_pb != -1) {
+		newgrounds_postscore("9961", send_best_pb*1000/60);
+	}
 }
 
 if (COOL_MATH_ENABLED) {
