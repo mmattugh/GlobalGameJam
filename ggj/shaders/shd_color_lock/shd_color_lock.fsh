@@ -30,9 +30,11 @@ void main()
 	//palette_coord *= palette_coord;
 
 	// mix palette color with base color
+	vec4 low_contrast_base = vec4(0.6, 0.6, 0.6, 1.0);
+	
 	gl_FragColor = 
 	mix(texture2D( palette, palette_coord), base_color, mix_percent) * (1.0-low_contrast)
 	+
-	mix(texture2D( palette, palette_coord), vec4(0.6,0.6,0.6,1.0), 0.5) * (low_contrast)
+	mix(texture2D( palette, palette_coord), low_contrast_base, 0.5) * (low_contrast)
 	;
 }
